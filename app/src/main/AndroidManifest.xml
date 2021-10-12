@@ -11,7 +11,9 @@
         android:theme="@style/Theme.Avishkar2021">
         <activity
             android:name=".MainActivity2"
-            android:exported="true" />
+            android:exported="true"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/Theme.Avishkar2021.NoActionBar" />
         <activity
             android:name=".SignUp"
             android:exported="true" />

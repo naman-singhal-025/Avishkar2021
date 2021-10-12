@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/profileFragment"
+            android:icon="@drawable/user"
+            android:title="@string/profile" />
+    </group>
+    <group>
+        <item
+            android:id="@+id/companies"
+            android:icon="@drawable/companies"
+            android:title="@string/companies" >
+            <menu>
+                <item
+                    android:id="@+id/currentOpeningsFragment"
+                    android:icon="@drawable/ic_baseline_add_24"
+                    android:title="@string/current_openings" />
+                <item
+                    android:id="@+id/registeredCompaniesFragment"
+                    android:icon="@drawable/ic_baseline_check_24"
+                    android:title="@string/registered_companies" />
+            </menu>
+        </item>
+    </group>
+    <group>
+        <item
+            android:id="@+id/internships"
+            android:icon="@drawable/internships"
+            android:title="@string/internships" >
+            <menu>
+                    <item
+                        android:id="@+id/addNewInterviewFragment"
+                        android:icon="@drawable/bar_chart"
+                        android:title="@string/add_a_new_interview_experience" />
+                    <item
+                        android:id="@+id/viewInterviewFragment"
+                        android:icon="@drawable/bar_chart"
+                        android:title="@string/view_interview_experience" />
+            </menu>
+        </item>
+    </group>
+    <group>
+        <item
+            android:id="@+id/forumFragment"
+            android:icon="@drawable/info"
+            android:title="@string/forum_feedback" />
+        <item
+            android:id="@+id/contacts2"
+            android:icon="@drawable/contacts"
+            android:title="@string/contacts" />
+    </group>
+</menu>
