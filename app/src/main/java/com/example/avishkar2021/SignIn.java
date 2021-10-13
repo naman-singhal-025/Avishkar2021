@@ -37,8 +37,11 @@ public class SignIn extends AppCompatActivity {
         progressDialog.setTitle("Login");
         progressDialog.setMessage("Logging in");
 
-
-
+        if(auth.getCurrentUser()!=null)
+        {
+            Intent intent = new Intent(SignIn.this,MainActivity2.class);
+            startActivity(intent);
+        }
         binding.btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,11 +77,7 @@ public class SignIn extends AppCompatActivity {
                         });
             }
         });
-        if(auth.getCurrentUser()!=null)
-        {
-            Intent intent = new Intent(SignIn.this,MainActivity2.class);
-            startActivity(intent);
-        }
+
 
     }
 }

@@ -6,6 +6,7 @@ public class Users {
     String mail;
     String userId;
     String password;
+    String resume;
 
     public Users(String profilePic, String userName, String mail, String userId, String password) {
         this.profilePic = profilePic;
@@ -17,7 +18,6 @@ public class Users {
 
     public Users() {
     }
-
 
     //Sign Up constructor
     public Users(String userName, String mail, String password) {
@@ -66,5 +66,11 @@ public class Users {
         this.password = password;
     }
 
+    public String getResume() {
+        return resume;
+    }
 
+    public void setResume(String resume) {
+        this.resume = resume;
+    }
 }
