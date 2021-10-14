@@ -42,10 +42,8 @@ public class PhotoResumeFragment extends Fragment {
 
     FragmentPhotoResumeBinding binding;
     FirebaseStorage storage;
-    FirebaseAuth auth;
     FirebaseDatabase database;
     ProgressDialog progressDialog;
-    DatabaseReference database2;
     Users users;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,7 +52,6 @@ public class PhotoResumeFragment extends Fragment {
         binding = FragmentPhotoResumeBinding.inflate(inflater, container, false);
         binding.downloadBtn.setVisibility(View.GONE);
         storage = FirebaseStorage.getInstance();
-        auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
 
         progressDialog = new ProgressDialog(container.getContext());
@@ -70,8 +67,8 @@ public class PhotoResumeFragment extends Fragment {
                         Picasso.get().load(users.getProfilePic())
                                 .placeholder(R.drawable.avatar)
                                 .into(binding.profileImage);
-                        String resume = users.getResume();
-                        if(resume!="")
+
+                        if(snapshot.child("resume").exists())
                         {
                             binding.pdfName.setText("Resume Available");
                             binding.downloadBtn.setVisibility(View.VISIBLE);

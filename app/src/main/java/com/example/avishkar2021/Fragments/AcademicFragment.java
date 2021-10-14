@@ -2,65 +2,105 @@ package com.example.avishkar2021.Fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.Toast;
 
-import com.example.avishkar2021.R;
+import com.example.avishkar2021.Adapters.AcademicDetailsAdapter;
+import com.example.avishkar2021.Adapters.PersonalDetailsAdapter;
+import com.example.avishkar2021.databinding.FragmentAcademicBinding;
+import com.example.avishkar2021.models.EditModel;
+import com.example.avishkar2021.models.Users;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AcademicFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
 public class AcademicFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public AcademicFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AcademicFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static AcademicFragment newInstance(String param1, String param2) {
-        AcademicFragment fragment = new AcademicFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
+    private AcademicDetailsAdapter academicDetailsAdapter;
+    public ArrayList<EditModel> editModelArrayList;
+    FragmentAcademicBinding binding;
+    ListView listV;
+    FirebaseDatabase database;
+    Users users;
+    List<String> titleList = Arrays.asList("10th School","10th board","10th Year","10th %","12th School",
+                                            "12th Board","12th Year","12th %","Graduating College","Year",
+                                            "Semester","CPI");
+    private List<String> textList;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_academic, container, false);
+
+        binding = FragmentAcademicBinding.inflate(inflater, container, false);
+        database = FirebaseDatabase.getInstance();
+
+        database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        users  = snapshot.getValue(Users.class);
+                        if(snapshot.child("academic").exists())
+                        {
+                            textList = users.getAcademic();
+                        }
+                        listV = binding.listView1;
+                        editModelArrayList = populateList();
+                        academicDetailsAdapter = new AcademicDetailsAdapter(getActivity(),editModelArrayList);
+                        listV.setAdapter(academicDetailsAdapter);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+
+                });
+
+
+        binding.floatingActionButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textList = new ArrayList<>();
+                for(int i=0;i<12;i++)
+                {
+                    textList.add(AcademicDetailsAdapter.editModelArrayList.get(i).getEditTextValue());
+                }
+                HashMap<String,Object> obj = new HashMap<>();
+                obj.put("academic",textList);
+                database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid()).updateChildren(obj);
+                Toast.makeText(getActivity(), "Profile Updated Successfully", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        return binding.getRoot();
+    }
+    private ArrayList<EditModel> populateList(){
+
+        ArrayList<EditModel> list = new ArrayList<>();
+
+        for(int i = 0; i < 12; i++){
+            EditModel editModel = new EditModel();
+            editModel.setTextValue(titleList.get(i));
+            if(textList!=null)
+            {
+                editModel.setEditTextValue(textList.get(i));
+            }
+            list.add(editModel);
+        }
+
+        return list;
     }
 }

@@ -1,12 +1,17 @@
 package com.example.avishkar2021.models;
 
+import java.util.List;
+
 public class Users {
-    String profilePic;
-    String userName;
-    String mail;
-    String userId;
-    String password;
-    String resume;
+    private String profilePic;
+    private String userName;
+    private String mail;
+    private String userId;
+    private String password;
+    private String resume;
+    private List<String> personal;
+    private List<String> academic;
+    private ProjectInternModel pimodel;
 
     public Users(String profilePic, String userName, String mail, String userId, String password) {
         this.profilePic = profilePic;
@@ -72,5 +77,29 @@ public class Users {
 
     public void setResume(String resume) {
         this.resume = resume;
+    }
+
+    public List<String> getPersonal() {
+        return personal;
+    }
+
+    public void setPersonal(List<String> personal) {
+        this.personal = personal;
+    }
+
+    public List<String> getAcademic() {
+        return academic;
+    }
+
+    public void setAcademic(List<String> academic) {
+        this.academic = academic;
+    }
+
+    public ProjectInternModel getPimodel() {
+        return pimodel;
+    }
+
+    public void setPimodel(ProjectInternModel pimodel) {
+        this.pimodel = pimodel;
     }
 }
