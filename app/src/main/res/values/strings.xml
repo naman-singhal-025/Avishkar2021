@@ -20,7 +20,7 @@
     <string name="view_interview_experience">View Interview Experiences</string>
     <string name="forum_feedback">Forum / Feedback</string>
     <string name="contacts">Contacts</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="logout">Logout</string>
+    <string name="admin_key">NamanSinghal</string>
 </resources>

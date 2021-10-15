@@ -21,7 +21,6 @@ public class SignIn extends AppCompatActivity {
     ActivitySignInBinding binding;
     ProgressDialog progressDialog;
     FirebaseAuth auth;
-    FirebaseDatabase database;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +31,6 @@ public class SignIn extends AppCompatActivity {
         getSupportActionBar().hide();
 
         auth = FirebaseAuth.getInstance();
-        database = FirebaseDatabase.getInstance();
         progressDialog = new ProgressDialog(SignIn.this);
         progressDialog.setTitle("Login");
         progressDialog.setMessage("Logging in");

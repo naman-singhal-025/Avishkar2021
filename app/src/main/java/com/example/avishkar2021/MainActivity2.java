@@ -80,7 +80,14 @@ public class MainActivity2 extends AppCompatActivity {
                         Picasso.get().load(users.getProfilePic())
                                 .placeholder(R.drawable.avatar)
                                 .into(navUserImage);
-                        navUserName.setText(users.getUserName());
+                        if(snapshot.child("personal").child("1").exists())
+                        {
+                            navUserName.setText(snapshot.child("personal").child("1").getValue().toString());
+                        }
+                        else
+                        {
+                            navUserName.setText("User name");
+                        }
                         navUserMail.setText(users.getMail());
                     }
 

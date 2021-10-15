@@ -73,9 +73,11 @@ public class AcademicFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 textList = new ArrayList<>();
-                for(int i=0;i<12;i++)
+                int i=0;
+                while(i<12 && AcademicDetailsAdapter.editModelArrayList.get(i).getEditTextValue()!=null)
                 {
                     textList.add(AcademicDetailsAdapter.editModelArrayList.get(i).getEditTextValue());
+                    i++;
                 }
                 HashMap<String,Object> obj = new HashMap<>();
                 obj.put("academic",textList);

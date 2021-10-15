@@ -72,9 +72,11 @@ public class PersonalFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 textList = new ArrayList<>();
-                for(int i=0;i<16;i++)
+                int i=0;
+                while(i<16 && PersonalDetailsAdapter.editModelArrayList.get(i).getEditTextValue()!=null)
                 {
                     textList.add(PersonalDetailsAdapter.editModelArrayList.get(i).getEditTextValue());
+                    i++;
                 }
                 HashMap<String,Object> obj = new HashMap<>();
                 obj.put("personal",textList);
