@@ -3,6 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Avishkar 2k21/DroidRush/clones/All screen fragments/Avishkar2021/app/src/main/res/layout/activity_main.xml" value="0.16893115942028986" />
+        <entry key="..\:/Avishkar 2k21/DroidRush/clones/All screen fragments/Avishkar2021/app/src/main/res/layout/activity_sign_up.xml" value="0.16893115942028986" />
+        <entry key="..\:/Avishkar 2k21/DroidRush/clones/All screen fragments/Avishkar2021/app/src/main/res/layout/content_main.xml" value="0.16893115942028986" />
+        <entry key="..\:/Avishkar 2k21/DroidRush/clones/All screen fragments/Avishkar2021/app/src/main/res/layout/fragment_academic.xml" value="0.16893115942028986" />
+        <entry key="..\:/Avishkar 2k21/DroidRush/clones/All screen fragments/Avishkar2021/app/src/main/res/layout/fragment_add_new_interview.xml" value="0.16893115942028986" />
+        <entry key="..\:/Avishkar 2k21/DroidRush/clones/All screen fragments/Avishkar2021/app/src/main/res/layout/fragment_contacts.xml" value="0.16893115942028986" />
+        <entry key="..\:/Avishkar 2k21/DroidRush/clones/All screen fragments/Avishkar2021/app/src/main/res/layout/fragment_current_openings.xml" value="0.16893115942028986" />
+        <entry key="..\:/Avishkar 2k21/DroidRush/clones/All screen fragments/Avishkar2021/app/src/main/res/layout/fragment_forum.xml" value="0.16893115942028986" />
+        <entry key="..\:/Avishkar 2k21/DroidRush/clones/All screen fragments/Avishkar2021/app/src/main/res/layout/fragment_gallery.xml" value="0.16893115942028986" />
+        <entry key="..\:/Avishkar 2k21/DroidRush/clones/All screen fragments/Avishkar2021/app/src/main/res/layout/fragment_home.xml" value="0.16893115942028986" />
+        <entry key="..\:/Avishkar 2k21/DroidRush/clones/All screen fragments/Avishkar2021/app/src/main/res/layout/fragment_password.xml" value="0.16893115942028986" />
+        <entry key="..\:/Avishkar 2k21/DroidRush/clones/All screen fragments/Avishkar2021/app/src/main/res/layout/fragment_personal.xml" value="0.16893115942028986" />
+        <entry key="..\:/Avishkar 2k21/DroidRush/clones/All screen fragments/Avishkar2021/app/src/main/res/layout/fragment_photo_resume.xml" value="0.16893115942028986" />
+        <entry key="..\:/Avishkar 2k21/DroidRush/clones/All screen fragments/Avishkar2021/app/src/main/res/layout/fragment_profile.xml" value="0.16893115942028986" />
+        <entry key="..\:/Avishkar 2k21/DroidRush/clones/All screen fragments/Avishkar2021/app/src/main/res/layout/fragment_project.xml" value="0.16893115942028986" />
+        <entry key="..\:/Avishkar 2k21/DroidRush/clones/All screen fragments/Avishkar2021/app/src/main/res/layout/fragment_registered_companies.xml" value="0.16893115942028986" />
+        <entry key="..\:/Avishkar 2k21/DroidRush/clones/All screen fragments/Avishkar2021/app/src/main/res/layout/fragment_slideshow.xml" value="0.16893115942028986" />
+        <entry key="..\:/Avishkar 2k21/DroidRush/clones/All screen fragments/Avishkar2021/app/src/main/res/layout/fragment_view_interview.xml" value="0.16893115942028986" />
+        <entry key="..\:/Avishkar 2k21/DroidRush/clones/All screen fragments/Avishkar2021/app/src/main/res/layout/nav_header_main.xml" value="0.16893115942028986" />
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/drawable/home.xml" value="0.14074074074074075" />
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/drawable/ic_menu_camera.xml" value="0.14074074074074075" />
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
@@ -26,7 +45,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15_PREVIEW" project-jdk-name="15" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

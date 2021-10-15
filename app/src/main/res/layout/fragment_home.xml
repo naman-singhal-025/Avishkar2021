@@ -21,10 +21,156 @@
         app:tabSelectedTextColor="@color/white"
         app:tabTextColor="@color/white"
         tools:ignore="SpeakableTextPresentCheck" />
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileImage"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/avatar"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/nameofStudent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profileImage"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="Name"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/registrationNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nameofStudent"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:text="Registration"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"/>
+        <TextView
+            android:id="@+id/branch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/registrationNumber"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:text="Branch"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/branch">
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Status"
+                android:layout_alignStart="@id/credit"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="16dp"/>
+            <TextView
+                android:id="@+id/credit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Credit"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"/>
+            <TextView
+                android:id="@+id/offered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Offered"
+                android:layout_alignEnd="@id/credit"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="16dp"/>
+
+            <ImageView
+                android:id="@+id/verified"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/status"
+                android:layout_alignStart="@id/credit_num"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/verified"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="16dp"/>
+            <TextView
+                android:id="@+id/credit_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/credit"
+                android:layout_centerHorizontal="true"
+                android:textSize="48sp"
+                android:text="10"
+                android:textColor=" #1dcaff"/>
+
+            <TextView
+                android:id="@+id/offeredStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/offered"
+                android:layout_alignEnd="@id/credit_num"
+                android:layout_alignParentRight="true"
+                android:textSize="16sp"
+                android:textColor="@color/red"
+                android:text="Not Offered"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="16dp"/>
+
+            <Button
+                android:id="@+id/button_opening"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:text="Opening"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="42dp"
+                android:layout_below="@id/verified"
+                android:layout_alignParentLeft="true" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="Registered"
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="32dp"
+                android:layout_below="@id/offeredStatus"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+   </ScrollView>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:ignore="SpeakableTextPresentCheck" />
+
 </LinearLayout>
