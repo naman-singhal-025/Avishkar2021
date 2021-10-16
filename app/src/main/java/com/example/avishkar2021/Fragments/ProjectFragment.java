@@ -47,6 +47,42 @@ public class ProjectFragment extends Fragment {
                             binding.organisation.setText(snapshot.child("projects").child("organisation").getValue().toString());
                         }
 
+                        if(snapshot.child("LockStatus").exists())
+                        {
+                            if(snapshot.child("LockStatus").getValue().toString().equals("Locked"))
+                            {
+                                binding.projectTitle.setEnabled(false);
+                                binding.projectDescription.setEnabled(false);
+                                binding.internDescription.setEnabled(false);
+                                binding.organisation.setEnabled(false);
+                            }
+                            else
+                            {
+                                binding.projectTitle.setEnabled(true);
+                                binding.projectDescription.setEnabled(true);
+                                binding.internDescription.setEnabled(true);
+                                binding.organisation.setEnabled(true);
+                            }
+                        }
+
+                        if(snapshot.child("verificationStatus").exists())
+                        {
+                            if(snapshot.child("verificationStatus").getValue().toString().equals("Verified"))
+                            {
+                                binding.projectTitle.setEnabled(false);
+                                binding.projectDescription.setEnabled(false);
+                                binding.internDescription.setEnabled(false);
+                                binding.organisation.setEnabled(false);
+                            }
+                            else
+                            {
+                                binding.projectTitle.setEnabled(true);
+                                binding.projectDescription.setEnabled(true);
+                                binding.internDescription.setEnabled(true);
+                                binding.organisation.setEnabled(true);
+                            }
+                        }
+
                     }
 
                     @Override

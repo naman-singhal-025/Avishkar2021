@@ -3,6 +3,7 @@ package com.example.avishkar2021;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ public class VerifyStudentsActivity extends AppCompatActivity {
 
     FirebaseDatabase database;
     VerifyUserAdapter adapter;
+    ProgressDialog progressDialog;
     ListView listV;
     ArrayList<VerifyUserModel> list = new ArrayList<>();
     ActivityVerifyStudentsBinding binding;
@@ -36,7 +38,11 @@ public class VerifyStudentsActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
         database = FirebaseDatabase.getInstance();
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Retrieving Data...");
+        progressDialog.setMessage("Please, wait !");
 
+        progressDialog.show();
         database.getReference().child("Users").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -45,19 +51,27 @@ public class VerifyStudentsActivity extends AppCompatActivity {
                     VerifyUserModel user = new VerifyUserModel();
                     user.setUid(dataSnapshot.getKey());
                     user.setRegistration_no(dataSnapshot.child("reg_no").getValue().toString());
-                    if(dataSnapshot.child("status").exists())
+                    if(dataSnapshot.child("verificationStatus").exists())
                     {
-                        user.setStatus(dataSnapshot.child("status").getValue().toString());
+                        user.setStatus(dataSnapshot.child("verificationStatus").getValue().toString());
+                    }
+                    if(dataSnapshot.child("LockStatus").exists())
+                    {
+                        if(dataSnapshot.child("LockStatus").getValue().toString().equals("Locked"))
+                        user.setStatus("Locked");
                     }
                     else
                     {
                         user.setStatus("Verify");
                     }
+
+
                     list.add(user);
                 }
                 listV = binding.listView3;
                 adapter = new VerifyUserAdapter(VerifyStudentsActivity.this,list);
                 listV.setAdapter(adapter);
+                progressDialog.dismiss();
             }
 
             @Override

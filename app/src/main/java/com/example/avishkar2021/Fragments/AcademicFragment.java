@@ -35,6 +35,7 @@ public class AcademicFragment extends Fragment {
     ListView listV;
     FirebaseDatabase database;
     Users users;
+    private String lock = "Not Locked",ver = "Not Verified";
     List<String> titleList = Arrays.asList("10th School","10th board","10th Year","10th %","12th School",
                                             "12th Board","12th Year","12th %","Graduating College","Year",
                                             "Semester","CPI");
@@ -55,10 +56,21 @@ public class AcademicFragment extends Fragment {
                         {
                             textList = users.getAcademic();
                         }
+                        if(snapshot.child("LockStatus").exists())
+                        {
+                            lock = snapshot.child("LockStatus").getValue().toString();
+                        }
+
+                        if(snapshot.child("verificationStatus").exists())
+                        {
+                            ver = snapshot.child("verificationStatus").getValue().toString();
+                        }
                         listV = binding.listView1;
-                        editModelArrayList = populateList();
+                        editModelArrayList = populateList(lock,ver);
                         academicDetailsAdapter = new AcademicDetailsAdapter(getActivity(),editModelArrayList);
                         listV.setAdapter(academicDetailsAdapter);
+
+
                     }
 
                     @Override
@@ -89,13 +101,15 @@ public class AcademicFragment extends Fragment {
 
         return binding.getRoot();
     }
-    private ArrayList<EditModel> populateList(){
+    private ArrayList<EditModel> populateList(String lock, String ver){
 
         ArrayList<EditModel> list = new ArrayList<>();
 
         for(int i = 0; i < 12; i++){
             EditModel editModel = new EditModel();
             editModel.setTextValue(titleList.get(i));
+            editModel.setVerStatus(ver);
+            editModel.setLockStatus(lock);
             if(textList!=null)
             {
                 editModel.setEditTextValue(textList.get(i));

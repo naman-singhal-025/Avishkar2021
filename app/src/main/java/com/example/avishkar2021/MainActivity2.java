@@ -88,7 +88,8 @@ public class MainActivity2 extends AppCompatActivity {
                         {
                             navUserName.setText("User name");
                         }
-                        navUserMail.setText(users.getMail());
+
+                        navUserMail.setText(snapshot.child("editTextMail").getValue().toString());
                     }
 
                     @Override

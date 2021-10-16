@@ -72,7 +72,14 @@ public class PersonalDetailsAdapter extends BaseAdapter {
         holder.textView = (TextView)convertView.findViewById(R.id.profileTitle);
         holder.editText.setText(editModelArrayList.get(position).getEditTextValue());
         holder.textView.setText(editModelArrayList.get(position).getTextValue());
-
+        if(editModelArrayList.get(position).getVerStatus().equals("Verified")||
+                editModelArrayList.get(position).getLockStatus().equals("Locked")){
+            holder.editText.setEnabled(false);
+        }
+        else
+        {
+            holder.editText.setEnabled(true);
+        }
         holder.editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {

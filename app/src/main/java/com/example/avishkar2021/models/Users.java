@@ -12,6 +12,9 @@ public class Users {
     private List<String> personal;
     private List<String> academic;
     private ProjectInternModel pimodel;
+    private String status;
+    private String lockStatus;
+    private String verStatus;
 
     public Users(String profilePic, String userName, String mail, String userId, String password) {
         this.profilePic = profilePic;
@@ -101,5 +104,29 @@ public class Users {
 
     public void setPimodel(ProjectInternModel pimodel) {
         this.pimodel = pimodel;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getLockStatus() {
+        return lockStatus;
+    }
+
+    public void setLockStatus(String lockStatus) {
+        this.lockStatus = lockStatus;
+    }
+
+    public String getVerStatus() {
+        return verStatus;
+    }
+
+    public void setVerStatus(String verStatus) {
+        this.verStatus = verStatus;
     }
 }

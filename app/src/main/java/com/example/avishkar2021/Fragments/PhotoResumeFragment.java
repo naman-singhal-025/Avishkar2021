@@ -45,6 +45,7 @@ public class PhotoResumeFragment extends Fragment {
     FirebaseDatabase database;
     ProgressDialog progressDialog;
     Users users;
+    private String lock="Not Locked",ver="Not Verified";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -63,7 +64,7 @@ public class PhotoResumeFragment extends Fragment {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         users  = snapshot.getValue(Users.class);
-                        //set profile image from database
+//                        set profile image from database
                         Picasso.get().load(users.getProfilePic())
                                 .placeholder(R.drawable.avatar)
                                 .into(binding.profileImage);
@@ -73,6 +74,16 @@ public class PhotoResumeFragment extends Fragment {
                             binding.pdfName.setText("Resume Available");
                             binding.downloadBtn.setVisibility(View.VISIBLE);
                             DrawableCompat.setTint(binding.uploadpdf.getDrawable(), ContextCompat.getColor(getContext(), R.color.colorPrimary));
+                        }
+
+                        if(snapshot.child("LockStatus").exists())
+                        {
+                            lock = snapshot.child("LockStatus").getValue().toString();
+                        }
+
+                        if(snapshot.child("verificationStatus").exists())
+                        {
+                            ver = snapshot.child("verificationStatus").getValue().toString();
                         }
                     }
 
@@ -86,11 +97,24 @@ public class PhotoResumeFragment extends Fragment {
         binding.plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                progressDialog.show();
-                startActivityForResult(intent, 1);
+                if(ver.equals("Verified"))
+                {
+                    Toast.makeText(getActivity(), "Your account is already verified", Toast.LENGTH_SHORT).show();
+                }
+                else if(lock.equals("Locked"))
+                {
+                    Toast.makeText(getActivity(), "Your account is locked!!!", Toast.LENGTH_SHORT).show();
+
+                }
+                else
+                {
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_GET_CONTENT);
+                    intent.setType("image/*");
+                    progressDialog.show();
+                    startActivityForResult(intent, 1);
+                }
+
 
             }
         });
@@ -98,11 +122,23 @@ public class PhotoResumeFragment extends Fragment {
         binding.uploadpdf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                intent.setType("application/pdf");
-                progressDialog.show();
-                startActivityForResult(intent, 2);
+                if(ver.equals("Verified"))
+                {
+                    Toast.makeText(getActivity(), "Your account is already verified", Toast.LENGTH_SHORT).show();
+                }
+                else if(lock.equals("Locked"))
+                {
+                    Toast.makeText(getActivity(), "Your account is locked!!!", Toast.LENGTH_SHORT).show();
+
+                }
+                else
+                {
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_GET_CONTENT);
+                    intent.setType("application/pdf");
+                    progressDialog.show();
+                    startActivityForResult(intent, 2);
+                }
             }
         });
 

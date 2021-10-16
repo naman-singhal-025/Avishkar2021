@@ -11,6 +11,8 @@ import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
+
 import com.example.avishkar2021.R;
 import com.example.avishkar2021.StudentDetailActivity;
 import com.example.avishkar2021.VerifyStudentsActivity;
@@ -76,10 +78,19 @@ public class VerifyUserAdapter extends BaseAdapter {
         holder.numbering.setText(verifyUserModelArrayList.get(position).getNumbering());
         holder.reg_no.setText(verifyUserModelArrayList.get(position).getRegistration_no());
         holder.status.setText(verifyUserModelArrayList.get(position).getStatus());
+        if(verifyUserModelArrayList.get(position).getStatus().equals("Verified"))
+        {
+            holder.status.setTextColor(ContextCompat.getColor(context,R.color.colorPrimary));
+        }
+        else if(verifyUserModelArrayList.get(position).getStatus().equals("Locked"))
+        {
+            holder.status.setTextColor(ContextCompat.getColor(context,R.color.red));
+        }
         holder.status.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, StudentDetailActivity.class);
+                intent.putExtra("uid",verifyUserModelArrayList.get(position).getUid());
                 context.startActivity(intent);
             }
         });

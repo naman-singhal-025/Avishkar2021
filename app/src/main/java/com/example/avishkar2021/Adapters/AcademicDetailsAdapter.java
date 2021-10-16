@@ -63,7 +63,6 @@ public class AcademicDetailsAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.items, null, true);
 
             holder.editText = (EditText) convertView.findViewById(R.id.profileText);
-
             convertView.setTag(holder);
         }else {
             // the getTag returns the viewHolder object set as a tag to the view
@@ -72,7 +71,14 @@ public class AcademicDetailsAdapter extends BaseAdapter {
         holder.textView = (TextView)convertView.findViewById(R.id.profileTitle);
         holder.editText.setText(editModelArrayList.get(position).getEditTextValue());
         holder.textView.setText(editModelArrayList.get(position).getTextValue());
-
+        if(editModelArrayList.get(position).getVerStatus().equals("Verified")||
+                editModelArrayList.get(position).getLockStatus().equals("Locked")){
+            holder.editText.setEnabled(false);
+        }
+        else
+        {
+            holder.editText.setEnabled(true);
+        }
         holder.editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {

@@ -18,52 +18,56 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:padding="5dp">
 
             <TextView
                 android:id="@+id/numbering"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:text="1"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edit_reg_no"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
                 android:ems="10"
                 android:gravity="center"
-                android:inputType="textMultiLine|textPersonName"
+                android:hint="Reg No"
+                android:inputType="textPersonName"
                 android:minHeight="48dp"
                 android:text="Reg No" />
 
             <EditText
                 android:id="@+id/editMail"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:layout_marginLeft="4dp"
                 android:layout_weight="5"
                 android:ems="10"
                 android:gravity="center"
-                android:inputType="textMultiLine|textPersonName"
+                android:hint="Mail Id"
+                android:inputType="textPersonName"
                 android:text="Mail id"
                 android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/editPass"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
                 android:layout_marginLeft="4dp"
                 android:layout_weight="5"
                 android:ems="10"
                 android:gravity="center"
-                android:inputType="textMultiLine|textPersonName"
+                android:hint="Password"
+                android:inputType="textPersonName"
                 android:text="Password"
                 android:textSize="20sp"
                 tools:ignore="TouchTargetSizeCheck" />

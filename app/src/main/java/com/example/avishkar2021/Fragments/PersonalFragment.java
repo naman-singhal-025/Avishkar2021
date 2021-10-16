@@ -34,8 +34,9 @@ public class PersonalFragment extends Fragment {
     ListView listV;
     FirebaseDatabase database;
     Users users;
+    private String lock = "Not Locked",ver = "Not Verified";
     List<String> titleList = Arrays.asList("Reg No","Name","Course","Branch","Date of Birth","E-Mail","Gender (M/F)",
-                                            "Category (Gen/OBC/SC/ST)","Physically  Challenged","Residential Address","Guardian","Present Address",
+                                            "Category (Gen/OBC/SC/ST)","Physically  Challenged","Residential Status","Guardian","Present Address",
                                             "Permanent Address","Marital Status","State","Country");
     private List<String> textList;
     @Override
@@ -54,8 +55,17 @@ public class PersonalFragment extends Fragment {
                         {
                             textList = users.getPersonal();
                         }
+                        if(snapshot.child("LockStatus").exists())
+                        {
+                            lock = snapshot.child("LockStatus").getValue().toString();
+                        }
+
+                        if(snapshot.child("verificationStatus").exists())
+                        {
+                            ver = snapshot.child("verificationStatus").getValue().toString();
+                        }
                         listV = binding.listView;
-                        editModelArrayList = populateList();
+                        editModelArrayList = populateList(lock,ver);
                         personalDetailsAdapter = new PersonalDetailsAdapter(getActivity(),editModelArrayList);
                         listV.setAdapter(personalDetailsAdapter);
                     }
@@ -88,13 +98,15 @@ public class PersonalFragment extends Fragment {
 
         return binding.getRoot();
     }
-    private ArrayList<EditModel> populateList(){
+    private ArrayList<EditModel> populateList(String lock, String ver){
 
         ArrayList<EditModel> list = new ArrayList<>();
 
         for(int i = 0; i < 16; i++){
             EditModel editModel = new EditModel();
             editModel.setTextValue(titleList.get(i));
+            editModel.setVerStatus(ver);
+            editModel.setLockStatus(lock);
             if(textList!=null)
             {
                 editModel.setEditTextValue(textList.get(i));

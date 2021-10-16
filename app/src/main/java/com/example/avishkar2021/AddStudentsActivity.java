@@ -116,9 +116,9 @@ public class AddStudentsActivity extends AppCompatActivity {
 
         ArrayList<AddUserModel> list = new ArrayList<>();
 
-        for(int i = 0; i < 20; i++){
+        for(int i = 0; i < 10; i++){
             AddUserModel addUserModel = new AddUserModel();
-            addUserModel.setNumbering(String.valueOf(i));
+            addUserModel.setNumbering(String.valueOf(i+1));
             list.add(addUserModel);
         }
 
