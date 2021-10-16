@@ -1,4 +1,4 @@
-package com.example.avishkar2021.ui.home;
+package com.example.avishkar2021.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -26,30 +26,26 @@ import com.squareup.picasso.Picasso;
 
 public class HomeFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
-    private FragmentHomeBinding binding;
+    FragmentHomeBinding binding;
     FirebaseDatabase database;
     FirebaseAuth auth;
 
 //    private long pressedTime;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
-
         binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
         database = FirebaseDatabase.getInstance();
         auth = FirebaseAuth.getInstance();
         database.getReference().child("Users").child(auth.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                Users users  = snapshot.getValue(Users.class);
                 //set profile image from database
-                Picasso.get().load(users.getProfilePic())
-                        .placeholder(R.drawable.avatar)
-                        .into(binding.profileImage);
+                if(snapshot.child("profilePic").exists()) {
+                    Picasso.get().load(snapshot.child("profilePic").getValue().toString())
+                            .placeholder(R.drawable.avatar)
+                            .into(binding.profileImage);
+                }
 
                 if(snapshot.child("reg_no").exists())
                 {
@@ -101,14 +97,6 @@ public class HomeFragment extends Fragment {
 
             }
         });
-
-
-        return root;
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+        return binding.getRoot();
     }
 }

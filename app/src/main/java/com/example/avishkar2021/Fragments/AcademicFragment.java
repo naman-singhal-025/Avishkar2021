@@ -86,7 +86,7 @@ public class AcademicFragment extends Fragment {
             public void onClick(View view) {
                 textList = new ArrayList<>();
                 int i=0;
-                while(i<12 && AcademicDetailsAdapter.editModelArrayList.get(i).getEditTextValue()!=null)
+                while(i<12)
                 {
                     textList.add(AcademicDetailsAdapter.editModelArrayList.get(i).getEditTextValue());
                     i++;
@@ -110,7 +110,8 @@ public class AcademicFragment extends Fragment {
             editModel.setTextValue(titleList.get(i));
             editModel.setVerStatus(ver);
             editModel.setLockStatus(lock);
-            if(textList!=null)
+            editModel.setEditTextValue("");
+            if(textList!=null && textList.size()==12)
             {
                 editModel.setEditTextValue(textList.get(i));
             }

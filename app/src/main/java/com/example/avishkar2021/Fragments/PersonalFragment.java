@@ -32,9 +32,10 @@ public class PersonalFragment extends Fragment {
     public ArrayList<EditModel> editModelArrayList;
     FragmentPersonalBinding binding;
     ListView listV;
-    FirebaseDatabase database;
     Users users;
+    FirebaseDatabase database;
     private String lock = "Not Locked",ver = "Not Verified";
+    private String reg_no="",mail="";
     List<String> titleList = Arrays.asList("Reg No","Name","Course","Branch","Date of Birth","E-Mail","Gender (M/F)",
                                             "Category (Gen/OBC/SC/ST)","Physically  Challenged","Residential Status","Guardian","Present Address",
                                             "Permanent Address","Marital Status","State","Country");
@@ -50,9 +51,12 @@ public class PersonalFragment extends Fragment {
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        users  = snapshot.getValue(Users.class);
+                        reg_no = snapshot.child("reg_no").getValue().toString();
+                        mail = snapshot.child("editTextMail").getValue().toString();
+                        users= snapshot.getValue(Users.class);
                         if(snapshot.child("personal").exists())
                         {
+//                            textList = (List)snapshot.child("personal").getValue();
                             textList = users.getPersonal();
                         }
                         if(snapshot.child("LockStatus").exists())
@@ -82,14 +86,13 @@ public class PersonalFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 textList = new ArrayList<>();
-                int i=0;
-                while(i<16 && PersonalDetailsAdapter.editModelArrayList.get(i).getEditTextValue()!=null)
-                {
+                int i = 0;
+                while (i < 16) {
                     textList.add(PersonalDetailsAdapter.editModelArrayList.get(i).getEditTextValue());
                     i++;
                 }
-                HashMap<String,Object> obj = new HashMap<>();
-                obj.put("personal",textList);
+                HashMap<String, Object> obj = new HashMap<>();
+                obj.put("personal", textList);
                 database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid()).updateChildren(obj);
                 Toast.makeText(getActivity(), "Profile Updated Successfully", Toast.LENGTH_SHORT).show();
             }
@@ -107,7 +110,16 @@ public class PersonalFragment extends Fragment {
             editModel.setTextValue(titleList.get(i));
             editModel.setVerStatus(ver);
             editModel.setLockStatus(lock);
-            if(textList!=null)
+            editModel.setEditTextValue("");
+            if(i==0)
+            {
+                editModel.setEditTextValue(reg_no);
+            }
+            else if(i==5)
+            {
+                editModel.setEditTextValue(mail);
+            }
+            else if(textList!=null && textList.size()==16)
             {
                 editModel.setEditTextValue(textList.get(i));
             }

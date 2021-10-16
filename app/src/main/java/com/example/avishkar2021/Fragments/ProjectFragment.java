@@ -96,15 +96,21 @@ public class ProjectFragment extends Fragment {
         binding.pisaveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ProjectInternModel projectInternModel = new ProjectInternModel();
-                projectInternModel.setTitle(binding.projectTitle.getText().toString());
-                projectInternModel.setPDescription(binding.projectDescription.getText().toString());
-                projectInternModel.setIDescription(binding.internDescription.getText().toString());
-                projectInternModel.setOrganisation(binding.organisation.getText().toString());
-                HashMap<String,Object> obj = new HashMap<>();
-                obj.put("projects",projectInternModel);
-                database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid()).updateChildren(obj);
-                Toast.makeText(getActivity(), "Profile Updated Successfully", Toast.LENGTH_SHORT).show();
+                try
+                {
+                    ProjectInternModel projectInternModel = new ProjectInternModel();
+                    projectInternModel.setTitle(binding.projectTitle.getText().toString());
+                    projectInternModel.setPDescription(binding.projectDescription.getText().toString());
+                    projectInternModel.setIDescription(binding.internDescription.getText().toString());
+                    projectInternModel.setOrganisation(binding.organisation.getText().toString());
+                    HashMap<String, Object> obj = new HashMap<>();
+                    obj.put("projects", projectInternModel);
+                    database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid()).updateChildren(obj);
+                    Toast.makeText(getActivity(), "Profile Updated Successfully", Toast.LENGTH_SHORT).show();
+                }catch (Exception e)
+                {
+                    Toast.makeText(getActivity(), "One or more fields are empty", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         return binding.getRoot();

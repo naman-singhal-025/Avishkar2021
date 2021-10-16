@@ -111,7 +111,6 @@ public class PhotoResumeFragment extends Fragment {
                     Intent intent = new Intent();
                     intent.setAction(Intent.ACTION_GET_CONTENT);
                     intent.setType("image/*");
-                    progressDialog.show();
                     startActivityForResult(intent, 1);
                 }
 
@@ -122,23 +121,10 @@ public class PhotoResumeFragment extends Fragment {
         binding.uploadpdf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(ver.equals("Verified"))
-                {
-                    Toast.makeText(getActivity(), "Your account is already verified", Toast.LENGTH_SHORT).show();
-                }
-                else if(lock.equals("Locked"))
-                {
-                    Toast.makeText(getActivity(), "Your account is locked!!!", Toast.LENGTH_SHORT).show();
-
-                }
-                else
-                {
-                    Intent intent = new Intent();
-                    intent.setAction(Intent.ACTION_GET_CONTENT);
-                    intent.setType("application/pdf");
-                    progressDialog.show();
-                    startActivityForResult(intent, 2);
-                }
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                intent.setType("application/pdf");
+                startActivityForResult(intent, 2);
             }
         });
 
@@ -155,8 +141,9 @@ public class PhotoResumeFragment extends Fragment {
         @Override
         public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
             super.onActivityResult(requestCode, resultCode, data);
-            if(data.getData() != null)
+            if(data!=null && data.getData() != null)
             {
+                progressDialog.show();
                 if(requestCode==1)
                 {
                     Uri sFile  = data.getData();

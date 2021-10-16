@@ -88,7 +88,8 @@ public class PersonalDetailsAdapter extends BaseAdapter {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                editModelArrayList.get(position).setEditTextValue(holder.editText.getText().toString());
+                    editModelArrayList.get(position).setEditTextValue(holder.editText.getText().toString());
+                    holder.editText.setSelection(holder.editText.getText().length());
 
             }
 

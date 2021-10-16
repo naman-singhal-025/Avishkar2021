@@ -127,6 +127,19 @@ public class StudentDetailActivity extends AppCompatActivity {
                         binding.lockStatus.setChecked(false);
                     }
                 }
+                if(snapshot.child("internStatus").exists())
+                {
+                    if(snapshot.child("internStatus").getValue().toString().equals("Assigned"))
+                    {
+                        binding.lockStatus.setTextOn("Assigned");
+                        binding.lockStatus.setChecked(true);
+                    }
+                    else
+                    {
+                        binding.lockStatus.setTextOn("Not Assigned");
+                        binding.lockStatus.setChecked(false);
+                    }
+                }
                 if(snapshot.child("company").exists())
                 {
                     binding.companyName.setText(snapshot.child("company").getValue().toString());
@@ -138,7 +151,13 @@ public class StudentDetailActivity extends AppCompatActivity {
                 if(snapshot.child("credits").exists())
                 {
                     binding.credits.setText(snapshot.child("credits").getValue().toString());
+                    if(Integer.parseInt(binding.credits.getText().toString()) <=  4)
+                    {
+                        binding.lockStatus.setTextOn("Locked");
+                        binding.lockStatus.setChecked(true);
+                    }
                 }
+
             }
 
             @Override
@@ -164,9 +183,16 @@ public class StudentDetailActivity extends AppCompatActivity {
                     obj.put("stipend",binding.stipend.getText().toString());
                 if(binding.companyName.getText()!=null)
                     obj.put("company",binding.companyName.getText().toString());
+                obj.put("credits",binding.credits.getText().toString());
+                if(Integer.parseInt(binding.credits.getText().toString()) <=  4)
+                {
+                    binding.lockStatus.setTextOn("Locked");
+                    binding.lockStatus.setChecked(true);
+                }
                obj.put("LockStatus",binding.lockStatus.getText().toString());
                obj.put("verificationStatus",binding.verStatus.getText().toString());
-               obj.put("credits",binding.credits.getText().toString());
+               obj.put("internStatus",binding.internStatus.getText().toString());
+
                 database.getReference().child("Users").child(uid).updateChildren(obj);
                 Toast.makeText(StudentDetailActivity.this, "User Updated Successfully", Toast.LENGTH_SHORT).show();
             }
@@ -196,6 +222,19 @@ public class StudentDetailActivity extends AppCompatActivity {
                 else
                 {
                     binding.lockStatus.setText("Not Locked");
+                }
+            }
+        });
+        binding.internStatus.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b)
+                {
+                    binding.internStatus.setText("Assigned");
+                }
+                else
+                {
+                    binding.internStatus.setText("Not Assigned");
                 }
             }
         });
