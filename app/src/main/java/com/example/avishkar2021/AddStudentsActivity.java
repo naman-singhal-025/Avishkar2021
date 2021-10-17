@@ -89,10 +89,11 @@ public class AddStudentsActivity extends AppCompatActivity {
                                         }
                                     }
                                 });
-                        Toast.makeText(AddStudentsActivity.this, "Data Uploaded", Toast.LENGTH_SHORT).show();
+
 
                         i++;
                     }
+                    Toast.makeText(AddStudentsActivity.this, "Data Uploaded", Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
                     finish();
                     startActivity(getIntent());

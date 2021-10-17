@@ -83,9 +83,13 @@ public class AddUserAdapter extends BaseAdapter {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                holder.editPass.setSelection(holder.editPass.getText().length());
+                holder.editMail.setSelection(holder.editMail.getText().length());
+                holder.reg_no.setSelection(holder.reg_no.getText().length());
                 addUserModelArrayList.get(position).setEditTextMail(holder.editMail.getText().toString());
                 addUserModelArrayList.get(position).setEditTextPassword(holder.editPass.getText().toString());
                 addUserModelArrayList.get(position).setReg_no(holder.reg_no.getText().toString());
+
 
             }
 
@@ -103,7 +107,7 @@ public class AddUserAdapter extends BaseAdapter {
         protected EditText editMail;
         protected EditText editPass;
         protected TextView numbering;
-        protected TextView reg_no;
+        protected EditText reg_no;
 
     }
 }
