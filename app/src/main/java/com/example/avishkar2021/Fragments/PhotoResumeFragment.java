@@ -42,11 +42,10 @@ public class PhotoResumeFragment extends Fragment {
 
     FragmentPhotoResumeBinding binding;
     FirebaseStorage storage;
-    FirebaseAuth auth;
     FirebaseDatabase database;
     ProgressDialog progressDialog;
-    DatabaseReference database2;
     Users users;
+    private String lock="Not Locked",ver="Not Verified";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,7 +53,6 @@ public class PhotoResumeFragment extends Fragment {
         binding = FragmentPhotoResumeBinding.inflate(inflater, container, false);
         binding.downloadBtn.setVisibility(View.GONE);
         storage = FirebaseStorage.getInstance();
-        auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
 
         progressDialog = new ProgressDialog(container.getContext());
@@ -66,16 +64,26 @@ public class PhotoResumeFragment extends Fragment {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         users  = snapshot.getValue(Users.class);
-                        //set profile image from database
+//                        set profile image from database
                         Picasso.get().load(users.getProfilePic())
                                 .placeholder(R.drawable.avatar)
                                 .into(binding.profileImage);
-                        String resume = users.getResume();
-                        if(resume!="")
+
+                        if(snapshot.child("resume").exists())
                         {
                             binding.pdfName.setText("Resume Available");
                             binding.downloadBtn.setVisibility(View.VISIBLE);
                             DrawableCompat.setTint(binding.uploadpdf.getDrawable(), ContextCompat.getColor(getContext(), R.color.colorPrimary));
+                        }
+
+                        if(snapshot.child("LockStatus").exists())
+                        {
+                            lock = snapshot.child("LockStatus").getValue().toString();
+                        }
+
+                        if(snapshot.child("verificationStatus").exists())
+                        {
+                            ver = snapshot.child("verificationStatus").getValue().toString();
                         }
                     }
 
@@ -89,11 +97,23 @@ public class PhotoResumeFragment extends Fragment {
         binding.plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                progressDialog.show();
-                startActivityForResult(intent, 1);
+                if(lock.equals("Locked"))
+                {
+                    Toast.makeText(getActivity(), "Your account is locked!!!", Toast.LENGTH_SHORT).show();
+                }
+                else if(ver.equals("Verified"))
+                {
+                    Toast.makeText(getActivity(), "Your account is already verified", Toast.LENGTH_SHORT).show();
+
+                }
+                else
+                {
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_GET_CONTENT);
+                    intent.setType("image/*");
+                    startActivityForResult(intent, 1);
+                }
+
 
             }
         });
@@ -104,7 +124,6 @@ public class PhotoResumeFragment extends Fragment {
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 intent.setType("application/pdf");
-                progressDialog.show();
                 startActivityForResult(intent, 2);
             }
         });
@@ -122,8 +141,9 @@ public class PhotoResumeFragment extends Fragment {
         @Override
         public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
             super.onActivityResult(requestCode, resultCode, data);
-            if(data.getData() != null)
+            if(data!=null && data.getData() != null)
             {
+                progressDialog.show();
                 if(requestCode==1)
                 {
                     Uri sFile  = data.getData();

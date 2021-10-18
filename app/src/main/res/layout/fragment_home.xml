@@ -1,176 +1,207 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
-
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
+    android:orientation="vertical"
+    tools:context=".Fragments.HomeFragment">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/colorPrimary"
-        android:elevation="12dp"
-        app:tabGravity="fill"
-        app:tabIndicatorColor="@color/white"
-        app:tabMaxWidth="0dp"
-        app:tabMode="fixed"
-        app:tabSelectedTextColor="@color/white"
-        app:tabTextColor="@color/white"
-        tools:ignore="SpeakableTextPresentCheck" />
-   <ScrollView
-       android:layout_width="match_parent"
-       android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/studName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="Name"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/verified"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:srcCompat="@drawable/ic_baseline_verified_24" />
+        </LinearLayout>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profileImage"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:layout_centerHorizontal="true"
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:src="@drawable/avatar"
             app:civ_border_color="#FF000000"
             app:civ_border_width="2dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/nameofStudent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/profileImage"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:text="Name"
-            android:textSize="18sp" />
-        <TextView
-            android:id="@+id/registrationNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/nameofStudent"
-            android:textSize="18sp"
-            android:gravity="center"
-            android:layout_centerHorizontal="true"
-            android:text="Registration"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"/>
-        <TextView
-            android:id="@+id/branch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/registrationNumber"
-            android:textSize="18sp"
-            android:gravity="center"
-            android:layout_centerHorizontal="true"
-            android:text="Branch"/>
-
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/branch">
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            android:padding="5dp">
 
             <TextView
-                android:id="@+id/status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="Status"
-                android:layout_alignStart="@id/credit"
-                android:layout_alignParentLeft="true"
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="16dp"/>
-            <TextView
-                android:id="@+id/credit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="Credit"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="8dp"/>
-            <TextView
-                android:id="@+id/offered"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="Offered"
-                android:layout_alignEnd="@id/credit"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="8dp"
-                android:layout_marginRight="16dp"/>
-
-            <ImageView
-                android:id="@+id/verified"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/status"
-                android:layout_alignStart="@id/credit_num"
-                android:layout_alignParentLeft="true"
-                android:src="@drawable/verified"
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="16dp"/>
-            <TextView
-                android:id="@+id/credit_num"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/credit"
-                android:layout_centerHorizontal="true"
-                android:textSize="48sp"
-                android:text="10"
-                android:textColor=" #1dcaff"/>
-
-            <TextView
-                android:id="@+id/offeredStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/offered"
-                android:layout_alignEnd="@id/credit_num"
-                android:layout_alignParentRight="true"
-                android:textSize="16sp"
-                android:textColor="@color/red"
-                android:text="Not Offered"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="16dp"/>
-
-            <Button
-                android:id="@+id/button_opening"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_alignParentBottom="true"
-                android:text="Opening"
-                android:layout_marginTop="24dp"
-                android:layout_marginLeft="42dp"
-                android:layout_below="@id/verified"
-                android:layout_alignParentLeft="true" />
+                android:layout_weight="1"
+                android:hint="Reg No"
+                android:text="Reg No"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:text="Registered"
-                android:layout_marginTop="24dp"
-                android:layout_marginRight="32dp"
-                android:layout_below="@id/offeredStatus"
-                android:layout_alignParentRight="true"/>
-        </RelativeLayout>
+            <TextView
+                android:id="@+id/regNo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:ignore="SpeakableTextPresentCheck" />
 
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            android:padding="5dp">
 
-    </RelativeLayout>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Branch"
+                android:text="Branch"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-   </ScrollView>
+            <TextView
+                android:id="@+id/branch"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </LinearLayout>
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:ignore="SpeakableTextPresentCheck" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            android:padding="5dp">
 
-</LinearLayout>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Profile Status"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/verifyStatus"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="TPO Credits"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tpoCred"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:textColor="@color/colorPrimary"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Internship"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="3dp">
+
+                <TextView
+                    android:id="@+id/company"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+                <TextView
+                    android:id="@+id/stipend"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

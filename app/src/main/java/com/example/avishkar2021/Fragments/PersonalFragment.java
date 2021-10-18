@@ -2,65 +2,130 @@ package com.example.avishkar2021.Fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.Toast;
 
-import com.example.avishkar2021.R;
+import com.example.avishkar2021.Adapters.PersonalDetailsAdapter;
+import com.example.avishkar2021.databinding.FragmentPersonalBinding;
+import com.example.avishkar2021.models.EditModel;
+import com.example.avishkar2021.models.Users;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link PersonalFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
 public class PersonalFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public PersonalFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PersonalFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static PersonalFragment newInstance(String param1, String param2) {
-        PersonalFragment fragment = new PersonalFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
+    private PersonalDetailsAdapter personalDetailsAdapter;
+    public ArrayList<EditModel> editModelArrayList;
+    FragmentPersonalBinding binding;
+    ListView listV;
+    Users users;
+    FirebaseDatabase database;
+    private String lock = "Not Locked",ver = "Not Verified";
+    private String reg_no="",mail="";
+    List<String> titleList = Arrays.asList("Reg No","Name","Course","Branch","Date of Birth","E-Mail","Gender (M/F)",
+                                            "Category (Gen/OBC/SC/ST)","Physically  Challenged","Residential Status","Guardian","Present Address",
+                                            "Permanent Address","Marital Status","State","Country");
+    private List<String> textList;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_personal, container, false);
+
+        binding = FragmentPersonalBinding.inflate(inflater, container, false);
+        database = FirebaseDatabase.getInstance();
+
+        database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        reg_no = snapshot.child("reg_no").getValue().toString();
+                        mail = snapshot.child("editTextMail").getValue().toString();
+                        users= snapshot.getValue(Users.class);
+                        if(snapshot.child("personal").exists())
+                        {
+//                            textList = (List)snapshot.child("personal").getValue();
+                            textList = users.getPersonal();
+                        }
+                        if(snapshot.child("LockStatus").exists())
+                        {
+                            lock = snapshot.child("LockStatus").getValue().toString();
+                        }
+
+                        if(snapshot.child("verificationStatus").exists())
+                        {
+                            ver = snapshot.child("verificationStatus").getValue().toString();
+                        }
+                        listV = binding.listView;
+                        editModelArrayList = populateList(lock,ver);
+                        personalDetailsAdapter = new PersonalDetailsAdapter(getActivity(),editModelArrayList);
+                        listV.setAdapter(personalDetailsAdapter);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+
+                });
+
+
+        binding.floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textList = new ArrayList<>();
+                int i = 0;
+                while (i < 16) {
+                    textList.add(PersonalDetailsAdapter.editModelArrayList.get(i).getEditTextValue());
+                    i++;
+                }
+                HashMap<String, Object> obj = new HashMap<>();
+                obj.put("personal", textList);
+                database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid()).updateChildren(obj);
+                Toast.makeText(getActivity(), "Profile Updated Successfully", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        return binding.getRoot();
+    }
+    private ArrayList<EditModel> populateList(String lock, String ver){
+
+        ArrayList<EditModel> list = new ArrayList<>();
+
+        for(int i = 0; i < 16; i++){
+            EditModel editModel = new EditModel();
+            editModel.setTextValue(titleList.get(i));
+            editModel.setVerStatus(ver);
+            editModel.setLockStatus(lock);
+            editModel.setEditTextValue("");
+            if(i==0)
+            {
+                editModel.setEditTextValue(reg_no);
+            }
+            else if(i==5)
+            {
+                editModel.setEditTextValue(mail);
+            }
+            else if(textList!=null && textList.size()==16)
+            {
+                editModel.setEditTextValue(textList.get(i));
+            }
+            list.add(editModel);
+        }
+
+        return list;
     }
 }
