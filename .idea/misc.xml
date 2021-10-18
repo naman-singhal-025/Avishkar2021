@@ -7,6 +7,7 @@
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/drawable/home.xml" value="0.14074074074074075" />
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/drawable/ic_baseline_admin_panel_settings_24.xml" value="0.1" />
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/drawable/ic_baseline_company_24.xml" value="0.1425925925925926" />
+        <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.16203703703703703" />
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/drawable/ic_baseline_person_add_24.xml" value="0.1685185185185185" />
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/drawable/ic_menu_camera.xml" value="0.14074074074074075" />
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_add_companies.xml" value="0.20416666666666666" />
@@ -29,7 +30,7 @@
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/fragment_current_openings.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/fragment_forum.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/fragment_gallery.xml" value="0.10625" />
-        <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/fragment_password.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/fragment_personal.xml" value="0.25" />
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/fragment_photo_resume.xml" value="0.16279069767441862" />

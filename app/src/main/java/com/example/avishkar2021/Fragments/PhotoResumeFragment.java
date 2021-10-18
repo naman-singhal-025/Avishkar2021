@@ -97,13 +97,13 @@ public class PhotoResumeFragment extends Fragment {
         binding.plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(ver.equals("Verified"))
-                {
-                    Toast.makeText(getActivity(), "Your account is already verified", Toast.LENGTH_SHORT).show();
-                }
-                else if(lock.equals("Locked"))
+                if(lock.equals("Locked"))
                 {
                     Toast.makeText(getActivity(), "Your account is locked!!!", Toast.LENGTH_SHORT).show();
+                }
+                else if(ver.equals("Verified"))
+                {
+                    Toast.makeText(getActivity(), "Your account is already verified", Toast.LENGTH_SHORT).show();
 
                 }
                 else

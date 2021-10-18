@@ -1,22 +1,16 @@
 package com.example.avishkar2021.Fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
 import com.example.avishkar2021.R;
 import com.example.avishkar2021.databinding.FragmentHomeBinding;
-import com.example.avishkar2021.models.Users;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,6 +23,7 @@ public class HomeFragment extends Fragment {
     FragmentHomeBinding binding;
     FirebaseDatabase database;
     FirebaseAuth auth;
+    View root;
 
 //    private long pressedTime;
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -36,6 +31,7 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         database = FirebaseDatabase.getInstance();
         auth = FirebaseAuth.getInstance();
+        root = binding.getRoot();
         database.getReference().child("Users").child(auth.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -67,7 +63,12 @@ public class HomeFragment extends Fragment {
                         snapshot.child("LockStatus").getValue().toString().equals("Locked"))
                 {
                     binding.verifyStatus.setText("Locked");
-                    binding.verifyStatus.setTextColor(ContextCompat.getColor(getContext(),R.color.red));
+                    try {
+                        binding.verifyStatus.setTextColor(ContextCompat.getColor(getContext(),R.color.red));
+                    }catch(Exception e)
+                    {
+                        Log.d("MyError",e.toString());
+                    }
                     binding.verified.setImageResource(R.drawable.ic_baseline_block_24);
                     binding.verified.setVisibility(View.VISIBLE);
                 }
@@ -75,7 +76,13 @@ public class HomeFragment extends Fragment {
                         snapshot.child("verificationStatus").getValue().toString().equals("Verified"))
                 {
                     binding.verifyStatus.setText("Verified");
-                    binding.verifyStatus.setTextColor(ContextCompat.getColor(getContext(),R.color.colorPrimary));
+                    try {
+                        binding.verifyStatus.setTextColor(ContextCompat.getColor(getContext(),R.color.colorPrimary));
+                    }catch(Exception e)
+                    {
+                        Log.d("MyError",e.toString());
+                    }
+
                     binding.verified.setImageResource(R.drawable.ic_baseline_verified_24);
                     binding.verified.setVisibility(View.VISIBLE);
                 }
@@ -97,6 +104,6 @@ public class HomeFragment extends Fragment {
 
             }
         });
-        return binding.getRoot();
+        return root;
     }
 }

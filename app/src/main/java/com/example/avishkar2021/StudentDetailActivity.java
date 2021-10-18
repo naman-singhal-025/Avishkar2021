@@ -131,13 +131,13 @@ public class StudentDetailActivity extends AppCompatActivity {
                 {
                     if(snapshot.child("internStatus").getValue().toString().equals("Assigned"))
                     {
-                        binding.lockStatus.setTextOn("Assigned");
-                        binding.lockStatus.setChecked(true);
+                        binding.internStatus.setTextOn("Assigned");
+                        binding.internStatus.setChecked(true);
                     }
                     else
                     {
-                        binding.lockStatus.setTextOn("Not Assigned");
-                        binding.lockStatus.setChecked(false);
+                        binding.internStatus.setTextOn("Not Assigned");
+                        binding.internStatus.setChecked(false);
                     }
                 }
                 if(snapshot.child("company").exists())
