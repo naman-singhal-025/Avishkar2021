@@ -27,6 +27,7 @@ public class ProjectFragment extends Fragment {
 
     FragmentProjectBinding binding;
     FirebaseDatabase database;
+    String lockStatus="",verStatus="";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -51,17 +52,7 @@ public class ProjectFragment extends Fragment {
                         {
                             if(snapshot.child("LockStatus").getValue().toString().equals("Locked"))
                             {
-                                binding.projectTitle.setEnabled(false);
-                                binding.projectDescription.setEnabled(false);
-                                binding.internDescription.setEnabled(false);
-                                binding.organisation.setEnabled(false);
-                            }
-                            else
-                            {
-                                binding.projectTitle.setEnabled(true);
-                                binding.projectDescription.setEnabled(true);
-                                binding.internDescription.setEnabled(true);
-                                binding.organisation.setEnabled(true);
+                                lockStatus = "Locked";
                             }
                         }
 
@@ -69,18 +60,24 @@ public class ProjectFragment extends Fragment {
                         {
                             if(snapshot.child("verificationStatus").getValue().toString().equals("Verified"))
                             {
-                                binding.projectTitle.setEnabled(false);
-                                binding.projectDescription.setEnabled(false);
-                                binding.internDescription.setEnabled(false);
-                                binding.organisation.setEnabled(false);
+                                verStatus = "Verified";
+
                             }
-                            else
-                            {
-                                binding.projectTitle.setEnabled(true);
-                                binding.projectDescription.setEnabled(true);
-                                binding.internDescription.setEnabled(true);
-                                binding.organisation.setEnabled(true);
-                            }
+                        }
+
+                        if(verStatus.equals("Verified") || lockStatus.equals("Locked"))
+                        {
+                            binding.projectTitle.setEnabled(false);
+                            binding.projectDescription.setEnabled(false);
+                            binding.internDescription.setEnabled(false);
+                            binding.organisation.setEnabled(false);
+                        }
+                        else
+                        {
+                            binding.projectTitle.setEnabled(true);
+                            binding.projectDescription.setEnabled(true);
+                            binding.internDescription.setEnabled(true);
+                            binding.organisation.setEnabled(true);
                         }
 
                     }
