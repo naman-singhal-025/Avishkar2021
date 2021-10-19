@@ -101,7 +101,7 @@ public class MainActivity2 extends AppCompatActivity {
         // set on click listener to logout in navigation view
         navigationView.getMenu().findItem(R.id.logout).setOnMenuItemClickListener(menuItem -> {
             auth.signOut();
-            Intent intent =  new Intent(MainActivity2.this,SignIn.class);
+            Intent intent =  new Intent(MainActivity2.this,MainActivity.class);
             startActivity(intent);
             return true;
         });

@@ -5,8 +5,16 @@ public class AddCompaniesModel {
     private String branches;
     private String stipend;
     private String deadline;
+    private String date;
 
     public AddCompaniesModel() {
+    }
+
+    public AddCompaniesModel(String company, String branches, String deadline, String stipend ) {
+        this.company = company;
+        this.branches = branches;
+        this.stipend = stipend;
+        this.deadline = deadline;
     }
 
     public String getCompany() {
@@ -39,5 +47,13 @@ public class AddCompaniesModel {
 
     public void setDeadline(String deadline) {
         this.deadline = deadline;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.avishkar2021.models;
 
+import java.net.URI;
 import java.util.List;
 
 public class Users {
@@ -15,6 +16,9 @@ public class Users {
     private String status;
     private String lockStatus;
     private String verStatus;
+    private String branch;
+    private String phone;
+    private URI pImage;
 
     public Users(String profilePic, String userName, String mail, String userId, String password) {
         this.profilePic = profilePic;
@@ -128,5 +132,29 @@ public class Users {
 
     public void setVerStatus(String verStatus) {
         this.verStatus = verStatus;
+    }
+
+    public String getBranch() {
+        return branch;
+    }
+
+    public void setBranch(String branch) {
+        this.branch = branch;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public URI getpImage() {
+        return pImage;
+    }
+
+    public void setpImage(URI pImage) {
+        this.pImage = pImage;
     }
 }
