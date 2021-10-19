@@ -1,6 +1,8 @@
 package com.example.avishkar2021.Adapters;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -14,16 +16,20 @@ import android.widget.TextView;
 import com.example.avishkar2021.R;
 import com.example.avishkar2021.models.AddUserModel;
 import com.example.avishkar2021.models.Users;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class AddContactsAdapter extends BaseAdapter {
     private Context context;
-    public static ArrayList<Users> usersArrayList;
+    private static ArrayList<Users> usersArrayList;
+    private int status;
 
     public AddContactsAdapter(Context context, ArrayList<Users> usersArrayList) {
 
+        this.status=status;
         this.context = context;
         this.usersArrayList = usersArrayList;
     }
@@ -80,6 +86,8 @@ public class AddContactsAdapter extends BaseAdapter {
         Picasso.get().load(usersArrayList.get(position).getProfilePic())
                 .placeholder(R.drawable.avatar)
                 .into(holder.profile);
+
+
 
         return convertView;
     }

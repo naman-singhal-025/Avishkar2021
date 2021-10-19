@@ -144,9 +144,9 @@ public class PhotoResumeFragment extends Fragment {
             if(data!=null && data.getData() != null)
             {
                 progressDialog.show();
+                Uri sFile  = data.getData();
                 if(requestCode==1)
                 {
-                    Uri sFile  = data.getData();
                     binding.profileImage.setImageURI(sFile);
 
                     final StorageReference reference = storage.getReference().child("profile_pictures")
@@ -168,7 +168,6 @@ public class PhotoResumeFragment extends Fragment {
                 }
                 else
                 {
-                    Uri sFile  = data.getData();
                     final StorageReference reference = storage.getReference().child("resume")
                             .child(FirebaseAuth.getInstance().getUid());
                     reference.putFile(sFile).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {

@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
     private String m_Text;
-    final String pass = "n";
+    String pass = "n";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +31,22 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        FirebaseDatabase.getInstance().getReference().child("KEY").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                try {
+                    pass = snapshot.getValue().toString();
+                }catch (Exception e)
+                {
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         binding.login.setOnClickListener(new View.OnClickListener() {
             @Override

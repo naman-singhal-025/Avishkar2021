@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="8dp"
+        app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="8dp"
         app:cardElevation="8dp">
 
@@ -30,6 +31,7 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="4dp"
                 android:layout_weight="2"
                 android:gravity="center"
                 android:orientation="vertical"
@@ -40,9 +42,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:gravity="center"
+                    android:gravity="center|left"
                     android:hint="Name"
+                    android:textIsSelectable="false"
                     android:textSize="16sp"
+                    android:textStyle="bold"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <TextView
@@ -50,40 +54,39 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:ems="10"
-                    android:gravity="center"
+                    android:gravity="center|left"
                     android:hint="Branch"
                     android:inputType="text"
                     android:minHeight="48dp"
+                    android:textIsSelectable="false"
                     android:textSize="16sp"
+                    android:textStyle="bold"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <TextView
                     android:id="@+id/userPhone"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_margin="4dp"
-                    android:layout_marginLeft="4dp"
                     android:layout_weight="1"
-                    android:ems="10"
-                    android:gravity="center"
+                    android:gravity="center|left"
                     android:hint="Phone No"
                     android:inputType="text"
+                    android:textIsSelectable="false"
                     android:textSize="16sp"
+                    android:textStyle="bold"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <TextView
                     android:id="@+id/userMail"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_margin="4dp"
-                    android:layout_marginLeft="4dp"
                     android:layout_weight="1"
-                    android:ems="10"
-                    android:gravity="center"
+                    android:gravity="center|left"
                     android:hint="E-Mail"
                     android:inputType="text"
+                    android:textIsSelectable="false"
                     android:textSize="16sp"
+                    android:textStyle="bold"
                     tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>
         </LinearLayout>

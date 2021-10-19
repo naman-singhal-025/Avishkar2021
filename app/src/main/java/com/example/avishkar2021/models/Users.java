@@ -20,12 +20,12 @@ public class Users {
     private String phone;
     private URI pImage;
 
-    public Users(String profilePic, String userName, String mail, String userId, String password) {
+    public Users(String profilePic, String userName, String mail, String phone, String branch) {
         this.profilePic = profilePic;
         this.userName = userName;
         this.mail = mail;
-        this.userId = userId;
-        this.password = password;
+        this.phone = phone;
+        this.branch = branch;
     }
 
     public Users() {
