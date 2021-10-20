@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Editor">
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/idFABKeyboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentTop="true"
+
+
+        android:layout_alignParentRight="true"
+
+
+        android:onClick="keyBoardButton"
+        android:src="@drawable/ic_baseline_keyboard_hide_24"
+        app:backgroundTint="#F6F5F5" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_above="@id/idFABSave"
+
+
+        android:layout_below="@id/idFABKeyboard"
+
+        android:gravity="start|top"
+        android:hint="Enter the details"
+        android:inputType="textMultiLine" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/idFABSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/idLL2"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:onClick="saveButton"
+
+        android:src="@drawable/ic_baseline_save_35"
+        app:backgroundTint="#2196F3" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:weightSum="6"
+        android:id="@+id/idLL2"
+        >
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="boldButton"
+            app:srcCompat="@drawable/ic_baseline_format_bold_35" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="italicButton"
+            app:srcCompat="@drawable/ic_baseline_format_italic_35"
+            />
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="underlineButton"
+            app:srcCompat="@drawable/ic_baseline_format_underlined_35" />
+
+        <ImageButton
+            android:id="@+id/imageButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="leftAlignButton"
+            app:srcCompat="@drawable/ic_baseline_format_align_left_35" />
+
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="centerAlignButton"
+            app:srcCompat="@drawable/ic_baseline_format_align_center_35" />
+
+        <ImageButton
+            android:id="@+id/imageButton6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="rightAlignButton"
+            app:srcCompat="@drawable/ic_baseline_format_align_right_35" />
+    </LinearLayout>
+
+</RelativeLayout>
