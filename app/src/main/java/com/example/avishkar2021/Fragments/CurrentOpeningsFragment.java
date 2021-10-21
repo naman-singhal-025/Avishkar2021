@@ -55,6 +55,18 @@ public class CurrentOpeningsFragment extends Fragment {
                         AddCompaniesModel model;
                         model = subshot.getValue(AddCompaniesModel.class);
                         model.setDate(dataSnapshot.getKey());
+                        try
+                        {
+                            model.setInternS(snapshot.child("Users").
+                                    child(FirebaseAuth.getInstance().getUid()).child("internStatus").getValue().toString());
+                            model.setLockS(snapshot.child("Users").
+                                    child(FirebaseAuth.getInstance().getUid()).child("LockStatus").getValue().toString());
+                            model.setVerS(snapshot.child("Users").
+                                    child(FirebaseAuth.getInstance().getUid()).child("verificationStatus").getValue().toString());
+                        }catch (Exception e)
+                        {
+
+                        }
                         if(!snapshot.child("reg_com_uid").child(model.getCompany()).
                                 child(FirebaseAuth.getInstance().getUid()).exists())
                         {

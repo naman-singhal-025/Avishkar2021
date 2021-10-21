@@ -1,14 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.AddNewInterviewFragment">
+    android:background="@color/cog_img_background"
+    android:backgroundTint="@color/cog_img_background"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/bold"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:background="@color/lightBlue"
+                android:backgroundTint="@color/lightBlue"
+                app:srcCompat="@drawable/ic_baseline_format_bold_35"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageView
+                android:id="@+id/italic"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:background="@color/lightBlue"
+                android:backgroundTint="@color/lightBlue"
+                app:srcCompat="@drawable/ic_baseline_format_italic_35"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageView
+                android:id="@+id/underline"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:background="@color/lightBlue"
+                android:backgroundTint="@color/lightBlue"
+                app:srcCompat="@drawable/ic_baseline_format_underlined_35"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageView
+                android:id="@+id/left"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:background="@color/lightBlue"
+                android:backgroundTint="@color/lightBlue"
+                app:srcCompat="@drawable/ic_baseline_format_align_left_35"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageView
+                android:id="@+id/center"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:background="@color/lightBlue"
+                android:backgroundTint="@color/lightBlue"
+                app:srcCompat="@drawable/ic_baseline_format_align_center_35"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageView
+                android:id="@+id/right"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:background="@color/lightBlue"
+                android:backgroundTint="@color/lightBlue"
+                app:srcCompat="@drawable/ic_baseline_format_align_right_35"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageView
+                android:id="@+id/text_color"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:background="@color/lightBlue"
+                android:backgroundTint="@color/lightBlue"
+                app:srcCompat="@drawable/ic_baseline_format_color_text_24" />
+
+            <ImageView
+                android:id="@+id/highlight"
+                android:layout_width="57dp"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:background="@color/lightBlue"
+                android:backgroundTint="@color/lightBlue"
+                android:src="@drawable/ic_baseline_format_color_fill_24" />
+
+            <ImageView
+                android:id="@+id/textSize"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:background="@color/lightBlue"
+                android:backgroundTint="@color/lightBlue"
+                android:src="@drawable/ic_baseline_format_size_24" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="10"
+        android:backgroundTint="@color/cog_img_background"
+        android:gravity="start|top"
+        android:hint="Enter the details"
+        android:inputType="textMultiLine|textNoSuggestions|textCapSentences"
+        android:isScrollContainer="false"
+        android:minHeight="48dp"
+        android:scrollHorizontally="false"
+        android:singleLine="false" />
 
-</FrameLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/next_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="false"
+
+            android:layout_alignParentRight="false"
+            android:layout_alignParentBottom="false"
+            android:layout_gravity="left"
+            android:baselineAlignBottom="false"
+            android:onClick="saveButton"
+            android:src="@drawable/next_line"
+            app:backgroundTint="#2196F3"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/idFABSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+
+            android:layout_alignParentRight="false"
+            android:layout_alignParentBottom="false"
+            android:layout_gravity="right"
+            android:baselineAlignBottom="false"
+            android:onClick="saveButton"
+            android:src="@drawable/ic_baseline_save_35"
+            app:backgroundTint="#2196F3"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </RelativeLayout>
+
+</LinearLayout>

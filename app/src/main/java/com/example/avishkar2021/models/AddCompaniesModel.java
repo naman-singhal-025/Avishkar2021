@@ -6,6 +6,9 @@ public class AddCompaniesModel {
     private String stipend;
     private String deadline;
     private String date;
+    private String lockS;
+    private String verS;
+    private String internS;
 
     public AddCompaniesModel() {
     }
@@ -55,5 +58,29 @@ public class AddCompaniesModel {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getLockS() {
+        return lockS;
+    }
+
+    public void setLockS(String lockS) {
+        this.lockS = lockS;
+    }
+
+    public String getVerS() {
+        return verS;
+    }
+
+    public void setVerS(String verS) {
+        this.verS = verS;
+    }
+
+    public String getInternS() {
+        return internS;
+    }
+
+    public void setInternS(String internS) {
+        this.internS = internS;
     }
 }

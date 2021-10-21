@@ -14,11 +14,14 @@ import android.widget.Toast;
 import com.example.avishkar2021.R;
 import com.example.avishkar2021.models.AddCompaniesModel;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 public class CurrentOpeningsAdapter extends BaseAdapter {
     private Context context;
@@ -88,17 +91,34 @@ public class CurrentOpeningsAdapter extends BaseAdapter {
                 @Override
                 public void onClick(View view) {
 
-                    FirebaseDatabase.getInstance().getReference().child("Users").
-                            child(FirebaseAuth.getInstance().getUid()).child("RegisteredCompanies").
-                            push().setValue(addCompaniesModelArrayList.get(position));
+                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+                    AddCompaniesModel model = addCompaniesModelArrayList.get(position);
+                    if(model.getLockS().equals("Locked"))
+                    {
+                        Toast.makeText(context, "Alas! Your Profile is Locked!!!", Toast.LENGTH_SHORT).show();
+                    }
+                    else if(model.getInternS().equals("Assigned"))
+                    {
+                        Toast.makeText(context, "Congrats! You have already got an internship.", Toast.LENGTH_SHORT).show();
+                    }
+                    else if(model.getVerS().equals("Verified"))
+                    {
+                        ref.child("reg_com_uid").
+                                child(model.getCompany()).
+                                child(FirebaseAuth.getInstance().getUid()).setValue("Registered");
+                        String date = DateFormat.getDateTimeInstance().format(new Date());
+                        model.setDate(date);
+                        FirebaseDatabase.getInstance().getReference().child("Users").
+                                child(FirebaseAuth.getInstance().getUid()).child("RegisteredCompanies").
+                                push().setValue(model);
+//                    Toast.makeText(context, date, Toast.LENGTH_SHORT).show();
 
-
-                    FirebaseDatabase.getInstance().getReference().child("reg_com_uid").
-                            child(addCompaniesModelArrayList.get(position).getCompany()).
-                            child(FirebaseAuth.getInstance().getUid()).setValue("Registered");
-                    addCompaniesModelArrayList.get(position).setDate(SimpleDateFormat.getDateInstance().
-                            format(Calendar.getInstance().getTime()));
-                    Toast.makeText(context, "Registered", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Registered", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        Toast.makeText(context, "Your profile is under-verification!!!", Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
         }catch (Exception e)
