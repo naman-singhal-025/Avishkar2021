@@ -93,31 +93,30 @@ public class CurrentOpeningsAdapter extends BaseAdapter {
 
                     DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
                     AddCompaniesModel model = addCompaniesModelArrayList.get(position);
-                    if(model.getLockS().equals("Locked"))
+                    try
                     {
-                        Toast.makeText(context, "Alas! Your Profile is Locked!!!", Toast.LENGTH_SHORT).show();
-                    }
-                    else if(model.getInternS().equals("Assigned"))
-                    {
-                        Toast.makeText(context, "Congrats! You have already got an internship.", Toast.LENGTH_SHORT).show();
-                    }
-                    else if(model.getVerS().equals("Verified"))
-                    {
-                        ref.child("reg_com_uid").
-                                child(model.getCompany()).
-                                child(FirebaseAuth.getInstance().getUid()).setValue("Registered");
-                        String date = DateFormat.getDateTimeInstance().format(new Date());
-                        model.setDate(date);
-                        FirebaseDatabase.getInstance().getReference().child("Users").
-                                child(FirebaseAuth.getInstance().getUid()).child("RegisteredCompanies").
-                                push().setValue(model);
+                        if (model.getLockS().equals("Locked")) {
+                            Toast.makeText(context, "Alas! Your Profile is Locked!!!", Toast.LENGTH_SHORT).show();
+                        } else if (model.getInternS().equals("Assigned")) {
+                            Toast.makeText(context, "Congrats! You have already got an internship.", Toast.LENGTH_SHORT).show();
+                        } else if (model.getVerS().equals("Verified")) {
+                            ref.child("reg_com_uid").
+                                    child(model.getCompany()).
+                                    child(FirebaseAuth.getInstance().getUid()).setValue("Registered");
+                            String date = DateFormat.getDateTimeInstance().format(new Date());
+                            model.setDate(date);
+                            FirebaseDatabase.getInstance().getReference().child("Users").
+                                    child(FirebaseAuth.getInstance().getUid()).child("RegisteredCompanies").
+                                    push().setValue(model);
 //                    Toast.makeText(context, date, Toast.LENGTH_SHORT).show();
 
-                        Toast.makeText(context, "Registered", Toast.LENGTH_SHORT).show();
-                    }
-                    else
+                            Toast.makeText(context, "Registered", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(context, "Your profile is under-verification!!!", Toast.LENGTH_SHORT).show();
+                        }
+                    }catch (Exception e)
                     {
-                        Toast.makeText(context, "Your profile is under-verification!!!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Your profile is incomplete!!", Toast.LENGTH_SHORT).show();
                     }
                 }
             });

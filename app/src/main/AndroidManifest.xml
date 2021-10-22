@@ -14,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Avishkar2021">
         <activity
+            android:name=".ExperienceActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ViewInterviewActivity"
+            android:exported="true" />
+        <activity
             android:name=".StudentDetailActivity"
             android:exported="true" />
         <activity

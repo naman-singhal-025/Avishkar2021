@@ -1,13 +1,21 @@
 package com.example.avishkar2021.Fragments;
 
+import android.Manifest;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
+import android.os.Environment;
 import android.text.Spannable;
 import android.text.style.AbsoluteSizeSpan;
 import android.text.style.BackgroundColorSpan;
@@ -25,10 +33,24 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.NumberPicker;
+import android.widget.Toast;
 
 import com.example.avishkar2021.R;
 import com.example.avishkar2021.databinding.FragmentAddNewInterviewBinding;
+import com.example.avishkar2021.models.AddCompaniesModel;
+import com.example.avishkar2021.models.Users;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.UUID;
 
 import top.defaults.colorpicker.ColorPickerPopup;
 
@@ -36,16 +58,29 @@ public class AddNewInterviewFragment extends Fragment{
 
     private EditText edittext;
     private int text_size = 14;
+    private File filepath = null;
+    FirebaseStorage storage;
+    FirebaseDatabase database;
+    ProgressDialog progressDialog;
     String[] sizes = new String[]{"8","9","10","11","12","14","16","18","20","22","24","26","28","36","48","72"};
 
     FragmentAddNewInterviewBinding binding;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
+//
+//        ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
+//                        Manifest.permission.WRITE_EXTERNAL_STORAGE},
+//                PackageManager.PERMISSION_GRANTED);
         binding = FragmentAddNewInterviewBinding.inflate(inflater, container, false);
         edittext = binding.editTextTextMultiLine;
+
+        progressDialog = new ProgressDialog(getContext());
+        progressDialog.setTitle("Letting your ink dry...");
+        progressDialog.setMessage("Please, wait !!");
+
+        database = FirebaseDatabase.getInstance();
+        storage = FirebaseStorage.getInstance();
 
         edittext.setCustomSelectionActionModeCallback(new ActionMode.Callback() {
 
@@ -247,17 +282,77 @@ public class AddNewInterviewFragment extends Fragment{
             }
         });
 
-        binding.nextLine.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                edittext.append("\n");
-            }
-        });
-
         binding.idFABSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                progressDialog.show();
+                View root = binding.layoutSs;
+                root.setDrawingCacheEnabled(true);
+                Bitmap bitmap = Bitmap.createBitmap(root.getDrawingCache());
+                root.setDrawingCacheEnabled(false);
+
+                AddCompaniesModel user = new AddCompaniesModel();
+                user.setName(binding.interName.getText().toString());
+                user.setDate(binding.interDate.getText().toString());
+                user.setCompany(binding.interCompany.getText().toString());
+                //to store ss in firebase
+                String key = UUID.randomUUID().toString();
+                StorageReference storageRef = storage.getReference().child("InterviewExperiencesSS")
+                        .child(key);
+
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                byte[] data = baos.toByteArray();
+
+                UploadTask uploadTask = storageRef.putBytes(data);
+
+                uploadTask.addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        // Handle unsuccessful uploads
+                        progressDialog.dismiss();
+                        Toast.makeText(getContext(), "Failed", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
+                        String downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl().toString();
+                        user.setDescription(downloadUrl);
+                        database.getReference().child("InterviewExperiences").child(user.getCompany())
+                                .child(key).setValue(user);
+                        progressDialog.dismiss();
+                        Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+
+
+
+
+
+                //to store screenshot in local storage
+//                filepath = new File(getActivity().getExternalFilesDir(null), "screenshot");
+//                try {
+//                    if (!filepath.exists()) {
+//                        filepath.createNewFile();
+//                    }
+//                }catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                try {
+//                    FileOutputStream fOut = new FileOutputStream(filepath);
+//                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fOut);
+//                    fOut.flush();
+//                    fOut.close();
+//                    Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                    Toast.makeText(getContext(), "Failed", Toast.LENGTH_SHORT).show();
+//
+//                }
             }
         });
 

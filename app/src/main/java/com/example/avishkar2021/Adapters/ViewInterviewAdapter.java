@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
+
 import com.example.avishkar2021.R;
 import com.example.avishkar2021.models.AddUserModel;
 import com.example.avishkar2021.models.Users;
@@ -22,13 +24,15 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class AddContactsAdapter extends BaseAdapter {
+public class ViewInterviewAdapter extends BaseAdapter {
     private Context context;
-    private static ArrayList<Users> usersArrayList;
+    private static ArrayList<String > list;
+    int id=-1;
 
-    public AddContactsAdapter(Context context, ArrayList<Users> usersArrayList) {
+    public ViewInterviewAdapter(Context context, ArrayList<String> list,int id) {
         this.context = context;
-        this.usersArrayList = usersArrayList;
+        this.list = list;
+        this.id = id;
     }
 
     @Override
@@ -43,12 +47,12 @@ public class AddContactsAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return usersArrayList.size();
+        return list.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return usersArrayList.get(position);
+        return list.get(position);
     }
 
     @Override
@@ -58,44 +62,28 @@ public class AddContactsAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        final AddContactsAdapter.ViewHolder holder;
+        final ViewInterviewAdapter.ViewHolder holder;
 
         if (convertView == null) {
             holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.add_contacts, null, true);
+            convertView = inflater.inflate(R.layout.view_interview, null, true);
 
             convertView.setTag(holder);
         }else {
             // the getTag returns the viewHolder object set as a tag to the view
-            holder = (AddContactsAdapter.ViewHolder)convertView.getTag();
+            holder = (ViewInterviewAdapter.ViewHolder)convertView.getTag();
         }
-        holder.phone = convertView.findViewById(R.id.userPhone);
-        holder.name = convertView.findViewById(R.id.userName);
-        holder.branch = convertView.findViewById(R.id.userBranch);
-        holder.mail = convertView.findViewById(R.id.userMail);
-        holder.profile = convertView.findViewById(R.id.userProfileImage);
-        holder.mail.setText(usersArrayList.get(position).getMail());
-        holder.name.setText(usersArrayList.get(position).getUserName());
-        holder.branch.setText(usersArrayList.get(position).getBranch());
-        holder.phone.setText(usersArrayList.get(position).getPhone());
-        Picasso.get().load(usersArrayList.get(position).getProfilePic())
-                .placeholder(R.drawable.avatar)
-                .into(holder.profile);
-
-
-
+       holder.name = convertView.findViewById(R.id.company_name);
+        holder.name.setTextColor(ContextCompat.getColor(context, R.color.colorPrimary));
+        holder.name.setText(list.get(position));
         return convertView;
     }
 
     private class ViewHolder {
 
         protected TextView name;
-        protected TextView mail;
-        protected TextView branch;
-        protected TextView phone;
-        private ImageView profile;
 
     }
 }

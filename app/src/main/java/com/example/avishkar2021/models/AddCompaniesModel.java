@@ -9,6 +9,8 @@ public class AddCompaniesModel {
     private String lockS;
     private String verS;
     private String internS;
+    private String name;
+    private String description;
 
     public AddCompaniesModel() {
     }
@@ -82,5 +84,21 @@ public class AddCompaniesModel {
 
     public void setInternS(String internS) {
         this.internS = internS;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

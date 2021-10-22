@@ -52,5 +52,13 @@ public class AdminMainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        binding.forumFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AdminMainActivity.this,VerifyStudentsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
