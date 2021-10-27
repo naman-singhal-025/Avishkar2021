@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -35,7 +36,7 @@ public class ViewInterviewFragment extends Fragment {
 
     FirebaseDatabase database;
     ProgressDialog progressDialog;
-    ListView listView;
+    GridView listView;
     FragmentViewInterviewBinding binding;
     ArrayList<String> list=new ArrayList<>();
     @Override

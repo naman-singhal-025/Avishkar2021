@@ -2,6 +2,7 @@ package com.example.avishkar2021.Fragments;
 
 import android.app.DownloadManager;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.fragment.app.Fragment;
 
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -131,13 +133,39 @@ public class PhotoResumeFragment extends Fragment {
         binding.downloadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(users.getResume()));
-                startActivity(intent);
+//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(users.getResume()));
+//                startActivity(intent);
+                String filename = "resume";
+                try{
+                    filename = users.getReg_no();
+                }catch (Exception e)
+                {
+
+                }
+                downloadFile(getContext(),filename,".pdf", Environment.DIRECTORY_DOWNLOADS,users.getResume());
                 };
 
         });
         return binding.getRoot();
     }
+
+
+    public long downloadFile(Context context, String fileName, String fileExtension, String destinationDirectory, String url) {
+
+
+        DownloadManager downloadmanager = (DownloadManager) context.
+                getSystemService(Context.DOWNLOAD_SERVICE);
+        Uri uri = Uri.parse(url);
+        DownloadManager.Request request = new DownloadManager.Request(uri);
+
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        request.setDestinationInExternalFilesDir(context, destinationDirectory, fileName + fileExtension);
+
+        Toast.makeText(context, "Downloading...", Toast.LENGTH_SHORT).show();
+        return downloadmanager.enqueue(request);
+    }
+
+
         @Override
         public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
             super.onActivityResult(requestCode, resultCode, data);

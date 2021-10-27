@@ -18,7 +18,12 @@ public class Users {
     private String verStatus;
     private String branch;
     private String phone;
+    private String feedback_desc;
     private URI pImage;
+
+
+
+    private String reg_no;
 
     public Users(String profilePic, String userName, String mail, String phone, String branch) {
         this.profilePic = profilePic;
@@ -156,5 +161,20 @@ public class Users {
 
     public void setpImage(URI pImage) {
         this.pImage = pImage;
+    }
+    public String getReg_no() {
+        return reg_no;
+    }
+
+    public void setReg_no(String reg_no) {
+        this.reg_no = reg_no;
+    }
+
+    public String getFeedback_desc() {
+        return feedback_desc;
+    }
+
+    public void setFeedback_desc(String feedback_desc) {
+        this.feedback_desc = feedback_desc;
     }
 }

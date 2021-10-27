@@ -56,7 +56,7 @@ public class AdminMainActivity extends AppCompatActivity {
         binding.forumFeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AdminMainActivity.this,VerifyStudentsActivity.class);
+                Intent intent = new Intent(AdminMainActivity.this,FeedbackActivity.class);
                 startActivity(intent);
             }
         });

@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 
+import android.app.DownloadManager;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Toast;
@@ -169,11 +172,22 @@ public class StudentDetailActivity extends AppCompatActivity {
         binding.downloadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(resume));
-                startActivity(intent);
+//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(resume));
+//                startActivity(intent);
+
+                String filename = "resume";
+                try{
+                    filename = binding.regNo.getText().toString();
+                }catch (Exception e)
+                {
+
+                }
+                downloadFile(StudentDetailActivity.this,filename,".pdf", Environment.DIRECTORY_DOWNLOADS,resume);
             }
 
         });
+
+
 
         binding.saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -238,5 +252,18 @@ public class StudentDetailActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+    public long downloadFile(Context context, String fileName, String fileExtension, String destinationDirectory, String url) {
+
+
+        DownloadManager downloadmanager = (DownloadManager) context.
+                getSystemService(Context.DOWNLOAD_SERVICE);
+        Uri uri = Uri.parse(url);
+        DownloadManager.Request request = new DownloadManager.Request(uri);
+
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        request.setDestinationInExternalFilesDir(context, destinationDirectory, fileName + fileExtension);
+        Toast.makeText(context, "Downloading...", Toast.LENGTH_SHORT).show();
+        return downloadmanager.enqueue(request);
     }
 }
