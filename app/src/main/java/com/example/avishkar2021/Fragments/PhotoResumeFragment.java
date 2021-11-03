@@ -65,27 +65,30 @@ public class PhotoResumeFragment extends Fragment {
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        users  = snapshot.getValue(Users.class);
+                        try
+                        {
+                            users = snapshot.getValue(Users.class);
 //                        set profile image from database
-                        Picasso.get().load(users.getProfilePic())
-                                .placeholder(R.drawable.avatar)
-                                .into(binding.profileImage);
+                            Picasso.get().load(users.getProfilePic())
+                                    .placeholder(R.drawable.avatar)
+                                    .into(binding.profileImage);
 
-                        if(snapshot.child("resume").exists())
-                        {
-                            binding.pdfName.setText("Resume Available");
-                            binding.downloadBtn.setVisibility(View.VISIBLE);
-                            DrawableCompat.setTint(binding.uploadpdf.getDrawable(), ContextCompat.getColor(getContext(), R.color.colorPrimary));
-                        }
+                            if (snapshot.child("resume").exists()) {
+                                binding.pdfName.setText("Resume Available");
+                                binding.downloadBtn.setVisibility(View.VISIBLE);
+                                DrawableCompat.setTint(binding.uploadpdf.getDrawable(), ContextCompat.getColor(getContext(), R.color.colorPrimary));
+                            }
 
-                        if(snapshot.child("LockStatus").exists())
-                        {
-                            lock = snapshot.child("LockStatus").getValue().toString();
-                        }
+                            if (snapshot.child("LockStatus").exists()) {
+                                lock = snapshot.child("LockStatus").getValue().toString();
+                            }
 
-                        if(snapshot.child("verificationStatus").exists())
+                            if (snapshot.child("verificationStatus").exists()) {
+                                ver = snapshot.child("verificationStatus").getValue().toString();
+                            }
+                        }catch (Exception e)
                         {
-                            ver = snapshot.child("verificationStatus").getValue().toString();
+
                         }
                     }
 

@@ -19,7 +19,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="Add Companies Portal"
-            android:textSize="20sp"
+            android:textSize="28sp"
             android:textStyle="bold" />
     </LinearLayout>
 

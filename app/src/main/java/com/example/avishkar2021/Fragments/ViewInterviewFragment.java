@@ -54,6 +54,7 @@ public class ViewInterviewFragment extends Fragment {
                 .addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.clear();
                 for(DataSnapshot dataSnapshot : snapshot.getChildren())
                 {
                     list.add(dataSnapshot.getKey().toString());

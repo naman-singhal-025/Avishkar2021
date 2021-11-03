@@ -54,6 +54,7 @@ public class ViewInterviewActivity extends AppCompatActivity {
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        list.clear();
                         for(DataSnapshot dataSnapshot : snapshot.getChildren())
                         {
                             String s = dataSnapshot.child("name").getValue()

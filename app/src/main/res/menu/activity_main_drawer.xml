@@ -19,14 +19,16 @@
             android:icon="@drawable/companies"
             android:title="@string/companies" >
             <menu>
-                <item
-                    android:id="@+id/currentOpeningsFragment"
-                    android:icon="@drawable/ic_baseline_add_24"
-                    android:title="@string/current_openings" />
-                <item
-                    android:id="@+id/registeredCompaniesFragment"
-                    android:icon="@drawable/ic_baseline_check_24"
-                    android:title="@string/registered_companies" />
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/currentOpeningsFragment"
+                        android:icon="@drawable/ic_baseline_add_24"
+                        android:title="@string/current_openings" />
+                    <item
+                        android:id="@+id/registeredCompaniesFragment"
+                        android:icon="@drawable/ic_baseline_check_24"
+                        android:title="@string/registered_companies" />
+                </group>
             </menu>
         </item>
     </group>
@@ -36,6 +38,7 @@
             android:icon="@drawable/internships"
             android:title="@string/internships" >
             <menu>
+                <group android:checkableBehavior="single">
                     <item
                         android:id="@+id/addNewInterviewFragment"
                         android:icon="@drawable/bar_chart"
@@ -44,10 +47,12 @@
                         android:id="@+id/viewInterviewFragment"
                         android:icon="@drawable/bar_chart"
                         android:title="@string/view_interview_experience" />
+                </group>
+
             </menu>
         </item>
     </group>
-    <group>
+    <group android:checkableBehavior="single">
         <item
             android:id="@+id/forumFragment"
             android:icon="@drawable/info"
@@ -57,7 +62,7 @@
             android:icon="@drawable/contacts"
             android:title="@string/contacts" />
     </group>
-    <group>
+    <group android:checkableBehavior="single">
         <item
             android:id="@+id/logout"
             android:icon="@drawable/ic_baseline_logout_24"

@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.avishkar2021.Adapters.FragmentsAdapter;
-import com.example.avishkar2021.R;
 import com.example.avishkar2021.databinding.FragmentProfileBinding;
 
 public class ProfileFragment extends Fragment {
