@@ -1,5 +1,5 @@
 
-# One_placement -by NMK Devs
+# 1_placement -by NMK Devs
 
 This app is a students internship and placement portal where MNNIT students who want to take part in
 internship /placement can register and get notification regarding incoming companies.Students can
