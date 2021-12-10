@@ -63,5 +63,5 @@ internship /placement can register and get notification regarding incoming compa
 
 
 ## Screenshots
-<img src="screenshot image/IMG-20211211-WA0000.jpg">
+<img src="screenshot image/IMG-20211211-WA0000.jpg"  height="400">
 
