@@ -26,6 +26,7 @@
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/drawable/ic_baseline_person_add_24.xml" value="0.1685185185185185" />
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/drawable/ic_baseline_verified_user_24.xml" value="0.15462962962962962" />
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/drawable/ic_menu_camera.xml" value="0.14074074074074075" />
+        <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/drawable/layer_list.xml" value="0.1" />
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_add_companies.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_add_contacts.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_add_students.xml" value="0.25" />
@@ -39,6 +40,7 @@
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_notice.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_sign_in.xml" value="0.22" />
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_sign_up.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_splash.xml" value="0.13768115942028986" />
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_student_detail.xml" value="0.25" />
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_user_notice.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/naman/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_verify_students.xml" value="0.20416666666666666" />
