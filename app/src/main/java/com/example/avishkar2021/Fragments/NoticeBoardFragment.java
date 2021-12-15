@@ -14,30 +14,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.avishkar2021.Adapters.NoticeBoardAdapter;
-import com.example.avishkar2021.Adapters.ViewInterviewAdapter;
-import com.example.avishkar2021.AddContactsActivity;
-import com.example.avishkar2021.DisplayNoticeActivity;
-import com.example.avishkar2021.R;
-import com.example.avishkar2021.ViewInterviewActivity;
+import com.example.avishkar2021.user.DisplayNoticeActivity;
 import com.example.avishkar2021.databinding.FragmentNoticeBoardBinding;
-import com.example.avishkar2021.databinding.FragmentViewInterviewBinding;
-import com.example.avishkar2021.models.Users;
 import com.example.avishkar2021.models.notice_model;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class NoticeBoardFragment extends Fragment {
     FirebaseDatabase database;

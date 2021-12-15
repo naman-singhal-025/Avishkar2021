@@ -1,4 +1,4 @@
-package com.example.avishkar2021;
+package com.example.avishkar2021.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,12 +13,10 @@ import com.example.avishkar2021.Adapters.AddCompanyAdapter;
 import com.example.avishkar2021.databinding.ActivityAddCompaniesBinding;
 import com.example.avishkar2021.models.AddCompaniesModel;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ServerValue;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 
 public class AddCompaniesActivity extends AppCompatActivity {
 

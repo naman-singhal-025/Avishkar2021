@@ -1,4 +1,4 @@
-package com.example.avishkar2021;
+package com.example.avishkar2021.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -41,14 +41,14 @@ public class AdminMainActivity extends AppCompatActivity {
         binding.addNotice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AdminMainActivity.this,NoticeActivity.class);
+                Intent intent = new Intent(AdminMainActivity.this, NoticeActivity.class);
                 startActivity(intent);
             }
         });
         binding.verifyStud.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AdminMainActivity.this,VerifyStudentsActivity.class);
+                Intent intent = new Intent(AdminMainActivity.this, VerifyStudentsActivity.class);
                 startActivity(intent);
             }
         });
@@ -56,7 +56,7 @@ public class AdminMainActivity extends AppCompatActivity {
         binding.forumFeedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AdminMainActivity.this,FeedbackActivity.class);
+                Intent intent = new Intent(AdminMainActivity.this, FeedbackActivity.class);
                 startActivity(intent);
             }
         });

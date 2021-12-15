@@ -1,9 +1,13 @@
-package com.example.avishkar2021;
+package com.example.avishkar2021.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.avishkar2021.R;
+import com.example.avishkar2021.admin.AdminMainActivity;
 import com.example.avishkar2021.databinding.ActivityMainBinding;
+import com.example.avishkar2021.user.SignIn;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -16,8 +20,6 @@ import android.text.InputType;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         binding.login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,SignIn.class);
+                Intent intent = new Intent(MainActivity.this, SignIn.class);
                 startActivity(intent);
             }
         });
@@ -72,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                         m_Text = input.getText().toString();
                         if(m_Text.equals(pass))
                         {
-                            Intent intent = new Intent(MainActivity.this,AdminMainActivity.class);
+                            Intent intent = new Intent(MainActivity.this, AdminMainActivity.class);
                             startActivity(intent);
                         }
                         else

@@ -1,4 +1,4 @@
-package com.example.avishkar2021;
+package com.example.avishkar2021.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
 

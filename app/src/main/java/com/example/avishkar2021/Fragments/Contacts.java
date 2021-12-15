@@ -12,9 +12,6 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.example.avishkar2021.Adapters.AddContactsAdapter;
-import com.example.avishkar2021.AddContactsActivity;
-import com.example.avishkar2021.R;
-import com.example.avishkar2021.databinding.ActivityAddContactsBinding;
 import com.example.avishkar2021.databinding.FragmentContactsBinding;
 import com.example.avishkar2021.models.Users;
 import com.google.firebase.database.DataSnapshot;

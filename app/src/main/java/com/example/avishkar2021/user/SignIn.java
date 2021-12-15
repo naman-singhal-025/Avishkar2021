@@ -1,19 +1,19 @@
-package com.example.avishkar2021;
+package com.example.avishkar2021.user;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.avishkar2021.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
 import com.example.avishkar2021.databinding.ActivitySignInBinding;
 
 public class SignIn extends AppCompatActivity {
@@ -37,7 +37,7 @@ public class SignIn extends AppCompatActivity {
 
         if(auth.getCurrentUser()!=null)
         {
-            Intent intent = new Intent(SignIn.this,MainActivity2.class);
+            Intent intent = new Intent(SignIn.this, MainActivity2.class);
             startActivity(intent);
         }
         binding.btnSignIn.setOnClickListener(new View.OnClickListener() {

@@ -1,4 +1,4 @@
-package com.example.avishkar2021;
+package com.example.avishkar2021.user;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -8,8 +8,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.avishkar2021.R;
 import com.example.avishkar2021.models.Users;
 import com.google.android.material.navigation.NavigationView;
 
@@ -135,7 +135,7 @@ public class MainActivity2 extends AppCompatActivity {
         actionView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity2.this,UserNoticeActivity.class);
+                Intent intent = new Intent(MainActivity2.this, UserNoticeActivity.class);
                 startActivity(intent);
             }
         });

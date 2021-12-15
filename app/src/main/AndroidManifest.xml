@@ -14,10 +14,12 @@
         android:roundIcon="@mipmap/cog_img_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Avishkar2021"
-        android:windowSoftInputMode="adjustResize">
+        android:windowSoftInputMode="adjustResize"
+        >
         <activity
-            android:name=".SplashActivity"
+            android:name=".activities.SplashActivity"
             android:theme="@style/SplashTheme"
+            android:screenOrientation="portrait"
             android:exported="true"
             android:noHistory="true"
             >
@@ -29,61 +31,77 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DisplayNoticeActivity"
+            android:name=".user.DisplayNoticeActivity"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
-            android:name=".UserNoticeActivity"
+            android:name=".user.UserNoticeActivity"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
-            android:name=".FeedbackActivity"
+            android:name=".admin.FeedbackActivity"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
-            android:name=".ExperienceActivity"
+            android:name=".user.ExperienceActivity"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
-            android:name=".ViewInterviewActivity"
+            android:name=".user.ViewInterviewActivity"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
-            android:name=".StudentDetailActivity"
+            android:name=".admin.StudentDetailActivity"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
-            android:name=".AddContactsActivity"
+            android:name=".admin.AddContactsActivity"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
-            android:name=".NoticeActivity"
+            android:name=".admin.NoticeActivity"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
-            android:name=".AddCompaniesActivity"
+            android:name=".admin.AddCompaniesActivity"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
-            android:name=".VerifyStudentsActivity"
+            android:name=".admin.VerifyStudentsActivity"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
-            android:name=".AddStudentsActivity"
+            android:name=".admin.AddStudentsActivity"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
-            android:name=".AdminMainActivity"
+            android:name=".admin.AdminMainActivity"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
-            android:name=".MainActivity2"
+            android:name=".user.MainActivity2"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:label="@string/title_activity_main2"
             android:theme="@style/Theme.Avishkar2021.NoActionBar" />
         <activity
-            android:name=".SignUp"
+            android:name=".user.SignUp"
+            android:screenOrientation="portrait"
             android:exported="true"
             android:noHistory="true" />
         <activity
-            android:name=".SignIn"
+            android:name=".user.SignIn"
+            android:screenOrientation="portrait"
             android:exported="true"
             android:noHistory="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
+            android:screenOrientation="portrait"
             android:exported="true">
         </activity>
 
         <service
-            android:name=".MyFirebaseMessagingService"
+            android:name=".activities.MyFirebaseMessagingService"
             android:exported="false"
             android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>

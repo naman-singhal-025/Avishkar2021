@@ -1,4 +1,4 @@
-package com.example.avishkar2021;
+package com.example.avishkar2021.user;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,16 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.avishkar2021.Adapters.ViewInterviewAdapter;
 import com.example.avishkar2021.Adapters.ViewInterviewExtraAdapter;
-import com.example.avishkar2021.databinding.ActivityVerifyStudentsBinding;
 import com.example.avishkar2021.databinding.ActivityViewInterviewBinding;
-import com.example.avishkar2021.databinding.FragmentViewInterviewBinding;
 import com.example.avishkar2021.models.Users;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

@@ -1,4 +1,4 @@
-package com.example.avishkar2021;
+package com.example.avishkar2021.user;
 
 import androidx.appcompat.app.AppCompatActivity;
 

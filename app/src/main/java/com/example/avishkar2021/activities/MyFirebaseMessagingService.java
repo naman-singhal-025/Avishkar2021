@@ -1,4 +1,4 @@
-package com.example.avishkar2021;
+package com.example.avishkar2021.activities;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -14,6 +14,8 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 
+import com.example.avishkar2021.R;
+import com.example.avishkar2021.user.UserNoticeActivity;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 

@@ -1,24 +1,18 @@
-package com.example.avishkar2021;
+package com.example.avishkar2021.admin;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.Pair;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.avishkar2021.Adapters.AcademicDetailsAdapter;
 import com.example.avishkar2021.Adapters.AddUserAdapter;
 import com.example.avishkar2021.databinding.ActivityAddStudentsBinding;
-import com.example.avishkar2021.databinding.FragmentAcademicBinding;
 import com.example.avishkar2021.models.AddUserModel;
-import com.example.avishkar2021.models.EditModel;
-import com.example.avishkar2021.models.Users;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -26,9 +20,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
 
 public class AddStudentsActivity extends AppCompatActivity {
 

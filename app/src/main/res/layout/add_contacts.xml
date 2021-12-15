@@ -11,22 +11,33 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="8dp"
-        app:cardBackgroundColor="@color/white"
+        app:cardBackgroundColor="@color/lightBlue"
         app:cardCornerRadius="8dp"
         app:cardElevation="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#C4DDE4"
             android:orientation="horizontal">
 
-            <ImageView
+            <!--            <ImageView-->
+            <!--                android:id="@+id/userProfileImage"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:layout_margin="5dp"-->
+            <!--                android:layout_weight="1"-->
+            <!--                app:srcCompat="@drawable/avatar" />-->
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/userProfileImage"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/avatar" />
+                android:src="@drawable/avatar"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="2dp" />
 
             <LinearLayout
                 android:layout_width="0dp"

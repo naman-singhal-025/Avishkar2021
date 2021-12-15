@@ -1,4 +1,4 @@
-package com.example.avishkar2021;
+package com.example.avishkar2021.admin;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,21 +6,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.example.avishkar2021.Adapters.AddUserAdapter;
 import com.example.avishkar2021.Adapters.VerifyUserAdapter;
 import com.example.avishkar2021.databinding.ActivityVerifyStudentsBinding;
-import com.example.avishkar2021.models.Users;
 import com.example.avishkar2021.models.VerifyUserModel;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class VerifyStudentsActivity extends AppCompatActivity {
 

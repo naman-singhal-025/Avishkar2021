@@ -1,4 +1,4 @@
-package com.example.avishkar2021;
+package com.example.avishkar2021.user;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,17 +10,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.avishkar2021.Adapters.NoticeBoardAdapter;
 import com.example.avishkar2021.Adapters.UserNoticeBoardAdapter;
 import com.example.avishkar2021.databinding.ActivityUserNoticeBinding;
-import com.example.avishkar2021.databinding.FragmentNoticeBoardBinding;
 import com.example.avishkar2021.models.notice_model;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 

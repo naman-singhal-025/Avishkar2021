@@ -1,11 +1,11 @@
-package com.example.avishkar2021;
+package com.example.avishkar2021.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+
+import com.example.avishkar2021.R;
 
 import java.util.Timer;
 import java.util.TimerTask;
