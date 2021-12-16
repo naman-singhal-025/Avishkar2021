@@ -12,35 +12,12 @@
         android:layout_margin="10dp"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/studName"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:gravity="center"
-                android:text="Name"
-                android:textSize="32sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/verified"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:visibility="gone"
-                app:srcCompat="@drawable/ic_baseline_verified_24" />
-        </LinearLayout>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profileImage"
-            android:layout_width="240dp"
-            android:layout_height="240dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
@@ -49,6 +26,31 @@
             app:civ_border_width="2dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/studName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/lora_bold"
+                android:text="Name"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+
+            <ImageView
+                android:id="@+id/verified"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:srcCompat="@drawable/ic_baseline_verified_24" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -63,8 +65,10 @@
                 android:layout_weight="1"
                 android:hint="Reg No"
                 android:text="Reg No"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/lora_bold"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/regNo"
@@ -72,9 +76,10 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="right"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                tools:ignore="SpeakableTextPresentCheck" />
+                android:textSize="20sp"
+                tools:ignore="SpeakableTextPresentCheck"
+                android:fontFamily="@font/lora_regular"
+                android:textColor="@color/black"/>
 
         </LinearLayout>
 
@@ -91,8 +96,10 @@
                 android:layout_weight="1"
                 android:hint="Branch"
                 android:text="Branch"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/lora_bold"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/branch"
@@ -100,9 +107,11 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="right"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                tools:ignore="SpeakableTextPresentCheck" />
+                android:textSize="20sp"
+
+                tools:ignore="SpeakableTextPresentCheck"
+                android:fontFamily="@font/lora_regular"
+                android:textColor="@color/black"/>
         </LinearLayout>
 
         <LinearLayout
@@ -117,8 +126,10 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Profile Status"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/lora_bold"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/verifyStatus"
@@ -126,9 +137,11 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="right"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                tools:ignore="SpeakableTextPresentCheck" />
+                android:textSize="20sp"
+
+                tools:ignore="SpeakableTextPresentCheck"
+                android:fontFamily="@font/lora_regular"
+                android:textColor="@color/black"/>
         </LinearLayout>
 
         <LinearLayout
@@ -144,8 +157,10 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="TPO Credits"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/lora_bold"
+                android:textColor="@color/black"/>
 
             <TextView
                 android:id="@+id/tpoCred"
@@ -154,9 +169,10 @@
                 android:layout_weight="1"
                 android:gravity="right"
                 android:textColor="@color/colorPrimary"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                tools:ignore="SpeakableTextPresentCheck" />
+                android:textSize="20sp"
+
+                tools:ignore="SpeakableTextPresentCheck"
+                android:fontFamily="@font/lora_regular" />
         </LinearLayout>
 
         <LinearLayout
@@ -170,8 +186,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:fontFamily="@font/lora_bold"
                 android:text="Internship"
-                android:textSize="24sp"
+                android:textColor="@color/black"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -187,9 +205,11 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="right"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    android:textSize="20sp"
+
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:fontFamily="@font/lora_regular"
+                    android:textColor="@color/black"/>
 
                 <TextView
                     android:id="@+id/stipend"
@@ -197,9 +217,11 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="right"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    android:textSize="19sp"
+
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:fontFamily="@font/lora_regular"
+                    android:textColor="@color/black"/>
             </LinearLayout>
         </LinearLayout>
 

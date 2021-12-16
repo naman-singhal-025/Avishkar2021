@@ -12,7 +12,7 @@
         android:layout_gravity="center"
         android:layout_margin="8dp"
         app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="8dp"
+        app:cardCornerRadius="16dp"
         app:cardElevation="8dp">
 
         <LinearLayout
@@ -35,7 +35,8 @@
                     android:layout_weight="1"
                     android:text="Company"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/lora_bold" />
 
                 <TextView
                     android:id="@+id/company3"
@@ -43,7 +44,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="right"
-                    android:textSize="20sp" />
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/lora_regular"/>
             </LinearLayout>
 
             <LinearLayout
@@ -58,8 +61,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Branches Allowed"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/lora_bold" />
 
                 <TextView
                     android:id="@+id/branches3"
@@ -67,7 +71,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="right"
-                    android:textSize="20sp" />
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/lora_regular"/>
             </LinearLayout>
 
             <LinearLayout
@@ -82,8 +88,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Stipend"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/lora_regular" />
 
                 <TextView
                     android:id="@+id/stipend3"
@@ -91,7 +98,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="right"
-                    android:textSize="20sp" />
+                    android:textSize="18sp"
+                    android:fontFamily="@font/lora_regular"
+                    android:textColor="@color/black"/>
             </LinearLayout>
 
             <LinearLayout
@@ -106,8 +115,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Deadline"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/lora_bold"
+                    android:textColor="@color/black"/>
 
                 <TextView
                     android:id="@+id/deadline3"
@@ -115,7 +126,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="right"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/lora_regular"/>
             </LinearLayout>
 
             <Button
