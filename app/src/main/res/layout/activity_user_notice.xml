@@ -16,6 +16,7 @@
             android:layout_height="match_parent"
             android:layout_margin="4dp"
             android:fitsSystemWindows="true"
+            android:divider="@null"
             android:focusable="true"
             android:horizontalSpacing="3dp"
             android:numColumns="2"

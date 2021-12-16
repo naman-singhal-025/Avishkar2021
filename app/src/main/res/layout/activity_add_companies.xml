@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightGrey"
     android:orientation="vertical"
-    tools:context=".admin.AddCompaniesActivity"
-    >
+    tools:context=".admin.AddCompaniesActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,6 +17,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="5dp"
             android:gravity="center"
             android:text="Add Companies Portal"
             android:textSize="28sp"
@@ -26,10 +27,12 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <ListView
+            android:id="@+id/listView3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/listView3"/>
+            android:divider="@null"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingActionButton3"

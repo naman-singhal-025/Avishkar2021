@@ -10,10 +10,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="8dp"
+        android:layout_margin="15dp"
+        android:backgroundTint="@color/card_bg"
         app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="8dp">
+        app:cardCornerRadius="40dp"
+        app:cardElevation="8dp"
+        app:cardMaxElevation="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,7 +27,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="1dp"
                 android:orientation="horizontal"
                 android:padding="4dp">
 
@@ -33,26 +35,27 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/lora_bold"
                     android:text="Company"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/lora_bold" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/company3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/lora_regular"
                     android:gravity="right"
-                    android:textSize="18sp"
                     android:textColor="@color/black"
-                    android:fontFamily="@font/lora_regular"/>
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="1dp"
                 android:orientation="horizontal"
                 android:padding="4dp">
 
@@ -60,26 +63,27 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/lora_bold"
                     android:text="Branches Allowed"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/lora_bold" />
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/branches3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/lora_regular"
                     android:gravity="right"
-                    android:textSize="18sp"
                     android:textColor="@color/black"
-                    android:fontFamily="@font/lora_regular"/>
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="1dp"
                 android:orientation="horizontal"
                 android:padding="4dp">
 
@@ -87,26 +91,27 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/lora_bold"
                     android:text="Stipend"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/lora_regular" />
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/stipend3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="right"
-                    android:textSize="18sp"
                     android:fontFamily="@font/lora_regular"
-                    android:textColor="@color/black"/>
+                    android:gravity="right"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_margin="1dp"
                 android:orientation="horizontal"
                 android:padding="4dp">
 
@@ -114,27 +119,28 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Deadline"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
                     android:fontFamily="@font/lora_bold"
-                    android:textColor="@color/black"/>
+                    android:text="Deadline"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/deadline3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/lora_regular"
                     android:gravity="right"
-                    android:textSize="20sp"
                     android:textColor="@color/black"
-                    android:fontFamily="@font/lora_regular"/>
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <Button
                 android:id="@+id/register3"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
                 android:text="Register" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

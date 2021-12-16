@@ -25,13 +25,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="8dp"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/card_bg"
         android:elevation="8dp"
-        app:cardCornerRadius="8dp">
+        app:cardCornerRadius="40dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="5dp">
@@ -64,13 +66,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="8dp"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/card_bg"
         android:elevation="8dp"
-        app:cardCornerRadius="8dp">
+        app:cardCornerRadius="40dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="5dp">
@@ -114,13 +118,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="8dp"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/card_bg"
         android:elevation="8dp"
-        app:cardCornerRadius="8dp">
+        app:cardCornerRadius="40dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="5dp">
@@ -156,13 +162,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="8dp"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/card_bg"
         android:elevation="8dp"
-        app:cardCornerRadius="8dp">
+        app:cardCornerRadius="40dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="5dp">

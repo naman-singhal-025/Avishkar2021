@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
+    android:background="@color/lightGrey"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".Fragments.ForumFragment">
@@ -15,11 +16,11 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
         android:layout_weight="4"
+        android:background="@color/card_bg"
+
         android:ems="10"
         android:gravity="start|top"
-        android:hint="Feedback"
-
-        >
+        android:hint="Feedback">
 
         <com.google.android.material.textfield.TextInputEditText
 
@@ -27,6 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
+            android:background="@color/card_bg"
             android:textAlignment="textStart" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -38,8 +40,9 @@
         android:layout_marginTop="20dp"
 
         android:layout_marginRight="70dp"
-        android:layout_weight="0"
+        android:layout_marginBottom="20dp"
 
+        android:layout_weight="0"
         android:text="Send Feedback" />
 
 </LinearLayout>

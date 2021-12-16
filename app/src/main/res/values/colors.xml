@@ -21,6 +21,6 @@
     <color name="settingsIconColor">#0E8374</color>
     <color name="grayBackground">#BCBCBC</color>
     <color name="ocen_blue">#2196F3</color>
-    <color name="card_blue_bg">#C4DDE4</color>
+    <color name="card_bg">#E4E4E4</color>
 
 </resources>

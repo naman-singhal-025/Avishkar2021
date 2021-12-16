@@ -10,15 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="8dp"
-        app:cardBackgroundColor="@color/lightBlue"
-        app:cardCornerRadius="8dp"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/card_bg"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="40dp"
         app:cardElevation="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#C4DDE4"
             android:orientation="horizontal">
 
             <!--            <ImageView-->
@@ -36,68 +36,63 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:src="@drawable/avatar"
-                app:civ_border_color="#FF000000"
+                app:civ_border_color="@color/black"
                 app:civ_border_width="2dp" />
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="4dp"
+                android:layout_margin="5dp"
                 android:layout_weight="2"
                 android:gravity="center"
-                android:orientation="vertical"
-                android:padding="5dp">
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/userName"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
                     android:gravity="center|left"
                     android:hint="Name"
+                    android:inputType="textMultiLine"
+                    android:textColor="@color/black"
                     android:textIsSelectable="false"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
+                    android:textSize="18sp"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <TextView
                     android:id="@+id/userBranch"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
                     android:gravity="center|left"
                     android:hint="Branch"
-                    android:inputType="text"
-                    android:minHeight="48dp"
+                    android:inputType="textMultiLine"
+                    android:textColor="@color/black"
                     android:textIsSelectable="false"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
+                    android:textSize="18sp"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <TextView
                     android:id="@+id/userPhone"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
                     android:gravity="center|left"
                     android:hint="Phone No"
-                    android:inputType="text"
+                    android:inputType="textMultiLine"
+                    android:textColor="@color/black"
                     android:textIsSelectable="false"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
+                    android:textSize="18sp"
                     tools:ignore="TouchTargetSizeCheck" />
 
                 <TextView
                     android:id="@+id/userMail"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
                     android:gravity="center|left"
                     android:hint="E-Mail"
-                    android:inputType="text"
+                    android:inputType="textMultiLine"
+                    android:textColor="@color/black"
                     android:textIsSelectable="false"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
+                    android:textSize="18sp"
                     tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>
         </LinearLayout>

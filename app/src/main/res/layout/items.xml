@@ -9,14 +9,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="8dp"
-        app:cardCornerRadius="8dp"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/card_bg"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="40dp"
         app:cardElevation="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFFFFFFF"
+            android:layout_margin="10dp"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="5dp">
