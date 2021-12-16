@@ -106,6 +106,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="10"
+        android:background="@color/white"
         android:orientation="vertical">
 
         <LinearLayout
@@ -202,8 +203,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/inter_date"
+            <TextView
+                android:id="@+id/interDate"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -214,6 +215,7 @@
                 android:layout_marginBottom="2dp"
                 android:layout_weight="2"
                 android:backgroundTint="@color/cog_img_background"
+                android:gravity="center_vertical"
                 android:hint="Joining Date"
                 android:inputType="date"
                 android:minHeight="48dp"

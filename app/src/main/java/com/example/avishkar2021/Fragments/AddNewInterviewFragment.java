@@ -2,6 +2,7 @@ package com.example.avishkar2021.Fragments;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
@@ -31,6 +32,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.Toast;
@@ -50,6 +52,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.UUID;
 
 import top.defaults.colorpicker.ColorPickerPopup;
@@ -62,6 +66,7 @@ public class AddNewInterviewFragment extends Fragment{
     FirebaseStorage storage;
     FirebaseDatabase database;
     ProgressDialog progressDialog;
+    final Calendar cal = Calendar.getInstance();
     String[] sizes = new String[]{"8","9","10","11","12","14","16","18","20","22","24","26","28","36","48","72"};
 
     FragmentAddNewInterviewBinding binding;
@@ -328,11 +333,6 @@ public class AddNewInterviewFragment extends Fragment{
                 });
 
 
-
-
-
-
-
                 //to store screenshot in local storage
 //                filepath = new File(getActivity().getExternalFilesDir(null), "screenshot");
 //                try {
@@ -356,6 +356,24 @@ public class AddNewInterviewFragment extends Fragment{
             }
         });
 
+        binding.interDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                        cal.set(Calendar.YEAR,year);
+                        cal.set(Calendar.MONTH,month);
+                        cal.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+                        binding.interDate.setText(SimpleDateFormat.getDateInstance().format(cal.getTime()));
+                    }
+                },year,month,day);
+                datePickerDialog.show();
+            }
+        });
         return binding.getRoot();
     }
 

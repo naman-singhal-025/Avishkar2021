@@ -4,16 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightGrey"
+    android:backgroundTint="@color/lightGrey"
     android:orientation="vertical"
     tools:context=".Fragments.ViewInterviewFragment">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <ListView
+            android:id="@+id/listViewXY"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/listViewXY"/>
+            android:divider="@null" />
 
     </FrameLayout>
 
