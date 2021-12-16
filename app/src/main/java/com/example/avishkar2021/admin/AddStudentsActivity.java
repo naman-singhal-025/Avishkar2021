@@ -30,6 +30,7 @@ import org.apache.poi.ss.usermodel.Row;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -39,6 +40,7 @@ public class AddStudentsActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     FirebaseDatabase database;
     ProgressDialog progressDialog;
+    DecimalFormat df = new DecimalFormat("0");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,7 +118,7 @@ public class AddStudentsActivity extends AppCompatActivity {
                                if (colno==1){
                                    mail = myCell.toString();
                                }else if (colno==2){
-                                   pass = myCell.toString();
+                                   pass = df.format(myCell.getNumericCellValue());
                                }
                                colno++;
                            }
