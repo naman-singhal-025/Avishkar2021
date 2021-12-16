@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".Fragments.ForumFragment">
 
-    <EditText
-        android:id="@+id/feedback"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="10dp"
@@ -17,22 +17,29 @@
         android:layout_weight="4"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="Type the Feedback"
-        android:inputType="textMultiLine"
-        android:textColor="#0B0A0A"
-        android:textColorHint="#575555" />
+        android:hint="Feedback"
 
-        <Button
-            android:id="@+id/send"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:id="@+id/feedback"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="70dp"
-            android:layout_marginTop="20dp"
 
-            android:layout_marginRight="70dp"
-            android:layout_weight="0"
+            android:textAlignment="textStart" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            android:text="Send Feedback" />
+    <Button
+        android:id="@+id/send"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="20dp"
 
+        android:layout_marginRight="70dp"
+        android:layout_weight="0"
+
+        android:text="Send Feedback" />
 
 </LinearLayout>
