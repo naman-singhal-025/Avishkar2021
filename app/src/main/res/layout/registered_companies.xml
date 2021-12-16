@@ -34,7 +34,8 @@
                     android:layout_weight="1"
                     android:text="Company"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/lora_bold" />
 
                 <TextView
                     android:id="@+id/company4"
@@ -42,7 +43,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="right"
-                    android:textSize="20sp" />
+                    android:textSize="18sp"
+                    android:fontFamily="@font/lora_regular"
+                    android:textColor="@color/black"/>
             </LinearLayout>
 
             <LinearLayout
@@ -57,8 +60,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Stipend"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/lora_bold" />
 
                 <TextView
                     android:id="@+id/stipend4"
@@ -66,7 +70,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="right"
-                    android:textSize="20sp" />
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/lora_regular"/>
             </LinearLayout>
 
             <LinearLayout
@@ -81,8 +87,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Registered on"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/lora_bold" />
 
                 <TextView
                     android:id="@+id/date"
@@ -90,7 +97,9 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="right"
-                    android:textSize="20sp" />
+                    android:textSize="16sp"
+                    android:fontFamily="@font/lora_regular"
+                    android:textColor="@color/black"/>
             </LinearLayout>
 
         </LinearLayout>
