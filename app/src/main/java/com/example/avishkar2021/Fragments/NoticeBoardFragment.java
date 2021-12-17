@@ -57,6 +57,7 @@ public class NoticeBoardFragment extends Fragment {
                                         notice_model model = new notice_model();
                                         model.setDescription(dataSnapshot.child("description").getValue().toString());
                                         model.setSubject(dataSnapshot.child("subject").getValue().toString());
+                                        model.setPublish_date(dataSnapshot.child("publish_date").getValue().toString());
                                         model.setUid(dataSnapshot.getKey());
                                         list.add(model);
 

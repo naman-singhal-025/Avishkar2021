@@ -5,6 +5,7 @@ public class notice_model {
     private String description;
     private String status = "unseen";
     private String uid;
+    private String publish_date;
 
     public String getSubject() {
         return subject;
@@ -36,5 +37,13 @@ public class notice_model {
 
     public void setUid(String uid) {
         this.uid = uid;
+    }
+
+    public String getPublish_date() {
+        return publish_date;
+    }
+
+    public void setPublish_date(String publish_date) {
+        this.publish_date = publish_date;
     }
 }

@@ -27,7 +27,9 @@ import com.google.firebase.messaging.FirebaseMessaging;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -74,6 +76,11 @@ public class AddNewNoticeFragment extends Fragment {
                             child(Calendar.getInstance().getTime().toString()).
                             child("description")
                             .setValue(binding.noticeDesc.getText().toString());
+                    String date = DateFormat.getDateTimeInstance().format(new Date());
+                    database.getReference().child("notice").
+                            child(Calendar.getInstance().getTime().toString()).
+                            child("publish_date")
+                            .setValue(date);
                     TOPIC = "/topics/notice"; //topic must match with what the receiver subscribed to
                     NOTIFICATION_TITLE = "Notice";
                     NOTIFICATION_MESSAGE = binding.noticeSubject.getText().toString();

@@ -67,9 +67,11 @@ public class UserNoticeBoardAdapter extends BaseAdapter {
         holder.subject = convertView.findViewById(R.id.notice_subject);
         holder.seen_status = convertView.findViewById(R.id.seen_status);
         holder.subject.setText(list.get(position).getSubject());
+        holder.publish_date = convertView.findViewById(R.id.publish_date);
+        holder.publish_date.setText(list.get(position).getPublish_date());
         if(list.get(position).getStatus().equals("seen"))
         {
-            holder.seen_status.setVisibility(View.GONE);
+            holder.seen_status.setVisibility(View.INVISIBLE);
         }
         return convertView;
     }
@@ -77,6 +79,7 @@ public class UserNoticeBoardAdapter extends BaseAdapter {
     private class ViewHolder {
 
         protected TextView subject;
+        protected TextView publish_date;
         protected ImageView seen_status;
 
     }

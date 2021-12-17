@@ -65,14 +65,16 @@ public class NoticeBoardAdapter extends BaseAdapter {
             holder = (NoticeBoardAdapter.ViewHolder)convertView.getTag();
         }
         holder.subject = convertView.findViewById(R.id.notice_subject);
+        holder.publish_date = convertView.findViewById(R.id.publish_date);
         holder.subject.setText(list.get(position).getSubject());
+        holder.publish_date.setText(list.get(position).getPublish_date());
         return convertView;
     }
 
     private class ViewHolder {
 
         protected TextView subject;
-        protected ImageView seen_status;
+        protected TextView publish_date;
 
     }
 }
