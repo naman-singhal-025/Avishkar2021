@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.avishkar2021.Adapters.ViewInterviewExtraAdapter;
+import com.example.avishkar2021.adapters.ViewInterviewExtraAdapter;
 import com.example.avishkar2021.databinding.ActivityViewInterviewBinding;
 import com.example.avishkar2021.models.Users;
 import com.google.firebase.database.DataSnapshot;
@@ -40,7 +40,7 @@ public class ViewInterviewActivity extends AppCompatActivity {
         String company = intent.getStringExtra("company");
 
         database = FirebaseDatabase.getInstance();
-        storage  =FirebaseStorage.getInstance();
+        storage  = FirebaseStorage.getInstance();
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Retrieving Data...");
         progressDialog.setMessage("Please, wait !");

@@ -5,12 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.avishkar2021.Adapters.AddUserAdapter;
 import com.example.avishkar2021.databinding.ActivityAddStudentsBinding;
 import com.example.avishkar2021.models.AddUserModel;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -31,7 +28,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.Iterator;
 
 public class AddStudentsActivity extends AppCompatActivity {

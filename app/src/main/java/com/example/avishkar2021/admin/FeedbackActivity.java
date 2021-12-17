@@ -10,7 +10,7 @@ import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
 
-import com.example.avishkar2021.Adapters.CustomizedExpandableListAdapter;
+import com.example.avishkar2021.adapters.CustomizedExpandableListAdapter;
 import com.example.avishkar2021.R;
 import com.example.avishkar2021.databinding.ActivityFeedbackBinding;
 import com.google.firebase.database.DataSnapshot;

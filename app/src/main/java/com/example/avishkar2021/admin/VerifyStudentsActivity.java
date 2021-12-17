@@ -7,7 +7,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.widget.ListView;
 
-import com.example.avishkar2021.Adapters.VerifyUserAdapter;
+import com.example.avishkar2021.adapters.VerifyUserAdapter;
 import com.example.avishkar2021.databinding.ActivityVerifyStudentsBinding;
 import com.example.avishkar2021.models.VerifyUserModel;
 import com.google.firebase.database.DataSnapshot;

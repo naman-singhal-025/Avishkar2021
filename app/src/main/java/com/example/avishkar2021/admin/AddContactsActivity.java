@@ -16,7 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.avishkar2021.Adapters.AddContactsAdapter;
+import com.example.avishkar2021.adapters.AddContactsAdapter;
 import com.example.avishkar2021.R;
 import com.example.avishkar2021.databinding.ActivityAddContactsBinding;
 import com.example.avishkar2021.models.Users;

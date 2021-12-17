@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.avishkar2021.Adapters.UserNoticeBoardAdapter;
+import com.example.avishkar2021.adapters.UserNoticeBoardAdapter;
 import com.example.avishkar2021.databinding.ActivityUserNoticeBinding;
 import com.example.avishkar2021.models.notice_model;
 import com.google.firebase.auth.FirebaseAuth;

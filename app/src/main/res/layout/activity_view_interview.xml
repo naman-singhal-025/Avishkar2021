@@ -7,7 +7,7 @@
     android:background="@color/lightGrey"
     android:backgroundTint="@color/lightGrey"
     android:orientation="vertical"
-    tools:context=".Fragments.ViewInterviewFragment">
+    tools:context=".fragments.ViewInterviewFragment">
 
     <FrameLayout
         android:layout_width="match_parent"

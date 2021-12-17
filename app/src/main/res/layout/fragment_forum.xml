@@ -7,7 +7,7 @@
     android:background="@color/lightGrey"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".Fragments.ForumFragment">
+    tools:context=".fragments.ForumFragment">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"

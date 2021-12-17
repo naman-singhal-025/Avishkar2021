@@ -4,8 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.avishkar2021.Adapters.FragmentsAdapter;
-import com.example.avishkar2021.Adapters.NoticeFragmentsAdapter;
+import com.example.avishkar2021.adapters.NoticeFragmentsAdapter;
 import com.example.avishkar2021.databinding.ActivityNoticeBinding;
 
 public class NoticeActivity extends AppCompatActivity {

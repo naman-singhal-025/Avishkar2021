@@ -7,43 +7,43 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.avishkar2021.Fragments.HomeFragment"
+        android:name="com.example.avishkar2021.fragments.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/currentOpeningsFragment"
-        android:name="com.example.avishkar2021.Fragments.CurrentOpeningsFragment"
+        android:name="com.example.avishkar2021.fragments.CurrentOpeningsFragment"
         android:label="@string/current_openings"
         tools:layout="@layout/fragment_current_openings" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.avishkar2021.Fragments.ProfileFragment"
+        android:name="com.example.avishkar2021.fragments.ProfileFragment"
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/addNewInterviewFragment"
-        android:name="com.example.avishkar2021.Fragments.AddNewInterviewFragment"
+        android:name="com.example.avishkar2021.fragments.AddNewInterviewFragment"
         android:label="@string/add_a_new_interview_experience"
         tools:layout="@layout/fragment_add_new_interview" />
     <fragment
         android:id="@+id/contacts2"
-        android:name="com.example.avishkar2021.Fragments.Contacts"
+        android:name="com.example.avishkar2021.fragments.Contacts"
         android:label="@string/contacts"
         tools:layout="@layout/fragment_contacts" />
     <fragment
         android:id="@+id/forumFragment"
-        android:name="com.example.avishkar2021.Fragments.ForumFragment"
+        android:name="com.example.avishkar2021.fragments.ForumFragment"
         android:label="@string/forum_feedback"
         tools:layout="@layout/fragment_forum" />
     <fragment
         android:id="@+id/registeredCompaniesFragment"
-        android:name="com.example.avishkar2021.Fragments.RegisteredCompaniesFragment"
+        android:name="com.example.avishkar2021.fragments.RegisteredCompaniesFragment"
         android:label="@string/registered_companies"
         tools:layout="@layout/fragment_registered_companies" />
     <fragment
         android:id="@+id/viewInterviewFragment"
-        android:name="com.example.avishkar2021.Fragments.ViewInterviewFragment"
+        android:name="com.example.avishkar2021.fragments.ViewInterviewFragment"
         android:label="@string/view_interview_experience"
         tools:layout="@layout/fragment_view_interview" />
 </navigation>

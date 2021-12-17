@@ -21,6 +21,18 @@
     <ImageView
         android:id="@+id/experience_ss"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
         app:srcCompat="@color/cog_img_background" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/commentsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="end"
+        android:layout_weight="1"
+        android:clickable="true"
+        app:backgroundTint="@color/colorPrimary"
+        app:srcCompat="@drawable/ic_baseline_comment_bank_24"
+        tools:ignore="SpeakableTextPresentCheck" />
 </LinearLayout>

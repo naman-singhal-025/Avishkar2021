@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.avishkar2021.Adapters.AddCompanyAdapter;
+import com.example.avishkar2021.adapters.AddCompanyAdapter;
 import com.example.avishkar2021.databinding.ActivityAddCompaniesBinding;
 import com.example.avishkar2021.models.AddCompaniesModel;
 import com.google.firebase.database.FirebaseDatabase;
