@@ -3,6 +3,58 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_add_companies.xml" value="0.1" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_add_contacts.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_add_students.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_admin_main.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_display_notice.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_experience.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_feedback.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_main.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_main2.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_notice.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_sign_in.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_sign_up.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_splash.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_student_detail.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_user_notice.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_verify_students.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/activity_view_interview.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/add_company.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/add_contacts.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/add_user.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/app_bar_main.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/bottom_sheet_dialog_layout.xml" value="0.152" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/content_main.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/current_openings.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/custom_action_item_layout.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/fragment_academic.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/fragment_add_new_interview.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/fragment_add_new_notice.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/fragment_contacts.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/fragment_current_openings.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/fragment_forum.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/fragment_home.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/fragment_notice_board.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/fragment_password.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/fragment_personal.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/fragment_photo_resume.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/fragment_profile.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/fragment_project.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/fragment_registered_companies.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/fragment_view_interview.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/items.xml" value="0.2" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/list_group.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/list_item.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/nav_header_main.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/notice_item.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/number_picker_dialog.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/qna_questions.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/qna_replies.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/registered_companies.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/verify_user.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/layout/view_interview.xml" value="0.1334853090172239" />
+        <entry key="..\:/Users/kis/AndroidStudioProjects/Avishkar2021/app/src/main/res/menu/activity_main_drawer.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/kis/Desktop/app/Avishkar2021/app/src/main/res/drawable-v24/ic_baseline_format_italic_24.xml" value="0.16296296296296298" />
         <entry key="..\:/Users/kis/Desktop/app/Avishkar2021/app/src/main/res/drawable/ic_baseline_company_24.xml" value="0.16296296296296298" />
         <entry key="..\:/Users/kis/Desktop/app/Avishkar2021/app/src/main/res/drawable/ic_baseline_contact_phone_24.xml" value="0.16296296296296298" />
@@ -91,7 +143,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

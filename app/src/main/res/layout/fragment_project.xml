@@ -18,6 +18,7 @@
         android:layout_marginBottom="5dp"
         android:gravity="center"
         android:text="Project"
+        android:textColor="@color/darkGrey"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -42,6 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Title"
+                android:textColor="@color/darkGrey"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -56,7 +58,7 @@
                 android:scrollbars="vertical"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:textColor="#090909"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
@@ -84,6 +86,7 @@
                 android:layout_height="wrap_content"
 
                 android:text="Description"
+                android:textColor="@color/darkGrey"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -99,7 +102,7 @@
                 android:scrollbars="vertical"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:textColor="#090909"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
@@ -111,6 +114,7 @@
         android:layout_marginBottom="5dp"
         android:gravity="center"
         android:text="Internship"
+        android:textColor="@color/darkGrey"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -137,6 +141,7 @@
 
                 android:gravity="center_vertical"
                 android:text="Organisation"
+                android:textColor="@color/darkGrey"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -152,7 +157,7 @@
                 android:scrollbars="vertical"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:textColor="#090909"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
@@ -180,6 +185,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:text="Description"
+                android:textColor="@color/darkGrey"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -194,7 +200,7 @@
                 android:scrollbars="vertical"
                 android:scrollHorizontally="false"
                 android:singleLine="false"
-                android:textColor="#090909"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>

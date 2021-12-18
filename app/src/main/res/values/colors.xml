@@ -22,5 +22,6 @@
     <color name="grayBackground">#BCBCBC</color>
     <color name="ocen_blue">#2196F3</color>
     <color name="card_bg">#E4E4E4</color>
+    <color name="darkGrey">#656363</color>
 
 </resources>
