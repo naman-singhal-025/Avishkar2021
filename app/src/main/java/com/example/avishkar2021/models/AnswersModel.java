@@ -4,6 +4,7 @@ public class AnswersModel {
     private String profilePic;
     private String answerUserName;
     private String userReply;
+    private String reply_id;
 
     public String getProfilePic() {
         return profilePic;
@@ -27,5 +28,13 @@ public class AnswersModel {
 
     public void setUserReply(String userReply) {
         this.userReply = userReply;
+    }
+
+    public String getReply_id() {
+        return reply_id;
+    }
+
+    public void setReply_id(String reply_id) {
+        this.reply_id = reply_id;
     }
 }

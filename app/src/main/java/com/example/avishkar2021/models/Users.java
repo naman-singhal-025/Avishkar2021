@@ -8,6 +8,7 @@ public class Users {
     private String userName;
     private String mail;
     private String userId;
+    private String userPath;
     private String password;
     private String resume;
     private List<String> personal;
@@ -176,5 +177,13 @@ public class Users {
 
     public void setFeedback_desc(String feedback_desc) {
         this.feedback_desc = feedback_desc;
+    }
+
+    public String getUserPath() {
+        return userPath;
+    }
+
+    public void setUserPath(String userPath) {
+        this.userPath = userPath;
     }
 }

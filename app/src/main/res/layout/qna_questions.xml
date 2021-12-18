@@ -27,13 +27,15 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/question_prof_image"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_margin="4dp"
-                    app:srcCompat="@drawable/avatar" />
+                    android:src="@drawable/avatar"
+                    app:civ_border_color="#FF000000"
+                    app:civ_border_width="2dp" />
 
                 <TextView
                     android:id="@+id/ques_user_name"
@@ -81,6 +83,7 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/reply_btn"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_gravity="center"
@@ -126,7 +129,7 @@
                     android:textSize="20sp" />
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/post_reply_btn"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -135,12 +138,13 @@
                     android:text="Post" />
             </LinearLayout>
 
-            <ListView
-                android:id="@+id/replies_list_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:visibility="gone" />
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/replies_list_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:visibility="gone" />
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

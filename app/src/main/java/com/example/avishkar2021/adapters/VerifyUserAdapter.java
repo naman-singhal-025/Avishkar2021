@@ -95,8 +95,8 @@ public class VerifyUserAdapter extends BaseAdapter {
 
     private class ViewHolder {
         private TextView numbering;
-        protected TextView reg_no;
-        protected TextView status;
+        private TextView reg_no;
+        private TextView status;
 
     }
 }

@@ -57,6 +57,7 @@ public class ViewInterviewActivity extends AppCompatActivity {
                             Users user = new Users();
                             user.setUserName(s);
                             user.setUserId(dataSnapshot.getKey());
+                            user.setUserPath(dataSnapshot.getRef().toString());
                             list.add(user);
                         }
                         try {

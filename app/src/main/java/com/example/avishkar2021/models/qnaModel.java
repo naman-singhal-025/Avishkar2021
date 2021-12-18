@@ -1,12 +1,13 @@
 package com.example.avishkar2021.models;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class qnaModel {
     private String profilePic;
     private String userName;
     private String question;
-    private List<AnswersModel> replyList;
+    private String question_id;
+    private ArrayList<AnswersModel> replyList;
 
     public String getProfilePic() {
         return profilePic;
@@ -32,11 +33,19 @@ public class qnaModel {
         this.question = question;
     }
 
-    public List<AnswersModel> getReplyList() {
+    public ArrayList<AnswersModel> getReplyList() {
         return replyList;
     }
 
-    public void setReplyList(List<AnswersModel> replyList) {
+    public void setReplyList(ArrayList<AnswersModel> replyList) {
         this.replyList = replyList;
+    }
+
+    public String getQuestion_id() {
+        return question_id;
+    }
+
+    public void setQuestion_id(String question_id) {
+        this.question_id = question_id;
     }
 }

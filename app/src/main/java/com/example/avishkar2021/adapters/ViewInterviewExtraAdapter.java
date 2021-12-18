@@ -74,6 +74,7 @@ public class ViewInterviewExtraAdapter extends BaseAdapter {
             public void onClick(View view) {
                 Intent intent = new Intent(context, ExperienceActivity.class);
                 intent.putExtra("description",list.get(position).getUserId());
+                intent.putExtra("path",list.get(position).getUserPath());
                 context.startActivity(intent);
             }
         });
