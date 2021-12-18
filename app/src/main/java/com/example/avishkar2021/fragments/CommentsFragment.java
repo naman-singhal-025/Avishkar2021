@@ -132,10 +132,16 @@ public class CommentsFragment extends BottomSheetDialogFragment {
                         AnswersModel answersModel = new AnswersModel();
                         answersModel.setReply_id(repliesShot.child("reply_id").getValue().toString());
                         answersModel.setUserReply(repliesShot.child("userReply").getValue().toString());
-                        answersModel.setAnswerUserName(snapshot.child("Users").
-                                child(answersModel.getReply_id()).child("editTextMail").getValue().toString());
-                        answersModel.setProfilePic(snapshot.child("Users").
-                                child(answersModel.getReply_id()).child("profilePic").getValue().toString());
+                        try
+                        {
+                            answersModel.setAnswerUserName(snapshot.child("Users").
+                                    child(answersModel.getReply_id()).child("editTextMail").getValue().toString());
+                            answersModel.setProfilePic(snapshot.child("Users").
+                                    child(answersModel.getReply_id()).child("profilePic").getValue().toString());
+                        }catch (Exception e)
+                        {
+
+                        }
                         a_list.add(answersModel);
 
                     }

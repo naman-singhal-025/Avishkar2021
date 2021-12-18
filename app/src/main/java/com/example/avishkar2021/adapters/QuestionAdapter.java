@@ -83,7 +83,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
                         holder.replies_list_view.setVisibility(holder.replies_list_view.VISIBLE);
                         try {
                             ReplyAdapter replyAdapter = new ReplyAdapter(context, model.getReplyList());
-                            LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+                            LinearLayoutManager layoutManager = new LinearLayoutManager(context);
                             holder.replies_list_view.setLayoutManager(layoutManager);
                             holder.replies_list_view.setAdapter(replyAdapter);
                         } catch (Exception e) {
@@ -100,21 +100,6 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
                 AnswersModel answersModel = new AnswersModel();
                 answersModel.setReply_id(FirebaseAuth.getInstance().getUid());
                 answersModel.setUserReply(holder.reply.getText().toString());
-//                database.getReference().addValueEventListener(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                        answersModel.setAnswerUserName(snapshot.child("Users").child(FirebaseAuth.getInstance().getUid()).child("editTextMail").getValue().toString());
-//                        answersModel.setProfilePic(snapshot.child("Users").child(FirebaseAuth.getInstance().getUid()).child("profilePic").getValue().toString());
-//                        database.getReference().child("reply_section").child(qnaModelArrayList.get(position).getQuestion_id())
-//                                .child("replies").push().setValue(answersModel);
-//                        Log.d("SeeDesc3",qnaModelArrayList.get(position).getQuestion_id());
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//                });
                 database.getReference().child(qnaModelArrayList.get(position).getQuestion_id())
                                 .child("replies").push().setValue(answersModel);
             }
