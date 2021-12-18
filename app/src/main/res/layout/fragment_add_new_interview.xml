@@ -125,6 +125,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Name"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -162,6 +163,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Company"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -200,6 +202,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Date"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 

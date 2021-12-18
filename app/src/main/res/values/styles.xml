@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="SplashTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="android:windowDisablePreview">false</item>
         <item name="android:windowBackground">@drawable/layer_list</item>
         <item name="colorPrimary">@color/colorPrimary</item>

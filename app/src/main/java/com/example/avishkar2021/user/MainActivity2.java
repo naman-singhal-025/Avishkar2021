@@ -1,7 +1,13 @@
 package com.example.avishkar2021.user;
 
+import static android.app.UiModeManager.MODE_NIGHT_NO;
+import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
+
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,9 +17,12 @@ import android.widget.TextView;
 
 import com.example.avishkar2021.R;
 import com.example.avishkar2021.models.Users;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.MenuItemCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -41,9 +50,32 @@ public class MainActivity2 extends AppCompatActivity {
     TextView textItemCount;
     ProgressDialog progressDialog;
     long count=0;
+
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
+    private int checkedItem;
+    private String selected;
+
+    private  final String CHECKEDITEM="checked_item";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        sharedPreferences=this.getSharedPreferences("themes", Context.MODE_PRIVATE);
+        editor=sharedPreferences.edit();
+        switch (getCheckedItem())
+        {
+            case 0:
+                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_FOLLOW_SYSTEM);
+                break;
+            case 1:
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                break;
+            case 2:
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                break;
+        }
 
         binding = ActivityMain2Binding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -121,7 +153,77 @@ public class MainActivity2 extends AppCompatActivity {
             return true;
         });
 
+
+
+        // set on click listener to themes in navigation view
+        navigationView.getMenu().findItem(R.id.themes).setOnMenuItemClickListener(menuItem -> {
+            showDialog();
+            return true;
+        });
+
     }
+
+    private void showDialog() {
+        String[] themes=this.getResources().getStringArray(R.array.theme);
+        MaterialAlertDialogBuilder builder=new MaterialAlertDialogBuilder(this);
+        builder.setTitle("Choose UI Theme");
+        builder.setSingleChoiceItems(R.array.theme, getCheckedItem(), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                selected=themes[i];
+                checkedItem=i;
+
+
+            }
+        });
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if(selected==null)
+                {
+                    selected=themes[i];
+                    checkedItem=i;
+                }
+                switch (selected)
+                {
+                    case"System Default":
+                        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_FOLLOW_SYSTEM);
+                        break;
+                    case "Light Mode":
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                        break;
+                    case "Dark Mode":
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                        break;
+                }
+                setCheckedItem(checkedItem);
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+
+       AlertDialog dialog= builder.create();
+       dialog.show();
+
+
+
+    }
+
+    private int getCheckedItem()
+    {
+        return sharedPreferences.getInt(CHECKEDITEM,0);
+    }
+    private  void setCheckedItem(int i)
+    {
+        editor.putInt(CHECKEDITEM,i);
+        editor.apply();
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
