@@ -3,11 +3,11 @@
     <color name="black">#FFF</color>
     <color name="grayBackground">#454444</color>
     <color name="white">#050505</color>
+    <color name="dark_white">#ffffff</color>
     <color name="lightGrey">#090909</color>
     <color name="darkGrey">#FFF</color>
     <color name="card_bg">#302F2F</color>
     <color name="colorPrimaryDark">#070707</color>
-
-
+    <color name="red">#F73535</color>
 
 </resources>

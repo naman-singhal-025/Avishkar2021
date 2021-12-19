@@ -3,13 +3,17 @@ package com.example.avishkar2021.user;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActionBar;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.avishkar2021.R;
 import com.example.avishkar2021.adapters.UserNoticeBoardAdapter;
 import com.example.avishkar2021.databinding.ActivityUserNoticeBinding;
 import com.example.avishkar2021.models.notice_model;
@@ -34,6 +38,7 @@ public class UserNoticeActivity extends AppCompatActivity {
         binding = ActivityUserNoticeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         getSupportActionBar().setTitle("Notice Board");
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimary)));
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Fetching data...");
         progressDialog.setMessage("Please, wait !!");

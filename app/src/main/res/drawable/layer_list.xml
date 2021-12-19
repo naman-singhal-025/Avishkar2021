@@ -10,7 +10,7 @@
 
     <item
         android:id="@+id/usual"
-        android:drawable="@color/white" />
+        android:drawable="@color/dark_white" />
 
     <item>
         <animated-selector
