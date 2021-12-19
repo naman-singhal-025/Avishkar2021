@@ -58,11 +58,12 @@ public class MainActivity2 extends AppCompatActivity {
     private  final String CHECKEDITEM="checked_item";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
+        super.onCreate(savedInstanceState);
 
         sharedPreferences=this.getSharedPreferences("themes", Context.MODE_PRIVATE);
         editor=sharedPreferences.edit();
+
         switch (getCheckedItem())
         {
             case 0:
@@ -194,6 +195,7 @@ public class MainActivity2 extends AppCompatActivity {
                         break;
                     case "Dark Mode":
                         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                        MainActivity2.this.recreate();
                         break;
                 }
                 setCheckedItem(checkedItem);

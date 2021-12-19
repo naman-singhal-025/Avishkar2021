@@ -24,12 +24,14 @@ public class SplashActivity extends AppCompatActivity {
     private  final String CHECKEDITEM="checked_item";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+
         sharedPreferences=this.getSharedPreferences("themes", Context.MODE_PRIVATE);
         editor=sharedPreferences.edit();
         editor.apply();
-
 
         switch (getCheckedItem())
         {
@@ -43,6 +45,8 @@ public class SplashActivity extends AppCompatActivity {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 break;
         }
+
+
 
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
