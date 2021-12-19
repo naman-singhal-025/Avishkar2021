@@ -34,6 +34,7 @@ public class PasswordFragment extends Fragment {
             public void onClick(View view) {
                 String oldPassword = binding.oldPass.getText().toString();
                 String newPassword = binding.newPass.getText().toString();
+                String renewPassword = binding.renewPass.getText().toString();
                 if(TextUtils.isEmpty(oldPassword)){
                     Toast.makeText(getActivity(), "Enter current password", Toast.LENGTH_SHORT).show();
                     return;
@@ -42,7 +43,15 @@ public class PasswordFragment extends Fragment {
                     Toast.makeText(getActivity(), "Password length must be at-least 6!!!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                updatePassword(oldPassword,newPassword);
+                if(renewPassword.equals(newPassword))
+                {
+                    updatePassword(oldPassword,newPassword);
+                }
+                else
+                {
+                    Toast.makeText(getActivity(), "Passwords do not match!!!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
             }
         });
         return binding.getRoot();

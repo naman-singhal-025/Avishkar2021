@@ -51,39 +51,19 @@ public class CommentsFragment extends BottomSheetDialogFragment {
         Log.d("SeeDesc2",path);
         database= FirebaseDatabase.getInstance();
         Button post_btn = view.findViewById(R.id.post_question);
-        Button post_reply_btn = view.findViewById(R.id.post_reply_btn);
 
         EditText question = view.findViewById(R.id.question);
-        EditText reply = view.findViewById(R.id.reply);
 
         post_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!question.equals(null)||!question.equals(""))
+                if(!question.equals(null) && !question.equals(""))
                 {
                     QnaModel model = new QnaModel();
                     model.setQuestion(question.getText().toString());
-                    model.setQuestion_user_id(FirebaseAuth.getInstance().getUid());
                     question.setText(null);
-                    database.getReference().child("Users").addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            try
-                            {
-                                model.setUserName(snapshot.child(FirebaseAuth.getInstance().getUid()).child("editTextMail").getValue().toString());
-                                model.setProfilePic(snapshot.child(FirebaseAuth.getInstance().getUid()).child("profilePic").getValue().toString());
-                            }catch(Exception e)
-                            {
-
-                            }
-                            database.getReference().child(path).child("questions").push().setValue(model);
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
+                    model.setQuestion_user_id(FirebaseAuth.getInstance().getUid());
+                    database.getReference().child(path).child("questions").push().setValue(model);
                 }else {
                     Toast.makeText(getContext(), "Write your query!!!", Toast.LENGTH_SHORT).show();
                 }
@@ -100,16 +80,16 @@ public class CommentsFragment extends BottomSheetDialogFragment {
                     QnaModel model = new QnaModel();
                     model.setQuestion_id(questionShot.getRef().toString().substring(49));
                     model.setQuestion(questionShot.child("question").getValue().toString());
-                    if(questionShot.child("profilePic").exists()) {
-                        model.setProfilePic(questionShot.child("profilePic").getValue().toString());
-                    }
-                    else if(snapshot.child("Users").child(questionShot.child("question_user_id").getValue().toString())
-                            .child("profilePic").exists())
+                    try
                     {
+                        model.setUserName(snapshot.child("Users").child(questionShot.child("question_user_id").getValue().toString())
+                                .child("editTextMail").getValue().toString());
                         model.setProfilePic(snapshot.child("Users").child(questionShot.child("question_user_id").getValue().toString())
                                 .child("profilePic").getValue().toString());
+                    }catch (Exception e)
+                    {
+
                     }
-                    model.setUserName(questionShot.child("userName").getValue().toString());
                     for(DataSnapshot repliesShot : questionShot.child("replies").getChildren())
                     {
                         AnswersModel answersModel = new AnswersModel();
@@ -121,10 +101,7 @@ public class CommentsFragment extends BottomSheetDialogFragment {
                                     child(answersModel.getReply_id()).child("editTextMail").getValue().toString());
                             answersModel.setProfilePic(snapshot.child("Users").
                                     child(answersModel.getReply_id()).child("profilePic").getValue().toString());
-                        }catch (Exception e)
-                        {
-
-                        }
+                        }catch (Exception e){}
                         a_list.add(answersModel);
 
                     }
