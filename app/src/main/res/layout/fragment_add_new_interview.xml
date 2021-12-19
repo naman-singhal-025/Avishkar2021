@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
+        android:background="@color/white"
         tools:ignore="SpeakableTextPresentCheck">
 
         <LinearLayout
@@ -106,7 +107,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="10"
-        android:background="@color/white"
+        android:background="#FFFFFFFF"
         android:orientation="vertical">
 
         <LinearLayout
@@ -125,7 +126,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Name"
-                android:textColor="@color/black"
+                android:textColor="#FF000000"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -144,6 +145,8 @@
                 android:hint="Name"
                 android:inputType="textCapWords"
                 android:minHeight="48dp"
+                android:textColor="#FF000000"
+                android:textColorHint="#656363"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -163,7 +166,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Company"
-                android:textColor="@color/black"
+                android:textColor="#FF000000"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -182,6 +185,8 @@
                 android:hint="Company Name"
                 android:inputType="textCapWords"
                 android:minHeight="48dp"
+                android:textColor="#FF000000"
+                android:textColorHint="#656363"
                 android:textSize="20sp" />
 
         </LinearLayout>
@@ -202,7 +207,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Date"
-                android:textColor="@color/black"
+                android:textColor="#FF000000"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -222,7 +227,8 @@
                 android:hint="Joining Date"
                 android:inputType="date"
                 android:minHeight="48dp"
-                android:textColor="@color/black"
+                android:textColor="#FF000000"
+                android:textColorHint="#656363"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -237,13 +243,16 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="10"
+            android:background="#FFFFFFFF"
             android:gravity="start|top"
             android:hint="Enter the details"
             android:inputType="textMultiLine|textNoSuggestions|textCapSentences"
             android:isScrollContainer="false"
             android:minHeight="48dp"
             android:scrollHorizontally="false"
-            android:singleLine="false" />
+            android:singleLine="false"
+            android:textColor="#FF000000"
+            android:textColorHint="#656363" />
     </LinearLayout>
 
     <RelativeLayout

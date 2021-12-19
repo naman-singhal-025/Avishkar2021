@@ -3,21 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="4dp"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="10dp"
         android:backgroundTint="@color/card_bg"
-        app:cardCornerRadius="40dp"
+        app:cardCornerRadius="20dp"
         app:cardElevation="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="5dp">
@@ -25,6 +24,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -54,15 +54,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_weight="2"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="4dp"
+                    android:layout_gravity="top"
+                    android:layout_marginTop="4dp"
                     android:fontFamily="@font/lora_bold"
-                    android:text="Question :"
+                    android:text="Question : "
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -70,15 +71,15 @@
                     android:id="@+id/posted_question"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="4dp"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/darkGrey"
                     android:layout_weight="4"
                     android:textSize="16sp" />
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
+
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -87,7 +88,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_gravity="center"
-                        android:layout_margin="4dp"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/ic_baseline_reply_24" />
 
@@ -95,8 +95,7 @@
                         android:id="@+id/view_replies"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_margin="4dp"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:fontFamily="@font/lora_bold"
                         android:gravity="center"
                         android:text="View Replies"
@@ -139,11 +138,11 @@
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/replies_list_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:visibility="gone" />
+                android:id="@+id/replies_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:visibility="gone" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
