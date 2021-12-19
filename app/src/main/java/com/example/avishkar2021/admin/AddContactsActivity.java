@@ -19,7 +19,7 @@ import android.widget.Toast;
 import com.example.avishkar2021.adapters.AddContactsAdapter;
 import com.example.avishkar2021.R;
 import com.example.avishkar2021.databinding.ActivityAddContactsBinding;
-import com.example.avishkar2021.models.Users;
+import com.example.avishkar2021.models.UsersModel;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -36,7 +36,7 @@ import java.util.UUID;
 public class AddContactsActivity extends AppCompatActivity {
 
     private AddContactsAdapter addContactsAdapter;
-    public ArrayList<Users> usersArrayList;
+    public ArrayList<UsersModel> usersArrayList;
     ActivityAddContactsBinding binding;
     ListView listV;
     FirebaseDatabase database;
@@ -64,7 +64,7 @@ public class AddContactsActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 usersArrayList.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    Users user = dataSnapshot.getValue(Users.class);
+                    UsersModel user = dataSnapshot.getValue(UsersModel.class);
                     usersArrayList.add(user);
                 }
                 try {
@@ -89,7 +89,7 @@ public class AddContactsActivity extends AppCompatActivity {
         binding.addContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Users user = new Users();
+                UsersModel user = new UsersModel();
                 try {
                     user.setBranch(binding.userBranch.getText().toString());
                     user.setPhone(binding.userPhone.getText().toString());
@@ -137,7 +137,7 @@ public class AddContactsActivity extends AppCompatActivity {
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Users user = usersArrayList.get(i);
+                                UsersModel user = usersArrayList.get(i);
                                 try {
                                     StorageReference ref = storage.getReferenceFromUrl(user.getProfilePic());
                                     ref.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -170,7 +170,7 @@ public class AddContactsActivity extends AppCompatActivity {
         });
     }
 
-    private boolean isValid(Users user) {
+    private boolean isValid(UsersModel user) {
         return user.getUserName()!=null && user.getBranch()!=null &&
             user.getPhone()!=null && user.getMail()!=null &&
                 !user.getUserName().equals("") && !user.getBranch().equals("") &&

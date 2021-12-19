@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.avishkar2021.R;
-import com.example.avishkar2021.models.Users;
+import com.example.avishkar2021.models.UsersModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -49,7 +49,7 @@ public class SignUp extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressDialog.dismiss();
                                 if(task.isSuccessful()){
-                                    Users user  = new Users(binding.userName.getText().toString(),
+                                    UsersModel user  = new UsersModel(binding.userName.getText().toString(),
                                             binding.etEmail.getText().toString(),
                                             binding.etPassword.getText().toString());
 

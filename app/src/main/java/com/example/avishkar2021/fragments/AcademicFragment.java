@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.example.avishkar2021.adapters.AcademicDetailsAdapter;
 import com.example.avishkar2021.databinding.FragmentAcademicBinding;
 import com.example.avishkar2021.models.EditModel;
-import com.example.avishkar2021.models.Users;
+import com.example.avishkar2021.models.UsersModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,7 +33,7 @@ public class AcademicFragment extends Fragment {
     FragmentAcademicBinding binding;
     ListView listV;
     FirebaseDatabase database;
-    Users users;
+    UsersModel users;
     private String lock = "Not Locked",ver = "Not Verified";
     List<String> titleList = Arrays.asList("10th School","10th board","10th Year","10th %","12th School",
                                             "12th Board","12th Year","12th %","Graduating College","Year",
@@ -50,7 +50,7 @@ public class AcademicFragment extends Fragment {
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        users  = snapshot.getValue(Users.class);
+                        users  = snapshot.getValue(UsersModel.class);
                         if(snapshot.child("academic").exists())
                         {
                             textList = users.getAcademic();

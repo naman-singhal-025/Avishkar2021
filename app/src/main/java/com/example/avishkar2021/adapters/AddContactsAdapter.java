@@ -9,16 +9,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.avishkar2021.R;
-import com.example.avishkar2021.models.Users;
+import com.example.avishkar2021.models.UsersModel;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class AddContactsAdapter extends BaseAdapter {
     private Context context;
-    private static ArrayList<Users> usersArrayList;
+    private static ArrayList<UsersModel> usersArrayList;
 
-    public AddContactsAdapter(Context context, ArrayList<Users> usersArrayList) {
+    public AddContactsAdapter(Context context, ArrayList<UsersModel> usersArrayList) {
         this.context = context;
         this.usersArrayList = usersArrayList;
     }

@@ -28,7 +28,7 @@
         tools:layout="@layout/fragment_add_new_interview" />
     <fragment
         android:id="@+id/contacts2"
-        android:name="com.example.avishkar2021.fragments.Contacts"
+        android:name="com.example.avishkar2021.fragments.ContactsFragment"
         android:label="@string/contacts"
         tools:layout="@layout/fragment_contacts" />
     <fragment

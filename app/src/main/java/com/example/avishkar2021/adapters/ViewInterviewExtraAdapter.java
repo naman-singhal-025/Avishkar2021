@@ -12,15 +12,15 @@ import androidx.core.content.ContextCompat;
 
 import com.example.avishkar2021.user.ExperienceActivity;
 import com.example.avishkar2021.R;
-import com.example.avishkar2021.models.Users;
+import com.example.avishkar2021.models.UsersModel;
 
 import java.util.ArrayList;
 
 public class ViewInterviewExtraAdapter extends BaseAdapter {
     private Context context;
-    private static ArrayList<Users > list;
+    private static ArrayList<UsersModel> list;
 
-    public ViewInterviewExtraAdapter(Context context, ArrayList<Users> list) {
+    public ViewInterviewExtraAdapter(Context context, ArrayList<UsersModel> list) {
         this.context = context;
         this.list = list;
     }

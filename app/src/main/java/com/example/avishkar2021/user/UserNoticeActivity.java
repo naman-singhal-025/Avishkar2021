@@ -3,10 +3,8 @@ package com.example.avishkar2021.user;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ActionBar;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +14,7 @@ import android.widget.ListView;
 import com.example.avishkar2021.R;
 import com.example.avishkar2021.adapters.UserNoticeBoardAdapter;
 import com.example.avishkar2021.databinding.ActivityUserNoticeBinding;
-import com.example.avishkar2021.models.notice_model;
+import com.example.avishkar2021.models.NoticeModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -31,7 +29,7 @@ public class UserNoticeActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
     ListView listView;
     ActivityUserNoticeBinding binding;
-    ArrayList<notice_model> list=new ArrayList<>();
+    ArrayList<NoticeModel> list=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +53,7 @@ public class UserNoticeActivity extends AppCompatActivity {
                             for(DataSnapshot dataSnapshot : snapshot.getChildren())
                             {
 
-                                notice_model model = new notice_model();
+                                NoticeModel model = new NoticeModel();
                                 model.setDescription(dataSnapshot.child("description").getValue().toString());
                                 model.setSubject(dataSnapshot.child("subject").getValue().toString());
                                 model.setPublish_date(dataSnapshot.child("publish_date").getValue().toString());

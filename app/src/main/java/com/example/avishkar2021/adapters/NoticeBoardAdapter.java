@@ -7,15 +7,15 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.avishkar2021.R;
-import com.example.avishkar2021.models.notice_model;
+import com.example.avishkar2021.models.NoticeModel;
 
 import java.util.ArrayList;
 
 public class NoticeBoardAdapter extends BaseAdapter {
     private Context context;
-    private static ArrayList<notice_model> list;
+    private static ArrayList<NoticeModel> list;
 
-    public NoticeBoardAdapter(Context context, ArrayList<notice_model> list) {
+    public NoticeBoardAdapter(Context context, ArrayList<NoticeModel> list) {
         this.context = context;
         this.list = list;
     }

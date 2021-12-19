@@ -21,7 +21,7 @@ import android.widget.Toast;
 
 import com.example.avishkar2021.R;
 import com.example.avishkar2021.databinding.FragmentPhotoResumeBinding;
-import com.example.avishkar2021.models.Users;
+import com.example.avishkar2021.models.UsersModel;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -39,7 +39,7 @@ public class PhotoResumeFragment extends Fragment {
     FirebaseStorage storage;
     FirebaseDatabase database;
     ProgressDialog progressDialog;
-    Users users;
+    UsersModel users;
     private String lock="Not Locked",ver="Not Verified";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -60,7 +60,7 @@ public class PhotoResumeFragment extends Fragment {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         try
                         {
-                            users = snapshot.getValue(Users.class);
+                            users = snapshot.getValue(UsersModel.class);
 //                        set profile image from database
                             Picasso.get().load(users.getProfilePic())
                                     .placeholder(R.drawable.avatar)

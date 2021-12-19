@@ -13,7 +13,7 @@ import android.widget.ListView;
 
 import com.example.avishkar2021.adapters.AddContactsAdapter;
 import com.example.avishkar2021.databinding.FragmentContactsBinding;
-import com.example.avishkar2021.models.Users;
+import com.example.avishkar2021.models.UsersModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -21,10 +21,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class Contacts extends Fragment {
+public class ContactsFragment extends Fragment {
 
     private AddContactsAdapter addContactsAdapter;
-    public ArrayList<Users> usersArrayList;
+    public ArrayList<UsersModel> usersArrayList;
     FragmentContactsBinding binding;
     ListView listV;
     FirebaseDatabase database;
@@ -46,7 +46,7 @@ public class Contacts extends Fragment {
                 usersArrayList.clear();
                 for(DataSnapshot dataSnapshot:snapshot.getChildren())
                 {
-                    Users user = dataSnapshot.getValue(Users.class);
+                    UsersModel user = dataSnapshot.getValue(UsersModel.class);
                     usersArrayList.add(user);
                 }
                 if(usersArrayList!=null && usersArrayList.size()>0) {

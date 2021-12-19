@@ -20,7 +20,7 @@ import android.widget.Toast;
 import com.example.avishkar2021.adapters.NoticeBoardAdapter;
 import com.example.avishkar2021.user.DisplayNoticeActivity;
 import com.example.avishkar2021.databinding.FragmentNoticeBoardBinding;
-import com.example.avishkar2021.models.notice_model;
+import com.example.avishkar2021.models.NoticeModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -33,7 +33,7 @@ public class NoticeBoardFragment extends Fragment {
     ProgressDialog progressDialog;
     ListView listView;
     FragmentNoticeBoardBinding binding;
-    ArrayList<notice_model> list=new ArrayList<>();
+    ArrayList<NoticeModel> list=new ArrayList<>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,7 +54,7 @@ public class NoticeBoardFragment extends Fragment {
                                 for(DataSnapshot dataSnapshot : snapshot.getChildren())
                                 {
 
-                                        notice_model model = new notice_model();
+                                        NoticeModel model = new NoticeModel();
                                         model.setDescription(dataSnapshot.child("description").getValue().toString());
                                         model.setSubject(dataSnapshot.child("subject").getValue().toString());
                                         model.setPublish_date(dataSnapshot.child("publish_date").getValue().toString());
@@ -89,7 +89,7 @@ public class NoticeBoardFragment extends Fragment {
                         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                notice_model model = list.get(i);
+                                NoticeModel model = list.get(i);
                                 try {
                                     database.getReference().addValueEventListener(new ValueEventListener() {
                                         @Override

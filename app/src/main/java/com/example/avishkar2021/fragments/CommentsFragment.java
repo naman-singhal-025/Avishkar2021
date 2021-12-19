@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,7 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.avishkar2021.R;
 import com.example.avishkar2021.adapters.QuestionAdapter;
 import com.example.avishkar2021.models.AnswersModel;
-import com.example.avishkar2021.models.qnaModel;
+import com.example.avishkar2021.models.QnaModel;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -32,7 +31,7 @@ import java.util.ArrayList;
 public class CommentsFragment extends BottomSheetDialogFragment {
 
     RecyclerView recyclerView;
-    ArrayList<qnaModel> list = new ArrayList<>();
+    ArrayList<QnaModel> list = new ArrayList<>();
     QuestionAdapter questionAdapter;
     FirebaseDatabase database;
     String path;
@@ -62,7 +61,7 @@ public class CommentsFragment extends BottomSheetDialogFragment {
             public void onClick(View view) {
                 if(!question.equals(null)||!question.equals(""))
                 {
-                    qnaModel model = new qnaModel();
+                    QnaModel model = new QnaModel();
                     model.setQuestion(question.getText().toString());
                     question.setText(null);
                     database.getReference().child("Users").addValueEventListener(new ValueEventListener() {
@@ -120,7 +119,7 @@ public class CommentsFragment extends BottomSheetDialogFragment {
                 for(DataSnapshot questionShot:snapshot.child(path).child("questions").getChildren())
                 {
                     ArrayList<AnswersModel> a_list = new ArrayList<>();
-                    qnaModel model = new qnaModel();
+                    QnaModel model = new QnaModel();
                     model.setQuestion_id(questionShot.getRef().toString().substring(49));
                     model.setQuestion(questionShot.child("question").getValue().toString());
                     if(questionShot.child("profilePic").exists()) {

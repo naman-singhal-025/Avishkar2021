@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.example.avishkar2021.databinding.FragmentProjectBinding;
 import com.example.avishkar2021.models.ProjectInternModel;
-import com.example.avishkar2021.models.Users;
+import com.example.avishkar2021.models.UsersModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -37,7 +37,7 @@ public class ProjectFragment extends Fragment {
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        Users users  = snapshot.getValue(Users.class);
+                        UsersModel users  = snapshot.getValue(UsersModel.class);
                         if(snapshot.child("projects").exists())
                         {
                             binding.projectTitle.setText(snapshot.child("projects").child("title").getValue().toString());

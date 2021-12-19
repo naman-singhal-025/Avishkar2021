@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.example.avishkar2021.adapters.PersonalDetailsAdapter;
 import com.example.avishkar2021.databinding.FragmentPersonalBinding;
 import com.example.avishkar2021.models.EditModel;
-import com.example.avishkar2021.models.Users;
+import com.example.avishkar2021.models.UsersModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,7 +32,7 @@ public class PersonalFragment extends Fragment {
     public ArrayList<EditModel> editModelArrayList;
     FragmentPersonalBinding binding;
     ListView listV;
-    Users users;
+    UsersModel users;
     FirebaseDatabase database;
     private String lock = "Not Locked",ver = "Not Verified";
     private String reg_no="",mail="";
@@ -53,7 +53,7 @@ public class PersonalFragment extends Fragment {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         reg_no = snapshot.child("reg_no").getValue().toString();
                         mail = snapshot.child("editTextMail").getValue().toString();
-                        users= snapshot.getValue(Users.class);
+                        users= snapshot.getValue(UsersModel.class);
                         if(snapshot.child("personal").exists())
                         {
 //                            textList = (List)snapshot.child("personal").getValue();

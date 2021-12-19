@@ -1,6 +1,5 @@
 package com.example.avishkar2021.user;
 
-import static android.app.UiModeManager.MODE_NIGHT_NO;
 import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
 
 import android.app.ProgressDialog;
@@ -16,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.avishkar2021.R;
-import com.example.avishkar2021.models.Users;
+import com.example.avishkar2021.models.UsersModel;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
 
@@ -112,7 +111,7 @@ public class MainActivity2 extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot subshot) {
                         DataSnapshot snapshot = subshot.child("Users").child(auth.getInstance().getUid());
-                        Users users  = snapshot.getValue(Users.class);
+                        UsersModel users  = snapshot.getValue(UsersModel.class);
                         //set profile image from database
                         Picasso.get().load(users.getProfilePic())
                                 .placeholder(R.drawable.avatar)

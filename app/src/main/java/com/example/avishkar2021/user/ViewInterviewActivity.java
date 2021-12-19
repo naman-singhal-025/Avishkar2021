@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.example.avishkar2021.adapters.ViewInterviewExtraAdapter;
 import com.example.avishkar2021.databinding.ActivityViewInterviewBinding;
-import com.example.avishkar2021.models.Users;
+import com.example.avishkar2021.models.UsersModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -27,7 +27,7 @@ public class ViewInterviewActivity extends AppCompatActivity {
     ProgressDialog progressDialog;
     ListView listView;
     ActivityViewInterviewBinding binding;
-    ArrayList<Users> list=new ArrayList<>();
+    ArrayList<UsersModel> list=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +54,7 @@ public class ViewInterviewActivity extends AppCompatActivity {
                         {
                             String s = dataSnapshot.child("name").getValue()
                                     +" ( "+ dataSnapshot.child("date").getValue() + ") ";
-                            Users user = new Users();
+                            UsersModel user = new UsersModel();
                             user.setUserName(s);
                             user.setUserId(dataSnapshot.getKey());
                             user.setUserPath(dataSnapshot.getRef().toString());

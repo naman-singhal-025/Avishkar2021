@@ -2,7 +2,6 @@ package com.example.avishkar2021.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.avishkar2021.R;
 import com.example.avishkar2021.models.AnswersModel;
-import com.example.avishkar2021.models.qnaModel;
+import com.example.avishkar2021.models.QnaModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -28,10 +27,10 @@ import java.util.ArrayList;
 public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHolder> {
 
     private Context context;
-    public static ArrayList<qnaModel> qnaModelArrayList;
+    public static ArrayList<QnaModel> qnaModelArrayList;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-    public QuestionAdapter(Context context, ArrayList<qnaModel> qnaModelArrayList) {
+    public QuestionAdapter(Context context, ArrayList<QnaModel> qnaModelArrayList) {
 
         this.context = context;
         this.qnaModelArrayList = qnaModelArrayList;
@@ -47,7 +46,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        qnaModel model = qnaModelArrayList.get(position);
+        QnaModel model = qnaModelArrayList.get(position);
         holder.userName.setText(model.getUserName());
         holder.question.setText(model.getQuestion());
         Picasso.get().load(model.getProfilePic())

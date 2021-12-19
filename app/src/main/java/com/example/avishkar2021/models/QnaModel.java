@@ -2,7 +2,7 @@ package com.example.avishkar2021.models;
 
 import java.util.ArrayList;
 
-public class qnaModel {
+public class QnaModel {
     private String profilePic;
     private String userName;
     private String question;

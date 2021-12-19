@@ -3,7 +3,7 @@ package com.example.avishkar2021.models;
 import java.net.URI;
 import java.util.List;
 
-public class Users {
+public class UsersModel {
     private String profilePic;
     private String userName;
     private String mail;
@@ -26,7 +26,7 @@ public class Users {
 
     private String reg_no;
 
-    public Users(String profilePic, String userName, String mail, String phone, String branch) {
+    public UsersModel(String profilePic, String userName, String mail, String phone, String branch) {
         this.profilePic = profilePic;
         this.userName = userName;
         this.mail = mail;
@@ -34,11 +34,11 @@ public class Users {
         this.branch = branch;
     }
 
-    public Users() {
+    public UsersModel() {
     }
 
     //Sign Up constructor
-    public Users(String userName, String mail, String password) {
+    public UsersModel(String userName, String mail, String password) {
         this.userName = userName;
         this.mail = mail;
         this.password = password;

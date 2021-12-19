@@ -1,6 +1,6 @@
 package com.example.avishkar2021.models;
 
-public class notice_model {
+public class NoticeModel {
     private String subject;
     private String description;
     private String status = "unseen";
