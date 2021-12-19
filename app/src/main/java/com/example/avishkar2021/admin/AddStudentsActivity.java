@@ -4,7 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -87,74 +93,103 @@ public class AddStudentsActivity extends AppCompatActivity {
        binding.uploadButton2.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
-               progressDialog.show();
-               try {
-                   InputStream myInput;
-                   String fileName = binding.sheetLink.getText().toString();
-                   //  open excel sheet
-                   File file = new File(getExternalFilesDir(null),fileName);
-                   myInput = new FileInputStream(file);
-                   // Create a POI File System object
-                   POIFSFileSystem myFileSystem = new POIFSFileSystem(myInput);
-                   // Create a workbook using the File System
-                   HSSFWorkbook myWorkBook = new HSSFWorkbook(myFileSystem);
-                   // Get the first sheet from workbook
-                   HSSFSheet mySheet = myWorkBook.getSheetAt(0);
-                   // We now need something to iterate through the cells.
-                   Iterator<Row> rowIter = mySheet.rowIterator();
-                   int rowno =0;
-                   while (rowIter.hasNext()) {
-                       HSSFRow myRow = (HSSFRow) rowIter.next();
-                       if(rowno !=0) {
-                           Iterator<Cell> cellIter = myRow.cellIterator();
-                           int colno =0;
-                           String mail="", pass="";
-                           while (cellIter.hasNext()) {
-                               HSSFCell myCell = (HSSFCell) cellIter.next();
-                               if (colno==1){
-                                   mail = myCell.toString();
-                               }else if (colno==2){
-                                   pass = df.format(myCell.getNumericCellValue());
-                               }
-                               colno++;
-                           }
-                           String finalPass = pass;
-                           String finalMail = mail;
-                           auth.createUserWithEmailAndPassword(mail,pass).
-                                   addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                                       @Override
-                                       public void onComplete(@NonNull Task<AuthResult> task) {
-                                           progressDialog.dismiss();
-                                           if(task.isSuccessful()){
-                                               AddUserModel user  = new AddUserModel();
-                                               user.setEditTextMail(finalMail);
-                                               user.setEditTextPassword(finalPass);
-                                               user.setReg_no(finalPass);
-                                               String id  = task.getResult().getUser().getUid();
-                                               database.getReference().child("Users").child(id).setValue(user);
-                                               Toast.makeText(AddStudentsActivity.this,"User Created Successfully",
-                                                       Toast.LENGTH_SHORT).show();
-                                           }
-                                           else{
-                                               Toast.makeText(AddStudentsActivity.this,task.getException().getMessage()
-                                                       ,Toast.LENGTH_SHORT).show();
-                                           }
-                                       }
-                                   });
-                       }
-                       rowno++;
-                   }
-               } catch (Exception e) {
-                   progressDialog.dismiss();
-                   Toast.makeText(AddStudentsActivity.this, "Error", Toast.LENGTH_SHORT).show();
-
-               }
+               Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+               intent.addCategory(Intent.CATEGORY_OPENABLE);
+               intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+               intent.setType("application/vnd.ms-excel");
+               Intent i = Intent.createChooser(intent, "File");
+               startActivityForResult(i, 1);
 
            }
        });
     }
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+        if (requestCode == 1) {
+            if (resultCode == RESULT_OK && intent!=null && intent.getData() != null) {
+                Uri uri = intent.getData();
+                String path = getRealPathFromURI(uri);
+                uploadData(path);
+                }
+            } else {
+                Toast.makeText(AddStudentsActivity.this, "No file is selected", Toast.LENGTH_SHORT).show();
+            }
+    }
 
-    private void createUser(String mail, String pass, String reg_no) {
+    private void uploadData(String path) {
+        progressDialog.show();
+        binding.sheetLink.setText(path);
+        try {
+            InputStream myInput;
+            //  open excel sheet
+//            File file = new File(getExternalFilesDir(null),fileName);
+            String root = Environment.getExternalStorageDirectory().toString();
+            File myDir = new File(root);
+            myDir.mkdirs();
+            File file = new File(myDir+"/"+path);
+            myInput = new FileInputStream(file);
+            // Create a POI File System object
+            POIFSFileSystem myFileSystem = new POIFSFileSystem(myInput);
+            // Create a workbook using the File System
+            HSSFWorkbook myWorkBook = new HSSFWorkbook(myFileSystem);
+            // Get the first sheet from workbook
+            HSSFSheet mySheet = myWorkBook.getSheetAt(0);
+            // We now need something to iterate through the cells.
+            Iterator<Row> rowIter = mySheet.rowIterator();
+            int rowno =0;
+            while (rowIter.hasNext()) {
+                HSSFRow myRow = (HSSFRow) rowIter.next();
+                if(rowno !=0) {
+                    Iterator<Cell> cellIter = myRow.cellIterator();
+                    int colno =0;
+                    String mail="", pass="";
+                    while (cellIter.hasNext()) {
+                        HSSFCell myCell = (HSSFCell) cellIter.next();
+                        if (colno==1){
+                            mail = myCell.toString();
+                        }else if (colno==2){
+                            pass = df.format(myCell.getNumericCellValue());
+                        }
+                        colno++;
+                    }
+                    String finalPass = pass;
+                    String finalMail = mail;
+                    auth.createUserWithEmailAndPassword(mail,pass).
+                            addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    progressDialog.dismiss();
+                                    if(task.isSuccessful()){
+                                        AddUserModel user  = new AddUserModel();
+                                        user.setEditTextMail(finalMail);
+                                        user.setEditTextPassword(finalPass);
+                                        user.setReg_no(finalPass);
+                                        String id  = task.getResult().getUser().getUid();
+                                        database.getReference().child("Users").child(id).setValue(user);
+                                        Toast.makeText(AddStudentsActivity.this,"User Created Successfully",
+                                                Toast.LENGTH_SHORT).show();
+                                    }
+                                    else{
+                                        Toast.makeText(AddStudentsActivity.this,task.getException().getMessage()
+                                                ,Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                }
+                rowno++;
+            }
+        } catch (Exception e) {
+            progressDialog.dismiss();
+            Log.d("pathCheck",e+"");
+            Toast.makeText(AddStudentsActivity.this, e+"", Toast.LENGTH_LONG).show();
 
+        }
+    }
+
+    public String getRealPathFromURI(Uri uri) {
+        File file = new File(uri.getPath());//create path from uri
+        final String[] split = file.getPath().split(":");
+        return split[1];
     }
 }
