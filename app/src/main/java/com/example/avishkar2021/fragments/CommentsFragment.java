@@ -67,8 +67,14 @@ public class CommentsFragment extends BottomSheetDialogFragment {
                     database.getReference().child("Users").addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            model.setUserName(snapshot.child(FirebaseAuth.getInstance().getUid()).child("editTextMail").getValue().toString());
-                            model.setProfilePic(snapshot.child(FirebaseAuth.getInstance().getUid()).child("profilePic").getValue().toString());
+                            try
+                            {
+                                model.setUserName(snapshot.child(FirebaseAuth.getInstance().getUid()).child("editTextMail").getValue().toString());
+                                model.setProfilePic(snapshot.child(FirebaseAuth.getInstance().getUid()).child("profilePic").getValue().toString());
+                            }catch(Exception e)
+                            {
+
+                            }
                             database.getReference().child(path).child("questions").push().setValue(model);
                         }
 
