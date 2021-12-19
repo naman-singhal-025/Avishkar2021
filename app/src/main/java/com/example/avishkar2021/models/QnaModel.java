@@ -7,6 +7,7 @@ public class QnaModel {
     private String userName;
     private String question;
     private String question_id;
+    private String question_user_id;
     private ArrayList<AnswersModel> replyList;
 
     public String getProfilePic() {
@@ -47,5 +48,13 @@ public class QnaModel {
 
     public void setQuestion_id(String question_id) {
         this.question_id = question_id;
+    }
+
+    public String getQuestion_user_id() {
+        return question_user_id;
+    }
+
+    public void setQuestion_user_id(String question_user_id) {
+        this.question_user_id = question_user_id;
     }
 }

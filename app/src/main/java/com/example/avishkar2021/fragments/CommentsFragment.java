@@ -63,6 +63,7 @@ public class CommentsFragment extends BottomSheetDialogFragment {
                 {
                     QnaModel model = new QnaModel();
                     model.setQuestion(question.getText().toString());
+                    model.setQuestion_user_id(FirebaseAuth.getInstance().getUid());
                     question.setText(null);
                     database.getReference().child("Users").addValueEventListener(new ValueEventListener() {
                         @Override
@@ -88,35 +89,6 @@ public class CommentsFragment extends BottomSheetDialogFragment {
                 }
             }
         });
-//        try
-//        {
-//            post_reply_btn.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    AnswersModel answersModel = new AnswersModel();
-//                    answersModel.setReply_id(FirebaseAuth.getInstance().getUid());
-//                    answersModel.setUserReply(reply.getText().toString());
-//                    FirebaseDatabase database = FirebaseDatabase.getInstance();
-//                    database.getReference().addValueEventListener(new ValueEventListener() {
-//                        @Override
-//                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                            answersModel.setAnswerUserName(snapshot.child("Users").child(FirebaseAuth.getInstance().getUid()).child("editTextMail").getValue().toString());
-//                            answersModel.setProfilePic(snapshot.child("Users").child(FirebaseAuth.getInstance().getUid()).child("profilePic").getValue().toString());
-//                            database.getReference()
-//                                    .child("replies").push().setValue(answersModel);
-//                        }
-//
-//                        @Override
-//                        public void onCancelled(@NonNull DatabaseError error) {
-//
-//                        }
-//                    });
-//                }
-//            });
-//        }catch (Exception e)
-//        {
-//
-//        }
 
         database.getReference().addValueEventListener(new ValueEventListener() {
             @Override
@@ -130,6 +102,12 @@ public class CommentsFragment extends BottomSheetDialogFragment {
                     model.setQuestion(questionShot.child("question").getValue().toString());
                     if(questionShot.child("profilePic").exists()) {
                         model.setProfilePic(questionShot.child("profilePic").getValue().toString());
+                    }
+                    else if(snapshot.child("Users").child(questionShot.child("question_user_id").getValue().toString())
+                            .child("profilePic").exists())
+                    {
+                        model.setProfilePic(snapshot.child("Users").child(questionShot.child("question_user_id").getValue().toString())
+                                .child("profilePic").getValue().toString());
                     }
                     model.setUserName(questionShot.child("userName").getValue().toString());
                     for(DataSnapshot repliesShot : questionShot.child("replies").getChildren())
