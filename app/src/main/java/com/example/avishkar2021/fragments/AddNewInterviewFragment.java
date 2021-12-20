@@ -317,7 +317,7 @@ public class AddNewInterviewFragment extends Fragment{
                         // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
                         String downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl().toString();
                         user.setDescription(downloadUrl);
-                        database.getReference().child("InterviewExperiences").child(user.getCompany())
+                        database.getReference().child("InterviewExperiences").child(user.getCompany().replaceAll("\\s", ""))
                                 .child(key).setValue(user);
                         progressDialog.dismiss();
                         Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
