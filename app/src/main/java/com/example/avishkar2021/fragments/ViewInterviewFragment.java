@@ -53,7 +53,12 @@ public class ViewInterviewFragment extends Fragment {
                 list.clear();
                 for(DataSnapshot dataSnapshot : snapshot.getChildren())
                 {
-                    list.add(dataSnapshot.getKey().toString());
+                    for(DataSnapshot subshot : dataSnapshot.getChildren())
+                    {
+                        list.add(subshot.child("company").getValue().toString());
+                        break;
+                    }
+
                 }
                try {
                     listView = binding.listViewxx;

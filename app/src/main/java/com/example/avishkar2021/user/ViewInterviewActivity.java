@@ -49,7 +49,7 @@ public class ViewInterviewActivity extends AppCompatActivity {
         progressDialog.setTitle("Retrieving Data...");
         progressDialog.setMessage("Please, wait !");
 
-        database.getReference().child("InterviewExperiences").child(company)
+        database.getReference().child("InterviewExperiences").child(company.replaceAll("\\s", ""))
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
