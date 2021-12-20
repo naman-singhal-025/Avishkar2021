@@ -63,7 +63,7 @@ public class CommentsFragment extends BottomSheetDialogFragment {
             public void onClick(View view) {
                 InternetConnection internetConnection = new InternetConnection(getContext());
                 internetConnection.execute();
-                if(!question.equals(null) && !question.equals(""))
+                if(!question.equals(null) && !question.getText().toString().equals(""))
                 {
                     QnaModel model = new QnaModel();
                     model.setQuestion(question.getText().toString());

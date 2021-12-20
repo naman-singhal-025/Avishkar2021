@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -101,12 +102,17 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
             public void onClick(View view) {
                 InternetConnection internetConnection = new InternetConnection(context);
                 internetConnection.execute();
-
-                AnswersModel answersModel = new AnswersModel();
-                answersModel.setReply_id(FirebaseAuth.getInstance().getUid());
-                answersModel.setUserReply(holder.reply.getText().toString());
-                database.getReference().child(qnaModelArrayList.get(position).getQuestion_id())
-                                .child("replies").push().setValue(answersModel);
+                if(!holder.reply.equals(null) && !holder.reply.getText().toString().equals(""))
+                {
+                    AnswersModel answersModel = new AnswersModel();
+                    answersModel.setReply_id(FirebaseAuth.getInstance().getUid());
+                    answersModel.setUserReply(holder.reply.getText().toString());
+                    database.getReference().child(qnaModelArrayList.get(position).getQuestion_id())
+                            .child("replies").push().setValue(answersModel);
+                }
+                else {
+                    Toast.makeText(context, "Empty field...", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
