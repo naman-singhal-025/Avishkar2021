@@ -8,8 +8,10 @@ import com.example.avishkar2021.R;
 import com.example.avishkar2021.admin.AdminMainActivity;
 import com.example.avishkar2021.databinding.ActivityMainBinding;
 import com.example.avishkar2021.user.SignIn;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
@@ -32,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        InternetConnection internetConnection = new InternetConnection(MainActivity.this);
+        internetConnection.execute();
 
         FirebaseDatabase.getInstance().getReference().child("KEY").addValueEventListener(new ValueEventListener() {
             @Override

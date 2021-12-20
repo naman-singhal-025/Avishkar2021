@@ -10,6 +10,7 @@ import android.widget.ListView;
 import com.example.avishkar2021.adapters.VerifyUserAdapter;
 import com.example.avishkar2021.databinding.ActivityVerifyStudentsBinding;
 import com.example.avishkar2021.models.VerifyUserModel;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -38,6 +39,11 @@ public class VerifyStudentsActivity extends AppCompatActivity {
         progressDialog.setMessage("Please, wait !");
 
         progressDialog.show();
+
+        InternetConnection internetConnection = new InternetConnection(VerifyStudentsActivity.this);
+        internetConnection.execute();
+
+
         database.getReference().child("Users").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

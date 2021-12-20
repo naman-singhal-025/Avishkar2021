@@ -15,6 +15,7 @@ import com.example.avishkar2021.adapters.PersonalDetailsAdapter;
 import com.example.avishkar2021.databinding.FragmentPersonalBinding;
 import com.example.avishkar2021.models.EditModel;
 import com.example.avishkar2021.models.UsersModel;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -46,6 +47,9 @@ public class PersonalFragment extends Fragment {
 
         binding = FragmentPersonalBinding.inflate(inflater, container, false);
         database = FirebaseDatabase.getInstance();
+
+        InternetConnection internetConnection = new InternetConnection(getContext());
+        internetConnection.execute();
 
         database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
                 .addValueEventListener(new ValueEventListener() {
@@ -85,6 +89,9 @@ public class PersonalFragment extends Fragment {
         binding.floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                InternetConnection internetConnection = new InternetConnection(getContext());
+                internetConnection.execute();
+
                 textList = new ArrayList<>();
                 int i = 0;
                 while (i < 16) {

@@ -21,10 +21,7 @@ import java.util.Calendar;
 
 public class AddCompanyAdapter extends BaseAdapter {
     private Context context;
-    private DatePickerDialog datePickerDialog;
-    private EditText dateButton;
     int year,month,day;
-    String date="";
     final Calendar cal = Calendar.getInstance();
     public static ArrayList<AddCompaniesModel> addCompaniesModelArrayList;
 

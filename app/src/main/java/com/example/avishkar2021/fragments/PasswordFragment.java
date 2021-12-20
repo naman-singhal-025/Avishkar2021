@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.avishkar2021.databinding.FragmentPasswordBinding;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthCredential;
@@ -29,9 +30,16 @@ public class PasswordFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentPasswordBinding.inflate(inflater, container, false);
         auth = FirebaseAuth.getInstance();
+
+        InternetConnection internetConnection = new InternetConnection(getContext());
+        internetConnection.execute();
+
         binding.savePass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                InternetConnection internetConnection = new InternetConnection(getContext());
+                internetConnection.execute();
+
                 String oldPassword = binding.oldPass.getText().toString();
                 String newPassword = binding.newPass.getText().toString();
                 String renewPassword = binding.renewPass.getText().toString();

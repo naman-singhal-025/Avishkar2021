@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.example.avishkar2021.R;
 import com.example.avishkar2021.databinding.FragmentPhotoResumeBinding;
 import com.example.avishkar2021.models.UsersModel;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -53,6 +54,9 @@ public class PhotoResumeFragment extends Fragment {
         progressDialog = new ProgressDialog(container.getContext());
         progressDialog.setTitle("Uploading...");
         progressDialog.setMessage("Please, wait !");
+
+        InternetConnection internetConnection = new InternetConnection(getContext());
+        internetConnection.execute();
 
         database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
                 .addValueEventListener(new ValueEventListener() {
@@ -129,8 +133,8 @@ public class PhotoResumeFragment extends Fragment {
         binding.downloadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(users.getResume()));
-//                startActivity(intent);
+                InternetConnection internetConnection = new InternetConnection(getContext());
+                internetConnection.execute();
                 String filename = "resume";
                 try{
                     filename = users.getReg_no();

@@ -21,6 +21,7 @@ import com.example.avishkar2021.adapters.NoticeBoardAdapter;
 import com.example.avishkar2021.user.DisplayNoticeActivity;
 import com.example.avishkar2021.databinding.FragmentNoticeBoardBinding;
 import com.example.avishkar2021.models.NoticeModel;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -44,6 +45,9 @@ public class NoticeBoardFragment extends Fragment {
         progressDialog.setMessage("Please, wait !!");
 
         database = FirebaseDatabase.getInstance();
+
+        InternetConnection internetConnection = new InternetConnection(getContext());
+        internetConnection.execute();
 
         database.getReference().child("notice")
                 .addValueEventListener(new ValueEventListener() {

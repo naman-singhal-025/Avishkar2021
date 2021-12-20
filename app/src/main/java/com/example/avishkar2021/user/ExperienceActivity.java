@@ -19,6 +19,7 @@ import com.example.avishkar2021.adapters.QuestionAdapter;
 import com.example.avishkar2021.databinding.ActivityExperienceBinding;
 import com.example.avishkar2021.fragments.CommentsFragment;
 import com.example.avishkar2021.models.QnaModel;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FileDownloadTask;
@@ -49,6 +50,9 @@ public class ExperienceActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Retrieving Data...");
         progressDialog.setMessage("Please, wait !");
+
+        InternetConnection internetConnection = new InternetConnection(ExperienceActivity.this);
+        internetConnection.execute();
 
         progressDialog.show();
         Intent intent = getIntent();
@@ -84,6 +88,8 @@ public class ExperienceActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
+                InternetConnection internetConnection = new InternetConnection(ExperienceActivity.this);
+                internetConnection.execute();
                 Bundle bundle = new Bundle();
                 bundle.putString("url",path);
                 CommentsFragment commentsFragment = new CommentsFragment();

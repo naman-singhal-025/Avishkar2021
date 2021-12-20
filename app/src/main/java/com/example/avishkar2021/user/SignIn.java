@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.avishkar2021.R;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -29,6 +30,9 @@ public class SignIn extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         getSupportActionBar().hide();
+
+        InternetConnection internetConnection = new InternetConnection(SignIn.this);
+        internetConnection.execute();
 
         auth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(SignIn.this);

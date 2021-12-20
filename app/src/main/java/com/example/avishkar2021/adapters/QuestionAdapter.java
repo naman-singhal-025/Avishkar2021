@@ -16,8 +16,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.avishkar2021.R;
+import com.example.avishkar2021.activities.MainActivity;
 import com.example.avishkar2021.models.AnswersModel;
 import com.example.avishkar2021.models.QnaModel;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -56,6 +58,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
         holder.reply_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if(holder.reply_bar.getVisibility()== holder.reply_bar.VISIBLE)
                 {
                     holder.reply_bar.setVisibility(holder.reply_bar.GONE);
@@ -96,6 +99,9 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
         holder.post_reply_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                InternetConnection internetConnection = new InternetConnection(context);
+                internetConnection.execute();
+
                 AnswersModel answersModel = new AnswersModel();
                 answersModel.setReply_id(FirebaseAuth.getInstance().getUid());
                 answersModel.setUserReply(holder.reply.getText().toString());

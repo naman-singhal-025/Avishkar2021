@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.avishkar2021.adapters.ViewInterviewAdapter;
 import com.example.avishkar2021.user.ViewInterviewActivity;
 import com.example.avishkar2021.databinding.FragmentViewInterviewBinding;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -39,6 +40,9 @@ public class ViewInterviewFragment extends Fragment {
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setTitle("Fetching data...");
         progressDialog.setMessage("Please, wait !!");
+
+        InternetConnection internetConnection = new InternetConnection(getContext());
+        internetConnection.execute();
 
         database = FirebaseDatabase.getInstance();
 

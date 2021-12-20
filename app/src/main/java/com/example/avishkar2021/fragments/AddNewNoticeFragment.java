@@ -18,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.avishkar2021.databinding.FragmentAddNewNoticeBinding;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
 
@@ -51,9 +52,14 @@ public class AddNewNoticeFragment extends Fragment {
         database = FirebaseDatabase.getInstance();
         requestQueue = Volley.newRequestQueue(getContext());
         FirebaseMessaging.getInstance().subscribeToTopic("notice");
+        InternetConnection internetConnection = new InternetConnection(getContext());
+        internetConnection.execute();
+
         binding.publish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                InternetConnection internetConnection = new InternetConnection(getContext());
+                internetConnection.execute();
                 try
                 {
                     if(binding.noticeSubject.getText()==null)

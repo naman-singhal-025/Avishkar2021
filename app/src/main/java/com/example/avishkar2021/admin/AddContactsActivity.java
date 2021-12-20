@@ -20,6 +20,7 @@ import com.example.avishkar2021.adapters.AddContactsAdapter;
 import com.example.avishkar2021.R;
 import com.example.avishkar2021.databinding.ActivityAddContactsBinding;
 import com.example.avishkar2021.models.UsersModel;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -52,6 +53,11 @@ public class AddContactsActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();
+
+        InternetConnection internetConnection = new InternetConnection(AddContactsActivity.this);
+        internetConnection.execute();
+
+
         usersArrayList = new ArrayList<>();
         listV = binding.listViewX;
         progressDialog = new ProgressDialog(AddContactsActivity.this);

@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.avishkar2021.databinding.ActivityAddStudentsBinding;
 import com.example.avishkar2021.models.AddUserModel;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -57,6 +58,8 @@ public class AddStudentsActivity extends AppCompatActivity {
         progressDialog.setTitle("Creating Account");
         progressDialog.setMessage("Uploading data");
 
+        InternetConnection internetConnection = new InternetConnection(AddStudentsActivity.this);
+        internetConnection.execute();
 
        binding.uploadButton1.setOnClickListener(new View.OnClickListener() {
            @Override

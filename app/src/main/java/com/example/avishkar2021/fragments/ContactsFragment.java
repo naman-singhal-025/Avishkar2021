@@ -14,6 +14,7 @@ import android.widget.ListView;
 import com.example.avishkar2021.adapters.AddContactsAdapter;
 import com.example.avishkar2021.databinding.FragmentContactsBinding;
 import com.example.avishkar2021.models.UsersModel;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -39,6 +40,9 @@ public class ContactsFragment extends Fragment {
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setTitle("Adding Contacts");
         progressDialog.setMessage("Fetching data....");
+
+        InternetConnection internetConnection = new InternetConnection(getContext());
+        internetConnection.execute();
 
         database.getReference().child("Contacts").addValueEventListener(new ValueEventListener() {
             @Override

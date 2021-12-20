@@ -19,6 +19,7 @@ import com.example.avishkar2021.R;
 import com.example.avishkar2021.adapters.QuestionAdapter;
 import com.example.avishkar2021.models.AnswersModel;
 import com.example.avishkar2021.models.QnaModel;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -54,9 +55,14 @@ public class CommentsFragment extends BottomSheetDialogFragment {
 
         EditText question = view.findViewById(R.id.question);
 
+        InternetConnection internetConnection = new InternetConnection(getContext());
+        internetConnection.execute();
+
         post_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                InternetConnection internetConnection = new InternetConnection(getContext());
+                internetConnection.execute();
                 if(!question.equals(null) && !question.equals(""))
                 {
                     QnaModel model = new QnaModel();

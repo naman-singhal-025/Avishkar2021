@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.avishkar2021.R;
 import com.example.avishkar2021.databinding.ActivityStudentDetailBinding;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -41,6 +42,9 @@ public class StudentDetailActivity extends AppCompatActivity {
         progressDialog.setTitle("Retrieving Data...");
         progressDialog.setMessage("Please, wait !");
 //        progressDialog.show();
+
+        InternetConnection internetConnection = new InternetConnection(StudentDetailActivity.this);
+        internetConnection.execute();
 
         uid = getIntent().getStringExtra("uid");
         database.getReference().child("Users").child(uid).addValueEventListener(new ValueEventListener() {
@@ -169,8 +173,6 @@ public class StudentDetailActivity extends AppCompatActivity {
         binding.downloadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(resume));
-//                startActivity(intent);
 
                 String filename = "resume";
                 try{

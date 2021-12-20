@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.avishkar2021.adapters.ViewInterviewExtraAdapter;
 import com.example.avishkar2021.databinding.ActivityViewInterviewBinding;
 import com.example.avishkar2021.models.UsersModel;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -38,6 +39,9 @@ public class ViewInterviewActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String company = intent.getStringExtra("company");
+
+        InternetConnection internetConnection = new InternetConnection(ViewInterviewActivity.this);
+        internetConnection.execute();
 
         database = FirebaseDatabase.getInstance();
         storage  = FirebaseStorage.getInstance();

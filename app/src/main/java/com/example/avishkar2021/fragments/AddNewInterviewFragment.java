@@ -35,6 +35,7 @@ import android.widget.Toast;
 import com.example.avishkar2021.R;
 import com.example.avishkar2021.databinding.FragmentAddNewInterviewBinding;
 import com.example.avishkar2021.models.AddCompaniesModel;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.FirebaseDatabase;
@@ -65,16 +66,15 @@ public class AddNewInterviewFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-//
-//        ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE,
-//                        Manifest.permission.WRITE_EXTERNAL_STORAGE},
-//                PackageManager.PERMISSION_GRANTED);
         binding = FragmentAddNewInterviewBinding.inflate(inflater, container, false);
         edittext = binding.editTextTextMultiLine;
 
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setTitle("Letting your ink dry...");
         progressDialog.setMessage("Please, wait !!");
+
+        InternetConnection internetConnection = new InternetConnection(getContext());
+        internetConnection.execute();
 
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();

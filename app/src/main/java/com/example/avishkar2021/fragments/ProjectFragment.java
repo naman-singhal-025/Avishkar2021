@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.avishkar2021.databinding.FragmentProjectBinding;
 import com.example.avishkar2021.models.ProjectInternModel;
 import com.example.avishkar2021.models.UsersModel;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,6 +33,9 @@ public class ProjectFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentProjectBinding.inflate(inflater, container, false);
         database = FirebaseDatabase.getInstance();
+
+        InternetConnection internetConnection = new InternetConnection(getContext());
+        internetConnection.execute();
 
         database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
                 .addValueEventListener(new ValueEventListener() {
@@ -91,6 +95,8 @@ public class ProjectFragment extends Fragment {
         binding.pisaveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                InternetConnection internetConnection = new InternetConnection(getContext());
+                internetConnection.execute();
                 try
                 {
                     ProjectInternModel projectInternModel = new ProjectInternModel();

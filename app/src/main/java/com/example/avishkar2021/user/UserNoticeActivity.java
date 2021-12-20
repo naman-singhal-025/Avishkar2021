@@ -15,6 +15,7 @@ import com.example.avishkar2021.R;
 import com.example.avishkar2021.adapters.UserNoticeBoardAdapter;
 import com.example.avishkar2021.databinding.ActivityUserNoticeBinding;
 import com.example.avishkar2021.models.NoticeModel;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -40,6 +41,9 @@ public class UserNoticeActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Fetching data...");
         progressDialog.setMessage("Please, wait !!");
+
+        InternetConnection internetConnection = new InternetConnection(UserNoticeActivity.this);
+        internetConnection.execute();
 
         database = FirebaseDatabase.getInstance();
 //        FirebaseMessaging.getInstance().subscribeToTopic("notice");

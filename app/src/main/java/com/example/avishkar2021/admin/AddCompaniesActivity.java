@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.avishkar2021.adapters.AddCompanyAdapter;
 import com.example.avishkar2021.databinding.ActivityAddCompaniesBinding;
 import com.example.avishkar2021.models.AddCompaniesModel;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
@@ -38,6 +39,8 @@ public class AddCompaniesActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(AddCompaniesActivity.this);
         progressDialog.setMessage("Uploading data");
 
+        InternetConnection internetConnection = new InternetConnection(AddCompaniesActivity.this);
+        internetConnection.execute();
 
         binding.floatingActionButton3.setOnClickListener(new View.OnClickListener() {
             @Override

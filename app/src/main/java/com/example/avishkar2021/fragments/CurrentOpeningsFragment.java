@@ -14,6 +14,7 @@ import android.widget.ListView;
 import com.example.avishkar2021.adapters.CurrentOpeningsAdapter;
 import com.example.avishkar2021.databinding.FragmentCurrentOpeningsBinding;
 import com.example.avishkar2021.models.AddCompaniesModel;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -41,6 +42,9 @@ public class CurrentOpeningsFragment extends Fragment {
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setTitle("Retrieving Data...");
         progressDialog.setMessage("Please, wait !");
+
+        InternetConnection internetConnection = new InternetConnection(getContext());
+        internetConnection.execute();
 
         progressDialog.show();
         database.getReference().addValueEventListener(new ValueEventListener() {

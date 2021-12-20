@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.example.avishkar2021.R;
 import com.example.avishkar2021.models.UsersModel;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
 
@@ -83,6 +84,11 @@ public class MainActivity2 extends AppCompatActivity {
         storage = FirebaseStorage.getInstance();
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
+
+
+        InternetConnection internetConnection = new InternetConnection(MainActivity2.this);
+        internetConnection.execute();
+
 
         setSupportActionBar(binding.appBarMain.toolbar);
         DrawerLayout drawer = binding.drawerLayout;

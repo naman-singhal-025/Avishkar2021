@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.avishkar2021.R;
 import com.example.avishkar2021.models.UsersModel;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -34,6 +35,9 @@ public class SignUp extends AppCompatActivity {
         getSupportActionBar().hide();
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
+
+        InternetConnection internetConnection = new InternetConnection(SignUp.this);
+        internetConnection.execute();
 
         progressDialog = new ProgressDialog(SignUp.this);
         progressDialog.setTitle("Creating Account");

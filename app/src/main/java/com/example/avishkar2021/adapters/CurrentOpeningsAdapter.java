@@ -12,7 +12,9 @@ import android.widget.Toast;
 
 
 import com.example.avishkar2021.R;
+import com.example.avishkar2021.activities.MainActivity;
 import com.example.avishkar2021.models.AddCompaniesModel;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -88,6 +90,9 @@ public class CurrentOpeningsAdapter extends BaseAdapter {
             holder.button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
+                    InternetConnection internetConnection = new InternetConnection(context);
+                    internetConnection.execute();
 
                     DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
                     AddCompaniesModel model = addCompaniesModelArrayList.get(position);

@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.avishkar2021.adapters.CustomizedExpandableListAdapter;
 import com.example.avishkar2021.R;
 import com.example.avishkar2021.databinding.ActivityFeedbackBinding;
+import com.example.avishkar2021.utils.InternetConnection;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -43,6 +44,10 @@ public class FeedbackActivity extends AppCompatActivity {
 
         progressDialog = new ProgressDialog(FeedbackActivity.this);
         progressDialog.setMessage("Fetching data...");
+
+        InternetConnection internetConnection = new InternetConnection(FeedbackActivity.this);
+        internetConnection.execute();
+
         expandableListViewExample = (ExpandableListView) findViewById(R.id.expandableListViewSample);
         database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference();
