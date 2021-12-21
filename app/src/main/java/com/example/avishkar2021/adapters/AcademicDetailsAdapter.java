@@ -2,6 +2,7 @@ package com.example.avishkar2021.adapters;
 
 import android.content.Context;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -77,6 +78,10 @@ public class AcademicDetailsAdapter extends BaseAdapter {
         }
         else
         {
+            if(position==2 || position==3 ||position==6 || position==7 || position==9 ||position==10 || position==11)
+            {
+                holder.editText.setInputType(InputType.TYPE_CLASS_DATETIME);
+            }
             holder.editText.setEnabled(true);
         }
         holder.editText.addTextChangedListener(new TextWatcher() {
@@ -95,7 +100,10 @@ public class AcademicDetailsAdapter extends BaseAdapter {
 
             @Override
             public void afterTextChanged(Editable editable) {
-
+                if(holder.editText.getText().toString().isEmpty())
+                {
+                    holder.editText.setError("Required " + editModelArrayList.get(position).getTextValue());
+                }
             }
         });
 

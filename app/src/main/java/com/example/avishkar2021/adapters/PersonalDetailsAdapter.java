@@ -1,25 +1,32 @@
 package com.example.avishkar2021.adapters;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.avishkar2021.R;
 import com.example.avishkar2021.models.EditModel;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class PersonalDetailsAdapter extends BaseAdapter {
 
 
     private Context context;
     public static ArrayList<EditModel> editModelArrayList;
+    int year,month,day;
+    final Calendar cal = Calendar.getInstance();
 
     public PersonalDetailsAdapter(Context context, ArrayList<EditModel> editModelArrayList) {
 
@@ -73,8 +80,32 @@ public class PersonalDetailsAdapter extends BaseAdapter {
         holder.editText.setText(editModelArrayList.get(position).getEditTextValue());
         holder.textView.setText(editModelArrayList.get(position).getTextValue());
         if(editModelArrayList.get(position).getVerStatus().equals("Verified")||
-                editModelArrayList.get(position).getLockStatus().equals("Locked")){
+                editModelArrayList.get(position).getLockStatus().equals("Locked")|| position==0 ||
+                position==5){
             holder.editText.setEnabled(false);
+        }
+        else if(position == 4)
+        {
+            holder.editText.setInputType(InputType.TYPE_NULL);
+            holder.editText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    year = cal.get(Calendar.YEAR);
+                    month = cal.get(Calendar.MONTH);
+                    day = cal.get(Calendar.DAY_OF_MONTH);
+                    DatePickerDialog datePickerDialog = new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
+                        @Override
+                        public void onDateSet(DatePicker datePicker, int year, int month, int dayOfMonth) {
+                            cal.set(Calendar.YEAR,year);
+                            cal.set(Calendar.MONTH,month);
+                            cal.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+                            holder.editText.setText(SimpleDateFormat.getDateInstance().format(cal.getTime()).toString());
+                        }
+                    },year,month,day);
+                    datePickerDialog.show();
+                }
+            });
         }
         else
         {
@@ -95,10 +126,12 @@ public class PersonalDetailsAdapter extends BaseAdapter {
 
             @Override
             public void afterTextChanged(Editable editable) {
-
+                if(holder.editText.getText().toString().isEmpty() && position!=4)
+                {
+                    holder.editText.setError("Required " + editModelArrayList.get(position).getTextValue());
+                }
             }
         });
-
         return convertView;
     }
 
