@@ -94,14 +94,26 @@ public class PersonalFragment extends Fragment {
 
                 textList = new ArrayList<>();
                 int i = 0;
+                int flag=1;
                 while (i < 16) {
-                    textList.add(PersonalDetailsAdapter.editModelArrayList.get(i).getEditTextValue());
+                    String s = PersonalDetailsAdapter.editModelArrayList.get(i).getEditTextValue();
+                    if(s.isEmpty() || s.equals(""))
+                    {
+                        flag=0;
+                        break;
+                    }
+                    textList.add(s);
                     i++;
                 }
-                HashMap<String, Object> obj = new HashMap<>();
-                obj.put("personal", textList);
-                database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid()).updateChildren(obj);
-                Toast.makeText(getActivity(), "Profile Updated Successfully", Toast.LENGTH_SHORT).show();
+                if(flag!=0)
+                {
+                    HashMap<String, Object> obj = new HashMap<>();
+                    obj.put("personal", textList);
+                    database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid()).updateChildren(obj);
+                    Toast.makeText(getActivity(), "Profile Updated Successfully", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(getContext(), "Complete your profile", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

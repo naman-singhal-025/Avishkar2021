@@ -94,16 +94,16 @@ public class AcademicDetailsAdapter extends BaseAdapter {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                     editModelArrayList.get(position).setEditTextValue(holder.editText.getText().toString());
                     holder.editText.setSelection(holder.editText.getText().length());
-
+                if(holder.editText.getText().toString().isEmpty())
+                {
+                    holder.editText.setError("Required " + editModelArrayList.get(position).getTextValue());
+                }
 
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                if(holder.editText.getText().toString().isEmpty())
-                {
-                    holder.editText.setError("Required " + editModelArrayList.get(position).getTextValue());
-                }
+
             }
         });
 

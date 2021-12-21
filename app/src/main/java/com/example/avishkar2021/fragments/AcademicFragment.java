@@ -89,15 +89,26 @@ public class AcademicFragment extends Fragment {
             public void onClick(View view) {
                 textList = new ArrayList<>();
                 int i=0;
+                int flag = 1;
                 while(i<12)
                 {
-                    textList.add(AcademicDetailsAdapter.editModelArrayList.get(i).getEditTextValue());
+                    String s = AcademicDetailsAdapter.editModelArrayList.get(i).getEditTextValue();
+                    if(s.isEmpty() || s.equals(""))
+                    {
+                        flag=0;
+                        break;
+                    }
+                    textList.add(s);
                     i++;
                 }
-                HashMap<String,Object> obj = new HashMap<>();
-                obj.put("academic",textList);
-                database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid()).updateChildren(obj);
-                Toast.makeText(getActivity(), "Profile Updated Successfully", Toast.LENGTH_SHORT).show();
+                if(flag!=0) {
+                    HashMap<String, Object> obj = new HashMap<>();
+                    obj.put("academic", textList);
+                    database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid()).updateChildren(obj);
+                    Toast.makeText(getActivity(), "Profile Updated Successfully", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(getContext(), "Complete your profile", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
