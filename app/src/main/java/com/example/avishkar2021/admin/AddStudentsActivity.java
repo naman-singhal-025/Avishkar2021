@@ -43,6 +43,7 @@ public class AddStudentsActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     FirebaseDatabase database;
     ProgressDialog progressDialog;
+    String mail,pass,reg_no;
     DecimalFormat df = new DecimalFormat("0");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,31 +66,38 @@ public class AddStudentsActivity extends AppCompatActivity {
            @Override
            public void onClick(View view) {
                progressDialog.show();
-               String mail = binding.editMail.getText().toString();
-               String pass = binding.editPass.getText().toString();
-               String reg_no = binding.editRegNo.getText().toString();
+               try
+               {
+                   mail = binding.editMail.getText().toString();
+                   pass = binding.editPass.getText().toString();
+                   reg_no = binding.editRegNo.getText().toString();
 
-               auth.createUserWithEmailAndPassword(mail,pass).
-                       addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                           @Override
-                           public void onComplete(@NonNull Task<AuthResult> task) {
-                               progressDialog.dismiss();
-                               if(task.isSuccessful()){
-                                   AddUserModel user  = new AddUserModel();
-                                   user.setEditTextMail(mail);
-                                   user.setEditTextPassword(pass);
-                                   user.setReg_no(reg_no);
-                                   String id  = task.getResult().getUser().getUid();
-                                   database.getReference().child("Users").child(id).setValue(user);
-                                   Toast.makeText(AddStudentsActivity.this,"User Created Successfully",
-                                           Toast.LENGTH_SHORT).show();
+                   auth.createUserWithEmailAndPassword(mail,pass).
+                           addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                               @Override
+                               public void onComplete(@NonNull Task<AuthResult> task) {
+                                   progressDialog.dismiss();
+                                   if(task.isSuccessful()){
+                                       AddUserModel user  = new AddUserModel();
+                                       user.setEditTextMail(mail);
+                                       user.setEditTextPassword(pass);
+                                       user.setReg_no(reg_no);
+                                       String id  = task.getResult().getUser().getUid();
+                                       database.getReference().child("Users").child(id).setValue(user);
+                                       Toast.makeText(AddStudentsActivity.this,"User Created Successfully",
+                                               Toast.LENGTH_SHORT).show();
+                                   }
+                                   else{
+                                       Toast.makeText(AddStudentsActivity.this,task.getException().getMessage()
+                                               ,Toast.LENGTH_SHORT).show();
+                                   }
                                }
-                               else{
-                                   Toast.makeText(AddStudentsActivity.this,task.getException().getMessage()
-                                           ,Toast.LENGTH_SHORT).show();
-                               }
-                           }
-                       });
+                           });
+               }catch (Exception e)
+               {
+                   progressDialog.dismiss();
+                   Toast.makeText(AddStudentsActivity.this, "Registration fields can't be empty", Toast.LENGTH_SHORT).show();
+               }
            }
        });
 

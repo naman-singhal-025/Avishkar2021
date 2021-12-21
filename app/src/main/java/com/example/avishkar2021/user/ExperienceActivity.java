@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.avishkar2021.R;
@@ -33,10 +34,7 @@ public class ExperienceActivity extends AppCompatActivity {
 
     ActivityExperienceBinding binding;
     private StorageReference reference;
-    ListView listView;
-    ArrayList<QnaModel> list = new ArrayList<>();
-    QuestionAdapter questionAdapter;
-    ProgressDialog progressDialog;
+    private ProgressBar pgsBar;
     String s,path;
 
     @Override
@@ -47,14 +45,12 @@ public class ExperienceActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         getSupportActionBar().hide();
 
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Retrieving Data...");
-        progressDialog.setMessage("Please, wait !");
+        pgsBar = binding.pBar;
+        pgsBar.setVisibility(View.VISIBLE);
 
         InternetConnection internetConnection = new InternetConnection(ExperienceActivity.this);
         internetConnection.execute();
 
-        progressDialog.show();
         Intent intent = getIntent();
         s = intent.getStringExtra("description");
         path = intent.getStringExtra("path");
@@ -69,13 +65,14 @@ public class ExperienceActivity extends AppCompatActivity {
                     Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
                     ImageView view = findViewById(R.id.experience_ss);
                     view.setImageBitmap(bitmap);
-                    progressDialog.dismiss();
+                    pgsBar.setVisibility(View.GONE);
+                    binding.experienceSs.setVisibility(View.VISIBLE);
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
                     Toast.makeText(ExperienceActivity.this, "Failed", Toast.LENGTH_SHORT).show();
-                    progressDialog.dismiss();
+                    pgsBar.setVisibility(View.GONE);
                 }
             });
 

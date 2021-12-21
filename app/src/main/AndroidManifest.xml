@@ -86,7 +86,7 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:label="@string/title_activity_main2"
-            android:windowSoftInputMode="stateHidden|adjustNothing"
+            android:windowSoftInputMode="stateVisible|adjustPan"
             android:theme="@style/Theme.Avishkar2021.NoActionBar" />
         <activity
             android:name=".user.SignUp"

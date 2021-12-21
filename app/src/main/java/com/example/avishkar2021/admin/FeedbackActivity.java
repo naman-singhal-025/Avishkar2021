@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.avishkar2021.adapters.CustomizedExpandableListAdapter;
@@ -31,7 +32,7 @@ public class FeedbackActivity extends AppCompatActivity {
     ExpandableListAdapter expandableListAdapter;
     List<String> expandableTitleList;
     LinkedHashMap<String, List<String>> expandableDetailList;
-    ProgressDialog progressDialog;
+    private ProgressBar pgsBar;
     FirebaseDatabase database;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +43,8 @@ public class FeedbackActivity extends AppCompatActivity {
 
         expandableDetailList = new LinkedHashMap<>();
 
-        progressDialog = new ProgressDialog(FeedbackActivity.this);
-        progressDialog.setMessage("Fetching data...");
+        pgsBar = binding.pBar;
+        pgsBar.setVisibility(View.VISIBLE);
 
         InternetConnection internetConnection = new InternetConnection(FeedbackActivity.this);
         internetConnection.execute();
@@ -51,7 +52,7 @@ public class FeedbackActivity extends AppCompatActivity {
         expandableListViewExample = (ExpandableListView) findViewById(R.id.expandableListViewSample);
         database = FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference();
-        progressDialog.show();
+
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -78,7 +79,9 @@ public class FeedbackActivity extends AppCompatActivity {
                 expandableTitleList = new ArrayList<String>(expandableDetailList.keySet());
                 expandableListAdapter = new CustomizedExpandableListAdapter(FeedbackActivity.this, expandableTitleList, expandableDetailList);
                 expandableListViewExample.setAdapter(expandableListAdapter);
-                progressDialog.dismiss();
+                pgsBar.setVisibility(View.GONE);
+                binding.expandableListViewSample.setVisibility(View.VISIBLE);
+
             }
 
             @Override

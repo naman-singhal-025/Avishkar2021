@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.avishkar2021.adapters.NoticeBoardAdapter;
@@ -35,6 +36,8 @@ public class NoticeBoardFragment extends Fragment {
     ListView listView;
     FragmentNoticeBoardBinding binding;
     ArrayList<NoticeModel> list=new ArrayList<>();
+    private ProgressBar pgsBar;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,6 +48,9 @@ public class NoticeBoardFragment extends Fragment {
         progressDialog.setMessage("Please, wait !!");
 
         database = FirebaseDatabase.getInstance();
+
+        pgsBar = binding.pBar;
+        pgsBar.setVisibility(View.VISIBLE);
 
         InternetConnection internetConnection = new InternetConnection(getContext());
         internetConnection.execute();
@@ -74,7 +80,9 @@ public class NoticeBoardFragment extends Fragment {
                         {
 
                         }
-                        progressDialog.dismiss();
+                        pgsBar.setVisibility(View.GONE);
+                        binding.listViewXX.setVisibility(View.VISIBLE);
+
                     }
 
                     @Override

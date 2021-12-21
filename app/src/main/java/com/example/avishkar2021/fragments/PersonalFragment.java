@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.avishkar2021.adapters.PersonalDetailsAdapter;
@@ -35,6 +36,7 @@ public class PersonalFragment extends Fragment {
     ListView listV;
     UsersModel users;
     FirebaseDatabase database;
+    private ProgressBar pgsBar;
     private String lock = "Not Locked",ver = "Not Verified";
     private String reg_no="",mail="";
     List<String> titleList = Arrays.asList("Reg No","Name","Course","Branch","Date of Birth","E-Mail","Gender (M/F)",
@@ -47,10 +49,12 @@ public class PersonalFragment extends Fragment {
 
         binding = FragmentPersonalBinding.inflate(inflater, container, false);
         database = FirebaseDatabase.getInstance();
+        pgsBar = binding.pBar;
 
         InternetConnection internetConnection = new InternetConnection(getContext());
         internetConnection.execute();
 
+        pgsBar.setVisibility(View.VISIBLE);
         database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
                 .addValueEventListener(new ValueEventListener() {
                     @Override
@@ -76,11 +80,13 @@ public class PersonalFragment extends Fragment {
                         editModelArrayList = populateList(lock,ver);
                         personalDetailsAdapter = new PersonalDetailsAdapter(getActivity(),editModelArrayList);
                         listV.setAdapter(personalDetailsAdapter);
+                        pgsBar.setVisibility(View.GONE);
+                        binding.personalFrame.setVisibility(View.VISIBLE);
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-
+                        pgsBar.setVisibility(View.GONE);
                     }
 
                 });

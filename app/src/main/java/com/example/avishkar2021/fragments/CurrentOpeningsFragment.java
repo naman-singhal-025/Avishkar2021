@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import com.example.avishkar2021.adapters.CurrentOpeningsAdapter;
 import com.example.avishkar2021.databinding.FragmentCurrentOpeningsBinding;
@@ -30,7 +31,7 @@ public class CurrentOpeningsFragment extends Fragment {
     ArrayList<AddCompaniesModel> list=new ArrayList<>();
     ListView listView;
     FirebaseDatabase database;
-    ProgressDialog progressDialog;
+    private ProgressBar pgsBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,14 +40,12 @@ public class CurrentOpeningsFragment extends Fragment {
         // Inflate the layout for this fragment
         binding = FragmentCurrentOpeningsBinding.inflate(inflater, container, false);
         database = FirebaseDatabase.getInstance();
-        progressDialog = new ProgressDialog(getContext());
-        progressDialog.setTitle("Retrieving Data...");
-        progressDialog.setMessage("Please, wait !");
+        pgsBar = binding.pBar;
+        pgsBar.setVisibility(View.VISIBLE);
 
         InternetConnection internetConnection = new InternetConnection(getContext());
         internetConnection.execute();
 
-        progressDialog.show();
         database.getReference().addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -83,12 +82,13 @@ public class CurrentOpeningsFragment extends Fragment {
                     currentOpeningsAdapter = new CurrentOpeningsAdapter(getActivity(), list);
                     listView.setAdapter(currentOpeningsAdapter);
                 }
-                progressDialog.dismiss();
+                pgsBar.setVisibility(View.GONE);
+                binding.currentOpeningsFrame.setVisibility(View.VISIBLE);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                pgsBar.setVisibility(View.GONE);
             }
         });
         return binding.getRoot();

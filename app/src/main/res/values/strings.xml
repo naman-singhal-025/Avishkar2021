@@ -23,6 +23,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="logout">Logout</string>
     <string name="admin_key">NamanSinghal</string>
+    <string name="no_registered_companies">No registered companies</string>
 
     <string-array name="theme">
         <item>System Default</item>

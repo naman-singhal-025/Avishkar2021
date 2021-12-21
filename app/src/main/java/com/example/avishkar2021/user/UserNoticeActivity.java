@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import com.example.avishkar2021.R;
 import com.example.avishkar2021.adapters.UserNoticeBoardAdapter;
@@ -27,10 +28,10 @@ import java.util.ArrayList;
 public class UserNoticeActivity extends AppCompatActivity {
 
     FirebaseDatabase database;
-    ProgressDialog progressDialog;
     ListView listView;
     ActivityUserNoticeBinding binding;
     ArrayList<NoticeModel> list=new ArrayList<>();
+    private ProgressBar pgsBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,12 +39,13 @@ public class UserNoticeActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         getSupportActionBar().setTitle("Notice Board");
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimary)));
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Fetching data...");
-        progressDialog.setMessage("Please, wait !!");
+
 
         InternetConnection internetConnection = new InternetConnection(UserNoticeActivity.this);
         internetConnection.execute();
+
+        pgsBar = binding.pBar;
+        pgsBar.setVisibility(View.VISIBLE);
 
         database = FirebaseDatabase.getInstance();
 //        FirebaseMessaging.getInstance().subscribeToTopic("notice");
@@ -74,16 +76,19 @@ public class UserNoticeActivity extends AppCompatActivity {
                             UserNoticeBoardAdapter adapter = new UserNoticeBoardAdapter(UserNoticeActivity.this,list);
                             listView.setAdapter(adapter);
 
+                            pgsBar.setVisibility(View.GONE);
+                            binding.userNoticeLayout.setVisibility(View.VISIBLE);
+
                         }catch (Exception e)
                         {
 
                         }
-                        progressDialog.dismiss();
+
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-
+                        pgsBar.setVisibility(View.GONE);
                     }
                 });
 

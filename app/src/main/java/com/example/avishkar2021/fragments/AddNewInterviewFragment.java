@@ -290,6 +290,7 @@ public class AddNewInterviewFragment extends Fragment{
                 root.setDrawingCacheEnabled(false);
 
                 AddCompaniesModel user = new AddCompaniesModel();
+//                String interName, interDate, inter
                 user.setName(binding.interName.getText().toString());
                 user.setDate(binding.interDate.getText().toString());
                 user.setCompany(binding.interCompany.getText().toString());
@@ -324,27 +325,6 @@ public class AddNewInterviewFragment extends Fragment{
                     }
                 });
 
-
-                //to store screenshot in local storage
-//                filepath = new File(getActivity().getExternalFilesDir(null), "screenshot");
-//                try {
-//                    if (!filepath.exists()) {
-//                        filepath.createNewFile();
-//                    }
-//                }catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-//                try {
-//                    FileOutputStream fOut = new FileOutputStream(filepath);
-//                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fOut);
-//                    fOut.flush();
-//                    fOut.close();
-//                    Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                    Toast.makeText(getContext(), "Failed", Toast.LENGTH_SHORT).show();
-//
-//                }
             }
         });
 

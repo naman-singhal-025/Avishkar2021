@@ -4,25 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
-    tools:context=".fragments.PersonalFragment"
-    >
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <ListView
+    tools:context=".fragments.PersonalFragment">
+
+    <ProgressBar
+        android:id="@+id/pBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateDrawable="@drawable/progress_bg"
+        android:visibility="visible" />
+
+    <FrameLayout
+        android:id="@+id/personalFrame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@null"
-        android:id="@+id/listView"/>
+        android:visibility="gone">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:src="@drawable/ic_baseline_save_24"
-        app:backgroundTint="@color/colorPrimary"
-        tools:ignore="SpeakableTextPresentCheck" />
-</FrameLayout>
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:src="@drawable/ic_baseline_save_24"
+            app:backgroundTint="@color/colorPrimary"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </FrameLayout>
 </LinearLayout>

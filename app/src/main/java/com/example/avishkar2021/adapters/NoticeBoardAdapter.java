@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.avishkar2021.R;
@@ -62,8 +63,10 @@ public class NoticeBoardAdapter extends BaseAdapter {
         }
         holder.subject = convertView.findViewById(R.id.notice_subject);
         holder.publish_date = convertView.findViewById(R.id.publish_date);
+        holder.seen_status = convertView.findViewById(R.id.seen_status);
         holder.subject.setText(list.get(position).getSubject());
         holder.publish_date.setText(list.get(position).getPublish_date());
+        holder.seen_status.setVisibility(View.INVISIBLE);
         return convertView;
     }
 
@@ -71,6 +74,7 @@ public class NoticeBoardAdapter extends BaseAdapter {
 
         protected TextView subject;
         protected TextView publish_date;
+        protected ImageView seen_status;
 
     }
 }

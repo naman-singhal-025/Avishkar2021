@@ -5,18 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightGrey"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".fragments.RegisteredCompaniesFragment">
 
-    <LinearLayout
+    <ProgressBar
+        android:id="@+id/pBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateDrawable="@drawable/progress_bg"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/noCompReg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/lora_bold"
         android:gravity="center"
-        android:orientation="horizontal" />
+        android:text="@string/no_registered_companies"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:visibility="gone" />
 
     <FrameLayout
+        android:id="@+id/registeredCompFrame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
         <ListView
             android:id="@+id/listView4"

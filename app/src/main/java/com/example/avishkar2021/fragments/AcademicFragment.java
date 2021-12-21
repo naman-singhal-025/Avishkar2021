@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.avishkar2021.adapters.AcademicDetailsAdapter;
@@ -34,6 +35,7 @@ public class AcademicFragment extends Fragment {
     FragmentAcademicBinding binding;
     ListView listV;
     FirebaseDatabase database;
+    private ProgressBar pgsBar;
     UsersModel users;
     private String lock = "Not Locked",ver = "Not Verified";
     List<String> titleList = Arrays.asList("10th School","10th board","10th Year","10th %","12th School",
@@ -49,6 +51,9 @@ public class AcademicFragment extends Fragment {
 
         InternetConnection internetConnection = new InternetConnection(getContext());
         internetConnection.execute();
+
+        pgsBar = binding.pBar;
+        pgsBar.setVisibility(View.VISIBLE);
 
         database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
                 .addValueEventListener(new ValueEventListener() {
@@ -72,13 +77,14 @@ public class AcademicFragment extends Fragment {
                         editModelArrayList = populateList(lock,ver);
                         academicDetailsAdapter = new AcademicDetailsAdapter(getActivity(),editModelArrayList);
                         listV.setAdapter(academicDetailsAdapter);
-
+                        pgsBar.setVisibility(View.GONE);
+                        binding.academicFrame.setVisibility(View.VISIBLE);
 
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-
+                        pgsBar.setVisibility(View.GONE);
                     }
 
                 });
