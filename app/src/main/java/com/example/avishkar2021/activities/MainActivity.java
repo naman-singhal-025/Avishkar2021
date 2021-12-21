@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     private String m_Text;
     String pass = "n";
+    int count = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +56,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        binding.imageViewCollege.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                count++;
+                if(count>=5)
+                {
+                    count=0;
+                    binding.register.setVisibility(View.VISIBLE);
+                    Toast.makeText(MainActivity.this, "Admin mode activated", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
         binding.login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
