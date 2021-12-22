@@ -2,9 +2,11 @@ package com.example.avishkar2021.user;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
@@ -37,9 +39,11 @@ public class UserNoticeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityUserNoticeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        getSupportActionBar().setTitle("Notice Board");
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimary)));
 
+        Toolbar toolbar = binding.toolbar;
+        toolbar.setTitleTextColor(getResources().getColor(R.color.dark_white));
+        toolbar.setTitle("Notice Board");
+        setSupportActionBar(toolbar);
 
         InternetConnection internetConnection = new InternetConnection(UserNoticeActivity.this);
         internetConnection.execute();
@@ -77,7 +81,7 @@ public class UserNoticeActivity extends AppCompatActivity {
                             listView.setAdapter(adapter);
 
                             pgsBar.setVisibility(View.GONE);
-                            binding.userNoticeLayout.setVisibility(View.VISIBLE);
+                            binding.listViewXXY.setVisibility(View.VISIBLE);
 
                         }catch (Exception e)
                         {

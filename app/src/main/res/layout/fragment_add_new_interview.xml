@@ -272,7 +272,7 @@
             android:baselineAlignBottom="false"
             android:onClick="saveButton"
             android:src="@drawable/ic_baseline_save_35"
-            app:backgroundTint="#2196F3"
+            app:backgroundTint="@color/colorPrimary"
             tools:ignore="SpeakableTextPresentCheck" />
     </RelativeLayout>
 

@@ -3,6 +3,7 @@ package com.example.avishkar2021.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.avishkar2021.R;
 import com.example.avishkar2021.admin.AdminMainActivity;
@@ -35,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        Toolbar toolbar = binding.toolbar;
+        toolbar.setTitleTextColor(getResources().getColor(R.color.dark_white));
+        toolbar.setTitle("1-Placement");
+        setSupportActionBar(toolbar);
 
         InternetConnection internetConnection = new InternetConnection(MainActivity.this);
         internetConnection.execute();

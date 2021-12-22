@@ -16,11 +16,11 @@
         android:background="@color/colorPrimary"
         android:elevation="12dp"
         app:tabGravity="fill"
-        app:tabIndicatorColor="@color/white"
+        app:tabIndicatorColor="@color/dark_white"
         app:tabMaxWidth="0dp"
         app:tabMode="scrollable"
-        app:tabSelectedTextColor="@color/white"
-        app:tabTextColor="@color/white"
+        app:tabSelectedTextColor="@color/dark_white"
+        app:tabTextColor="@color/dark_white"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <androidx.viewpager.widget.ViewPager

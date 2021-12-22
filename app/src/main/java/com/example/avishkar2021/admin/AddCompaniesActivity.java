@@ -59,17 +59,21 @@ public class AddCompaniesActivity extends AppCompatActivity {
                     if(i>0) {
                         Date currentTime = Calendar.getInstance().getTime();
                         database.getReference().child("newOpenings").child(currentTime.toString()).setValue(list);
+                        Toast.makeText(AddCompaniesActivity.this, "Data Uploaded", Toast.LENGTH_SHORT).show();
+                        finish();
+                        startActivity(getIntent());
+                    }
+                    else
+                    {
+                        Toast.makeText(AddCompaniesActivity.this, "Enter at least one company", Toast.LENGTH_SHORT).show();
                     }
                     progressDialog.dismiss();
-                    Toast.makeText(AddCompaniesActivity.this, "Data Uploaded", Toast.LENGTH_SHORT).show();
-                    finish();
-                    startActivity(getIntent());
                 }catch (Exception e)
                 {
                     Log.d("Mera Error",e.toString());
                     if(i==0)
                     {
-                        Toast.makeText(AddCompaniesActivity.this, "Enter at least one user", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddCompaniesActivity.this, "Enter at least one company", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

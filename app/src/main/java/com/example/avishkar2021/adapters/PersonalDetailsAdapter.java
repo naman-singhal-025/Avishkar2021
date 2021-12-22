@@ -87,6 +87,7 @@ public class PersonalDetailsAdapter extends BaseAdapter {
         else if(position == 4)
         {
             holder.editText.setInputType(InputType.TYPE_NULL);
+            holder.editText.setFocusable(false);
             holder.editText.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

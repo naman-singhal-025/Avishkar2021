@@ -40,7 +40,8 @@
         <activity
             android:name=".user.UserNoticeActivity"
             android:screenOrientation="portrait"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
         <activity
             android:name=".admin.FeedbackActivity"
             android:screenOrientation="portrait"
@@ -100,6 +101,7 @@
             android:noHistory="true" />
         <activity
             android:name=".activities.MainActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:screenOrientation="portrait"
             android:launchMode="singleTop"
             android:exported="true">

@@ -283,47 +283,78 @@ public class AddNewInterviewFragment extends Fragment{
             @Override
             public void onClick(View view) {
 
-                progressDialog.show();
-                View root = binding.layoutSs;
-                root.setDrawingCacheEnabled(true);
-                Bitmap bitmap = Bitmap.createBitmap(root.getDrawingCache());
-                root.setDrawingCacheEnabled(false);
-
                 AddCompaniesModel user = new AddCompaniesModel();
-//                String interName, interDate, inter
-                user.setName(binding.interName.getText().toString());
-                user.setDate(binding.interDate.getText().toString());
-                user.setCompany(binding.interCompany.getText().toString());
-                //to store ss in firebase
-                String key = UUID.randomUUID().toString();
-                StorageReference storageRef = storage.getReference().child("InterviewExperiencesSS")
-                        .child(key);
+                String Name, Date, Company;
+                if(binding.interName.getText().equals(null) ||binding.interName.getText().toString().length()==0)
+                {
+                    binding.interName.setError("Required field");
+                }
+                else
+                {
+                    Name = binding.interName.getText().toString();
+                    user.setName(Name);
+                }
+                if(binding.interCompany.getText().equals(null) || binding.interCompany.getText().toString().length()==0)
+                {
+                    binding.interCompany.setError("Required field");
+                }
+                else
+                {
+                    Company = binding.interCompany.getText().toString();
+                    user.setCompany(Company);
+                }
+                if(binding.interDate.getText().equals(null) || binding.interDate.getText().toString().length()==0)
+                {
+                    binding.interDate.setError("Required field");
+                }
+                else
+                {
 
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-                byte[] data = baos.toByteArray();
+                    Date = binding.interDate.getText().toString();
+                    user.setDate(Date);
+                }
+                if(check())
+                {
+                    Toast.makeText(getContext(), "Fill all the required fields", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    progressDialog.show();
+                    View root = binding.layoutSs;
+                    root.setDrawingCacheEnabled(true);
+                    Bitmap bitmap = Bitmap.createBitmap(root.getDrawingCache());
+                    root.setDrawingCacheEnabled(false);
+                    //to store ss in firebase
+                    String key = UUID.randomUUID().toString();
+                    StorageReference storageRef = storage.getReference().child("InterviewExperiencesSS")
+                            .child(key);
 
-                UploadTask uploadTask = storageRef.putBytes(data);
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                    byte[] data = baos.toByteArray();
 
-                uploadTask.addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception exception) {
-                        // Handle unsuccessful uploads
-                        progressDialog.dismiss();
-                        Toast.makeText(getContext(), "Failed", Toast.LENGTH_SHORT).show();
-                    }
-                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
-                        String downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl().toString();
-                        user.setDescription(downloadUrl);
-                        database.getReference().child("InterviewExperiences").child(user.getCompany().replaceAll("\\s", ""))
-                                .child(key).setValue(user);
-                        progressDialog.dismiss();
-                        Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                    UploadTask uploadTask = storageRef.putBytes(data);
+
+                    uploadTask.addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            // Handle unsuccessful uploads
+                            progressDialog.dismiss();
+                            Toast.makeText(getContext(), "Failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            // taskSnapshot.getMetadata() contains file metadata such as size, content-type, and download URL.
+                            String downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl().toString();
+                            user.setDescription(downloadUrl);
+                            database.getReference().child("InterviewExperiences").child(user.getCompany().replaceAll("\\s", ""))
+                                    .child(key).setValue(user);
+                            progressDialog.dismiss();
+                            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
 
             }
         });
@@ -341,12 +372,19 @@ public class AddNewInterviewFragment extends Fragment{
                         cal.set(Calendar.MONTH,month);
                         cal.set(Calendar.DAY_OF_MONTH,dayOfMonth);
                         binding.interDate.setText(SimpleDateFormat.getDateInstance().format(cal.getTime()));
+                        binding.interDate.setError(null);
                     }
                 },year,month,day);
                 datePickerDialog.show();
             }
         });
         return binding.getRoot();
+    }
+
+    private boolean check() {
+        return binding.interName.getText().equals(null) ||binding.interName.getText().toString().isEmpty() ||
+                binding.interDate.getText().equals(null) || binding.interDate.getText().toString().isEmpty()||
+                binding.interCompany.getText().equals(null) || binding.interCompany.getText().toString().isEmpty();
     }
 
 

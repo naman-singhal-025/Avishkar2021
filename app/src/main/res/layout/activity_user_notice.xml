@@ -4,24 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:background="@color/lightGrey"
+    android:backgroundTint="@color/lightGrey"
     android:orientation="vertical">
 
-    <ProgressBar
-        android:id="@+id/pBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_gravity="center"
-        android:indeterminate="true"
-        android:indeterminateDrawable="@drawable/progress_bg"
-        android:visibility="visible" />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary" />
 
     <LinearLayout
         android:id="@+id/userNoticeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone">
+        android:background="@color/lightGrey"
+        android:backgroundTint="@color/lightGrey"
+        android:gravity="center"
+        android:visibility="visible">
+
+        <ProgressBar
+            android:id="@+id/pBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            android:indeterminateDrawable="@drawable/progress_bg"
+            android:visibility="visible" />
 
         <ListView
             android:id="@+id/listViewXXY"
@@ -33,7 +43,8 @@
             android:focusable="true"
             android:horizontalSpacing="3dp"
             android:numColumns="2"
-            android:stretchMode="columnWidth" />
+            android:stretchMode="columnWidth"
+            android:visibility="gone" />
 
     </LinearLayout>
 
