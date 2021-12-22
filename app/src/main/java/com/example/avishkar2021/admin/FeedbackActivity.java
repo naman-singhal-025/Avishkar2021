@@ -2,6 +2,7 @@ package com.example.avishkar2021.admin;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -39,7 +40,11 @@ public class FeedbackActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityFeedbackBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        getSupportActionBar().hide();
+
+        Toolbar toolbar = binding.toolbar;
+        toolbar.setTitleTextColor(getResources().getColor(R.color.dark_white));
+        toolbar.setTitle("Feedbacks");
+        setSupportActionBar(toolbar);
 
         expandableDetailList = new LinkedHashMap<>();
 

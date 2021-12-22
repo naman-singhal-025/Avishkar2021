@@ -2,11 +2,13 @@ package com.example.avishkar2021.admin;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.widget.ListView;
 
+import com.example.avishkar2021.R;
 import com.example.avishkar2021.adapters.VerifyUserAdapter;
 import com.example.avishkar2021.databinding.ActivityVerifyStudentsBinding;
 import com.example.avishkar2021.models.VerifyUserModel;
@@ -32,7 +34,11 @@ public class VerifyStudentsActivity extends AppCompatActivity {
         binding = ActivityVerifyStudentsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        getSupportActionBar().hide();
+        Toolbar toolbar = binding.toolbar;
+        toolbar.setTitleTextColor(getResources().getColor(R.color.dark_white));
+        toolbar.setTitle("Verify Students");
+        setSupportActionBar(toolbar);
+
         database = FirebaseDatabase.getInstance();
         progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Retrieving Data...");

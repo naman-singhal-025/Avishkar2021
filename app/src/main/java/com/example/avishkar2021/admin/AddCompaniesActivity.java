@@ -1,6 +1,7 @@
 package com.example.avishkar2021.admin;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.avishkar2021.R;
 import com.example.avishkar2021.adapters.AddCompanyAdapter;
 import com.example.avishkar2021.databinding.ActivityAddCompaniesBinding;
 import com.example.avishkar2021.models.AddCompaniesModel;
@@ -32,7 +34,11 @@ public class AddCompaniesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityAddCompaniesBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        getSupportActionBar().hide();
+
+        Toolbar toolbar = binding.toolbar;
+        toolbar.setTitleTextColor(getResources().getColor(R.color.dark_white));
+        toolbar.setTitle("Add Companies Portal");
+        setSupportActionBar(toolbar);
 
         database = FirebaseDatabase.getInstance();
 

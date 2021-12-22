@@ -213,6 +213,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
-        android:text="Save Changes" />
+        android:text="Save Changes"
+        android:textColor="@color/dark_white" />
 </LinearLayout>
 </ScrollView>

@@ -2,6 +2,7 @@ package com.example.avishkar2021.admin;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.avishkar2021.R;
 import com.example.avishkar2021.databinding.ActivityAddStudentsBinding;
 import com.example.avishkar2021.models.AddUserModel;
 import com.example.avishkar2021.utils.InternetConnection;
@@ -50,7 +52,11 @@ public class AddStudentsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityAddStudentsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        getSupportActionBar().hide();
+
+        Toolbar toolbar = binding.toolbar;
+        toolbar.setTitleTextColor(getResources().getColor(R.color.dark_white));
+        toolbar.setTitle("Registration Portal");
+        setSupportActionBar(toolbar);
 
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();

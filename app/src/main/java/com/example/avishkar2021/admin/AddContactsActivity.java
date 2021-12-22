@@ -3,6 +3,7 @@ package com.example.avishkar2021.admin;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -49,7 +50,11 @@ public class AddContactsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityAddContactsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        getSupportActionBar().hide();
+
+        Toolbar toolbar = binding.toolbar;
+        toolbar.setTitleTextColor(getResources().getColor(R.color.dark_white));
+        toolbar.setTitle("Add New Contacts");
+        setSupportActionBar(toolbar);
 
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();

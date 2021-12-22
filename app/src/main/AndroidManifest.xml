@@ -45,6 +45,7 @@
         <activity
             android:name=".admin.FeedbackActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:exported="true" />
         <activity
             android:name=".user.ExperienceActivity"
@@ -61,6 +62,7 @@
         <activity
             android:name=".admin.AddContactsActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:exported="true" />
         <activity
             android:name=".admin.NoticeActivity"
@@ -69,18 +71,22 @@
         <activity
             android:name=".admin.AddCompaniesActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:exported="true" />
         <activity
             android:name=".admin.VerifyStudentsActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:exported="true" />
         <activity
             android:name=".admin.AddStudentsActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:exported="true" />
         <activity
             android:name=".admin.AdminMainActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:exported="true" />
         <activity
             android:name=".user.MainActivity2"
