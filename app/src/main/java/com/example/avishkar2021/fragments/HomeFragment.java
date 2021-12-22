@@ -83,7 +83,7 @@ public class HomeFragment extends Fragment{
                 {
                     binding.verifyStatus.setText("Verified");
                     try {
-                        binding.verifyStatus.setTextColor(ContextCompat.getColor(getContext(),R.color.colorPrimary));
+                        binding.verifyStatus.setTextColor(ContextCompat.getColor(getContext(),R.color.verified));
                     }catch(Exception e)
                     {
                         Log.d("MyError",e.toString());

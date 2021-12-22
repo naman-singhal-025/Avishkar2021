@@ -43,6 +43,7 @@
         android:layout_marginBottom="20dp"
 
         android:layout_weight="0"
-        android:text="Send Feedback" />
+        android:text="Send Feedback"
+        android:textColor="@color/dark_white" />
 
 </LinearLayout>

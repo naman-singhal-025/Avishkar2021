@@ -75,7 +75,7 @@ public class VerifyUserAdapter extends BaseAdapter {
         holder.status.setText(verifyUserModelArrayList.get(position).getStatus());
         if(verifyUserModelArrayList.get(position).getStatus().equals("Verified"))
         {
-            holder.status.setTextColor(ContextCompat.getColor(context,R.color.colorPrimary));
+            holder.status.setTextColor(ContextCompat.getColor(context,R.color.verified));
         }
         else if(verifyUserModelArrayList.get(position).getStatus().equals("Locked"))
         {
