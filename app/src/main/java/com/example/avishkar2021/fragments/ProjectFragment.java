@@ -97,7 +97,7 @@ public class ProjectFragment extends Fragment {
             public void onClick(View view) {
                 InternetConnection internetConnection = new InternetConnection(getContext());
                 internetConnection.execute();
-                try
+                if(!check())
                 {
                     ProjectInternModel projectInternModel = new ProjectInternModel();
                     projectInternModel.setTitle(binding.projectTitle.getText().toString());
@@ -108,12 +108,34 @@ public class ProjectFragment extends Fragment {
                     obj.put("projects", projectInternModel);
                     database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid()).updateChildren(obj);
                     Toast.makeText(getActivity(), "Profile Updated Successfully", Toast.LENGTH_SHORT).show();
-                }catch (Exception e)
-                {
-                    Toast.makeText(getActivity(), "One or more fields are empty", Toast.LENGTH_SHORT).show();
+                }else{
+                    if(binding.projectTitle.getText().toString().isEmpty())
+                    {
+                        binding.projectTitle.setError("Required field");
+                    }
+                    if(binding.projectDescription.getText().toString().isEmpty())
+                    {
+                        binding.projectDescription.setError("Required field");
+                    }
+                    if(binding.organisation.getText().toString().isEmpty())
+                    {
+                        binding.organisation.setError("Required field");
+                    }
+                    if(binding.internDescription.getText().toString().isEmpty())
+                    {
+                        binding.internDescription.setError("Required field");
+                    }
+
                 }
             }
         });
         return binding.getRoot();
+    }
+
+    private boolean check() {
+        return binding.projectTitle.getText().toString().isEmpty() ||
+                binding.projectDescription.getText().toString().isEmpty() ||
+                binding.internDescription.getText().toString().isEmpty() ||
+                binding.organisation.getText().toString().isEmpty();
     }
 }

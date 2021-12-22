@@ -4,6 +4,7 @@ import static androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
 import android.content.Intent;
@@ -27,6 +28,11 @@ public class SplashActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.dark_white));
+        toolbar.setTitle("1-Placement");
+        setSupportActionBar(toolbar);
 
 
         sharedPreferences=this.getSharedPreferences("themes", Context.MODE_PRIVATE);

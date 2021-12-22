@@ -80,7 +80,7 @@ public class AcademicDetailsAdapter extends BaseAdapter {
         {
             if(position==2 || position==3 ||position==6 || position==7 || position==9 ||position==10 || position==11)
             {
-                holder.editText.setInputType(InputType.TYPE_CLASS_DATETIME);
+                holder.editText.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL | InputType.TYPE_NUMBER_FLAG_SIGNED);
             }
             holder.editText.setEnabled(true);
         }
