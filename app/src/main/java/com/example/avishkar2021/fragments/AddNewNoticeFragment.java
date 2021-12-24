@@ -19,6 +19,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.avishkar2021.databinding.FragmentAddNewNoticeBinding;
 import com.example.avishkar2021.utils.InternetConnection;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
 
@@ -70,18 +71,17 @@ public class AddNewNoticeFragment extends Fragment {
                     {
                         binding.noticeDesc.setText("");
                     }
-                    String uid = Calendar.getInstance().getTime().toString();
-                    database.getReference().child("notice").
-                            child(uid).
+
+                    DatabaseReference reference = database.getReference().child("notice");
+                    String key = reference.push().getKey();
+                    reference.child(key).
                             child("subject")
                             .setValue(binding.noticeSubject.getText().toString());
-                    database.getReference().child("notice").
-                            child(Calendar.getInstance().getTime().toString()).
+                    reference.child(key).
                             child("description")
                             .setValue(binding.noticeDesc.getText().toString());
                     String date = DateFormat.getDateTimeInstance().format(new Date());
-                    database.getReference().child("notice").
-                            child(Calendar.getInstance().getTime().toString()).
+                    reference.child(key).
                             child("publish_date")
                             .setValue(date);
                     TOPIC = "/topics/notice"; //topic must match with what the receiver subscribed to
