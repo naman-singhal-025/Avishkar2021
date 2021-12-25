@@ -7,6 +7,7 @@ import android.os.Bundle;
 import com.example.avishkar2021.adapters.NoticeFragmentsAdapter;
 import com.example.avishkar2021.databinding.ActivityNoticeBinding;
 
+//this activity contains 2 fragments (add notice and notice board)
 public class NoticeActivity extends AppCompatActivity {
 
     ActivityNoticeBinding binding;

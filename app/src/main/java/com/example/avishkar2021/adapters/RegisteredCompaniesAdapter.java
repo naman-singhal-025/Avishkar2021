@@ -13,10 +13,13 @@ import com.example.avishkar2021.R;
 import com.example.avishkar2021.models.AddCompaniesModel;
 import java.util.ArrayList;
 
+//list view adapter for displaying registered companies by the user
+// (associated with registered companies fragment)
 public class RegisteredCompaniesAdapter extends BaseAdapter {
     private Context context;
     private static ArrayList<AddCompaniesModel> addCompaniesModelArrayList;
 
+    //public constructor
     public RegisteredCompaniesAdapter(Context context, ArrayList<AddCompaniesModel> addCompaniesModelArrayList) {
 
         this.context = context;
@@ -33,6 +36,7 @@ public class RegisteredCompaniesAdapter extends BaseAdapter {
         return position;
     }
 
+    //returns total of items in the list
     @Override
     public int getCount() {
         return addCompaniesModelArrayList.size();
@@ -52,6 +56,7 @@ public class RegisteredCompaniesAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         final RegisteredCompaniesAdapter.ViewHolder holder;
 
+        // inflate the layout for each list row
         if (convertView == null) {
             holder = new RegisteredCompaniesAdapter.ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context

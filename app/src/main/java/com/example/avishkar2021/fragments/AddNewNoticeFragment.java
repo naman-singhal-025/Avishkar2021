@@ -32,6 +32,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+//to publish new notice from admin portal
 public class AddNewNoticeFragment extends Fragment {
 
     FragmentAddNewNoticeBinding binding;
@@ -56,6 +57,8 @@ public class AddNewNoticeFragment extends Fragment {
         InternetConnection internetConnection = new InternetConnection(getContext());
         internetConnection.execute();
 
+        //btn to add notice in firebase database and send notification on devices through
+        //firebase cloud messaging service
         binding.publish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,6 +110,7 @@ public class AddNewNoticeFragment extends Fragment {
             }
         });
 
+        //btn to clear all text in edit text boxes
         binding.clearText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

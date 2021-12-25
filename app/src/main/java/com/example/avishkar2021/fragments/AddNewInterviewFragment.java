@@ -50,7 +50,9 @@ import java.util.Calendar;
 import java.util.UUID;
 
 import top.defaults.colorpicker.ColorPickerPopup;
+import top.defaults.colorpicker.ColorPickerView;
 
+//fragment to add interview experience of user
 public class AddNewInterviewFragment extends Fragment{
 
     private EditText edittext;
@@ -79,6 +81,7 @@ public class AddNewInterviewFragment extends Fragment{
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();
 
+        //method to hide useless options like copy, paste, cut etc on text selection
         edittext.setCustomSelectionActionModeCallback(new ActionMode.Callback() {
 
             public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
@@ -102,6 +105,7 @@ public class AddNewInterviewFragment extends Fragment{
 
         edittext.setTextIsSelectable(true);
 
+        //to bold the selected text
         binding.bold.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -114,6 +118,7 @@ public class AddNewInterviewFragment extends Fragment{
             }
         });
 
+        //to italicise the selected text
         binding.italic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -126,6 +131,7 @@ public class AddNewInterviewFragment extends Fragment{
             }
         });
 
+        //to underline the selected text
         binding.underline.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -138,6 +144,7 @@ public class AddNewInterviewFragment extends Fragment{
             }
         });
 
+        //to move entire text to left
         binding.left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -151,6 +158,7 @@ public class AddNewInterviewFragment extends Fragment{
             }
         });
 
+        //to move entire text to center
         binding.center.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -163,6 +171,7 @@ public class AddNewInterviewFragment extends Fragment{
             }
         });
 
+        //to move entire text to right
         binding.right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -175,6 +184,7 @@ public class AddNewInterviewFragment extends Fragment{
             }
         });
 
+        //set the text color for selected text
         binding.textColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -207,6 +217,7 @@ public class AddNewInterviewFragment extends Fragment{
             }
         });
 
+        //set the text size of selected text
         binding.textSize.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -247,16 +258,14 @@ public class AddNewInterviewFragment extends Fragment{
             }
         });
 
+        //highlight the selected text
         binding.highlight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(getActivity().INPUT_METHOD_SERVICE);
-//                if (view == null) {
-//                    view = new View(getContext());
-//                }
                 imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-                new ColorPickerPopup.Builder(getContext()).initialColor(
-                        Color.RED).enableBrightness(true)
+                new ColorPickerPopup.Builder(getContext()).initialColor(Color.RED)
+                        .enableBrightness(true)
                         .enableAlpha(true)
                         .okTitle("OK")
                         .cancelTitle("Cancel")
@@ -279,6 +288,7 @@ public class AddNewInterviewFragment extends Fragment{
             }
         });
 
+        //save the document as screenshot in firebase storage
         binding.idFABSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -359,6 +369,7 @@ public class AddNewInterviewFragment extends Fragment{
             }
         });
 
+        //popup date picker dialog for date selection
         binding.interDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -381,6 +392,7 @@ public class AddNewInterviewFragment extends Fragment{
         return binding.getRoot();
     }
 
+    //check for any empty fields that must be filled
     private boolean check() {
         return binding.interName.getText().equals(null) ||binding.interName.getText().toString().isEmpty() ||
                 binding.interDate.getText().equals(null) || binding.interDate.getText().toString().isEmpty()||

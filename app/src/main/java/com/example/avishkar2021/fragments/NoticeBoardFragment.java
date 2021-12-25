@@ -30,6 +30,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+//fragment to display all published notices on admin side
+//here admin can view and delete already published notices
 public class NoticeBoardFragment extends Fragment {
     FirebaseDatabase database;
     ProgressDialog progressDialog;
@@ -55,6 +57,7 @@ public class NoticeBoardFragment extends Fragment {
         InternetConnection internetConnection = new InternetConnection(getContext());
         internetConnection.execute();
 
+        //fetching notices from online database
         database.getReference().child("notice")
                 .addValueEventListener(new ValueEventListener() {
                     @Override
@@ -92,6 +95,7 @@ public class NoticeBoardFragment extends Fragment {
                 });
 
 
+        //setting on click listener for deleting notices
         binding.listViewXX.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -138,6 +142,7 @@ public class NoticeBoardFragment extends Fragment {
             }
         });
 
+        //on click method to view notices
         binding.listViewXX.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

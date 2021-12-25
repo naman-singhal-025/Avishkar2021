@@ -12,10 +12,13 @@ import com.example.avishkar2021.models.NoticeModel;
 
 import java.util.ArrayList;
 
+//list view adapter for displaying notices on admin side
+// (associated with notice board fragment)
 public class NoticeBoardAdapter extends BaseAdapter {
     private Context context;
     private static ArrayList<NoticeModel> list;
 
+    //public constructor
     public NoticeBoardAdapter(Context context, ArrayList<NoticeModel> list) {
         this.context = context;
         this.list = list;
@@ -31,6 +34,7 @@ public class NoticeBoardAdapter extends BaseAdapter {
         return position;
     }
 
+    //returns total of items in the list
     @Override
     public int getCount() {
         return list.size();
@@ -50,6 +54,7 @@ public class NoticeBoardAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         final NoticeBoardAdapter.ViewHolder holder;
 
+        // inflate the layout for each list row
         if (convertView == null) {
             holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context

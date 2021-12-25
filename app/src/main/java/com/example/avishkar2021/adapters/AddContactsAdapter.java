@@ -14,10 +14,12 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+//list view adapter for adding admin contacts (associated with add contacts activity)
 public class AddContactsAdapter extends BaseAdapter {
     private Context context;
     private static ArrayList<UsersModel> usersArrayList;
 
+    //public constructor
     public AddContactsAdapter(Context context, ArrayList<UsersModel> usersArrayList) {
         this.context = context;
         this.usersArrayList = usersArrayList;
@@ -33,6 +35,7 @@ public class AddContactsAdapter extends BaseAdapter {
         return position;
     }
 
+    //returns total of items in the list
     @Override
     public int getCount() {
         return usersArrayList.size();
@@ -52,6 +55,7 @@ public class AddContactsAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         final AddContactsAdapter.ViewHolder holder;
 
+        // inflate the layout for each list row
         if (convertView == null) {
             holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context

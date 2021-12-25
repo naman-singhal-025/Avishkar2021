@@ -20,6 +20,7 @@ import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+//fragment to allow users to change their passwords
 public class PasswordFragment extends Fragment {
 
     FragmentPasswordBinding binding;
@@ -34,6 +35,7 @@ public class PasswordFragment extends Fragment {
         InternetConnection internetConnection = new InternetConnection(getContext());
         internetConnection.execute();
 
+        //btn to save new password
         binding.savePass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,6 +67,7 @@ public class PasswordFragment extends Fragment {
         return binding.getRoot();
     }
 
+    //method to authorize current user and password to securely change user's password
     private void updatePassword(String oldPassword, String newPassword) {
         //get current user
         FirebaseUser user = auth.getCurrentUser();

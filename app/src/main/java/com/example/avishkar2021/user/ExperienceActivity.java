@@ -30,6 +30,7 @@ import com.google.firebase.storage.StorageReference;
 import java.io.File;
 import java.util.ArrayList;
 
+//activity to display images of interview experiences
 public class ExperienceActivity extends AppCompatActivity {
 
     ActivityExperienceBinding binding;
@@ -55,6 +56,8 @@ public class ExperienceActivity extends AppCompatActivity {
         s = intent.getStringExtra("description");
         path = intent.getStringExtra("path");
         Log.d("SeeDesc",s);
+
+        //fetch image file from firebase storage
         reference = FirebaseStorage.getInstance().getReference().child("InterviewExperiencesSS")
         .child(s);
         try{
@@ -81,6 +84,7 @@ public class ExperienceActivity extends AppCompatActivity {
 
         }
 
+        //btn to open QnA section
         binding.commentsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)

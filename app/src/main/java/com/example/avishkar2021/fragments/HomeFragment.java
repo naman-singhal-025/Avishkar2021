@@ -22,6 +22,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+//fragment to display basic user information like
+//name, registration number, branch, profile status, tpo credits, internship status
 public class HomeFragment extends Fragment{
 
     FragmentHomeBinding binding;
@@ -39,6 +41,7 @@ public class HomeFragment extends Fragment{
         internetConnection.execute();
 
 
+        //method for fetching user information from online database
         database.getReference().child("Users").child(auth.getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

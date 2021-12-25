@@ -16,10 +16,13 @@ import com.example.avishkar2021.models.UsersModel;
 
 import java.util.ArrayList;
 
+//list view adapter for displaying names of users who have posted their interview experiences
+// (associated with view interview activity)
 public class ViewInterviewExtraAdapter extends BaseAdapter {
     private Context context;
     private static ArrayList<UsersModel> list;
 
+    //public constructor
     public ViewInterviewExtraAdapter(Context context, ArrayList<UsersModel> list) {
         this.context = context;
         this.list = list;
@@ -35,6 +38,7 @@ public class ViewInterviewExtraAdapter extends BaseAdapter {
         return position;
     }
 
+    //returns total of items in the list
     @Override
     public int getCount() {
         return list.size();
@@ -54,6 +58,7 @@ public class ViewInterviewExtraAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         final ViewInterviewExtraAdapter.ViewHolder holder;
 
+        // inflate the layout for each list row
         if (convertView == null) {
             holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context
@@ -69,6 +74,8 @@ public class ViewInterviewExtraAdapter extends BaseAdapter {
         holder.name.setTextColor(ContextCompat.getColor(context, R.color.red));
         holder.name.setTextSize(18);
         holder.name.setText(list.get(position).getUserName());
+
+        //on click listener for each list item which will direct to experience activity
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

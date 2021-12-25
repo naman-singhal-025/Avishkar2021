@@ -27,6 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+//activity to display notices published by admins on user's side
 public class UserNoticeActivity extends AppCompatActivity {
 
     FirebaseDatabase database;
@@ -40,6 +41,7 @@ public class UserNoticeActivity extends AppCompatActivity {
         binding = ActivityUserNoticeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        //customised toolbar
         Toolbar toolbar = binding.toolbar;
         toolbar.setTitleTextColor(getResources().getColor(R.color.dark_white));
         toolbar.setTitle("Notice Board");
@@ -52,7 +54,8 @@ public class UserNoticeActivity extends AppCompatActivity {
         pgsBar.setVisibility(View.VISIBLE);
 
         database = FirebaseDatabase.getInstance();
-//        FirebaseMessaging.getInstance().subscribeToTopic("notice");
+
+        //fetching notices from databse
         database.getReference()
                 .addValueEventListener(new ValueEventListener() {
                     @Override
@@ -96,6 +99,7 @@ public class UserNoticeActivity extends AppCompatActivity {
                     }
                 });
 
+        //on click listener to throw intent to display notice activity
         binding.listViewXXY.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

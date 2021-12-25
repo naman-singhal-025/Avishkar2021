@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.example.avishkar2021.databinding.ActivityDisplayNoticeBinding;
 
+//activity to display notices published by admins
 public class DisplayNoticeActivity extends AppCompatActivity {
 
     ActivityDisplayNoticeBinding binding;

@@ -9,12 +9,14 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.example.avishkar2021.fragments.AddNewNoticeFragment;
 import com.example.avishkar2021.fragments.NoticeBoardFragment;
 
+//fragments adapter for displaying 2 fragments within profile notice activity on admin side
 public class NoticeFragmentsAdapter extends FragmentPagerAdapter {
 
     public NoticeFragmentsAdapter(@NonNull FragmentManager fm) {
         super(fm);
     }
 
+    //Returns the fragment at the pos index.
     @NonNull
     @Override
     public Fragment getItem(int position) {
@@ -24,11 +26,13 @@ public class NoticeFragmentsAdapter extends FragmentPagerAdapter {
         }
     }
 
+    //This method returns the number of fragments to display
     @Override
     public int getCount() {
         return 2;
     }
 
+    //this methods returns the title of the page at index pos.
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {

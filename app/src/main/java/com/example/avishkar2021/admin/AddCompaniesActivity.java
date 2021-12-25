@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+//activity to add companies from admin portal
 public class AddCompaniesActivity extends AppCompatActivity {
 
     private AddCompanyAdapter addCompanyAdapter;
@@ -35,6 +36,7 @@ public class AddCompaniesActivity extends AppCompatActivity {
         binding = ActivityAddCompaniesBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        //setting customized action bar
         Toolbar toolbar = binding.toolbar;
         toolbar.setTitleTextColor(getResources().getColor(R.color.dark_white));
         toolbar.setTitle("Add Companies Portal");
@@ -48,6 +50,7 @@ public class AddCompaniesActivity extends AppCompatActivity {
         InternetConnection internetConnection = new InternetConnection(AddCompaniesActivity.this);
         internetConnection.execute();
 
+        //btn to upload data from list view into database
         binding.floatingActionButton3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,6 +94,7 @@ public class AddCompaniesActivity extends AppCompatActivity {
         listV.setAdapter(addCompanyAdapter);
     }
 
+    //check if text fields are not empty or null
     private boolean isValid(int i) {
         return AddCompanyAdapter.addCompaniesModelArrayList.get(i).getCompany()!=null &&
                 AddCompanyAdapter.addCompaniesModelArrayList.get(i).getBranches()!=null &&
@@ -102,6 +106,7 @@ public class AddCompaniesActivity extends AppCompatActivity {
                 !AddCompanyAdapter.addCompaniesModelArrayList.get(i).getCompany().equals("");
     }
 
+    //populate list view with 10 items allowing a max of 10 companies to be added at a time
     private ArrayList<AddCompaniesModel> populateList(){
 
         ArrayList<AddCompaniesModel> list = new ArrayList<>();

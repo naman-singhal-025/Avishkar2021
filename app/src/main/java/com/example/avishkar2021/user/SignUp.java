@@ -18,6 +18,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.example.avishkar2021.databinding.ActivitySignUpBinding;
 
+//sign up activity
+//currently no use in app but if required in future, can be used
 public class SignUp extends AppCompatActivity {
 
     ActivitySignUpBinding binding;

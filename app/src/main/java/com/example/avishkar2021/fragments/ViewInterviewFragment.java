@@ -25,6 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+//fragment to view interview experiences of users
 public class ViewInterviewFragment extends Fragment {
 
     FirebaseDatabase database;
@@ -46,6 +47,7 @@ public class ViewInterviewFragment extends Fragment {
 
         database = FirebaseDatabase.getInstance();
 
+        //fetch data of companies of which interview experiences are available
         database.getReference().child("InterviewExperiences")
                 .addValueEventListener(new ValueEventListener() {
             @Override

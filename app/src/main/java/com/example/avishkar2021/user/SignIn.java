@@ -17,6 +17,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.example.avishkar2021.databinding.ActivitySignInBinding;
 
+//sign in activity for user login
 public class SignIn extends AppCompatActivity {
 
     ActivitySignInBinding binding;
@@ -39,11 +40,14 @@ public class SignIn extends AppCompatActivity {
         progressDialog.setTitle("Login");
         progressDialog.setMessage("Logging in");
 
+        //if user has already signed in previously then no need to sign in again
         if(auth.getCurrentUser()!=null)
         {
             Intent intent = new Intent(SignIn.this, MainActivity2.class);
             startActivity(intent);
         }
+
+        //btn to login to user account after authentication
         binding.btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

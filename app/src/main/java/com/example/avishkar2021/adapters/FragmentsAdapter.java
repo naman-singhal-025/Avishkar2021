@@ -13,11 +13,13 @@ import com.example.avishkar2021.fragments.PersonalFragment;
 import com.example.avishkar2021.fragments.PhotoResumeFragment;
 import com.example.avishkar2021.fragments.ProjectFragment;
 
+//fragments adapter for displaying 5 sub-fragments within profile fragment
 public class FragmentsAdapter extends FragmentPagerAdapter {
     public FragmentsAdapter(@NonNull FragmentManager fm) {
         super(fm);
     }
 
+    //Returns the fragment at the pos index.
     @NonNull
     @Override
     public Fragment getItem(int position) {
@@ -30,11 +32,13 @@ public class FragmentsAdapter extends FragmentPagerAdapter {
         }
     }
 
+    //This method returns the number of fragments to display
     @Override
     public int getCount() {
         return 5;
     }
 
+    //this methods returns the title of the page at index pos.
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {

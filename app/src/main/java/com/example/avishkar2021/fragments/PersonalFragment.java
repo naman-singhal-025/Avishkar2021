@@ -28,6 +28,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+//fragment to display user's personal information
 public class PersonalFragment extends Fragment {
 
     private PersonalDetailsAdapter personalDetailsAdapter;
@@ -55,6 +56,8 @@ public class PersonalFragment extends Fragment {
         internetConnection.execute();
 
         pgsBar.setVisibility(View.VISIBLE);
+
+        //method to fetch already stored info of user from database
         database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
                 .addValueEventListener(new ValueEventListener() {
                     @Override
@@ -92,6 +95,7 @@ public class PersonalFragment extends Fragment {
                 });
 
 
+        //update user latest information
         binding.floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -126,6 +130,8 @@ public class PersonalFragment extends Fragment {
 
         return binding.getRoot();
     }
+
+    //method to populate list with titles and user's information
     private ArrayList<EditModel> populateList(String lock, String ver){
 
         ArrayList<EditModel> list = new ArrayList<>();

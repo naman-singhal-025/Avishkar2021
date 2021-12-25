@@ -22,6 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
+//fragment to update and show project and internship details of student
 public class ProjectFragment extends Fragment {
 
     FragmentProjectBinding binding;
@@ -37,6 +38,7 @@ public class ProjectFragment extends Fragment {
         InternetConnection internetConnection = new InternetConnection(getContext());
         internetConnection.execute();
 
+        //fetch project and intern details of users if already present in database
         database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
                 .addValueEventListener(new ValueEventListener() {
                     @Override
@@ -92,6 +94,7 @@ public class ProjectFragment extends Fragment {
                 });
 
 
+        //update latest info of project and intern
         binding.pisaveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -16,10 +16,14 @@ import com.example.avishkar2021.models.VerifyUserModel;
 
 import java.util.ArrayList;
 
+//list view adapter for displaying all the registered students on admin side
+//it allows admins to verify and lock user profile
+// (associated with verify students activity)
 public class VerifyUserAdapter extends BaseAdapter {
     private Context context;
     public static ArrayList<VerifyUserModel> verifyUserModelArrayList;
 
+    //public constructor
     public VerifyUserAdapter(Context context, ArrayList<VerifyUserModel> verifyUserModelArrayList) {
 
         this.context = context;
@@ -36,6 +40,7 @@ public class VerifyUserAdapter extends BaseAdapter {
         return position;
     }
 
+    //returns total of items in the list
     @Override
     public int getCount() {
         return verifyUserModelArrayList.size();
@@ -55,6 +60,7 @@ public class VerifyUserAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         final VerifyUserAdapter.ViewHolder holder;
 
+        // inflate the layout for each list row
         if (convertView == null) {
             holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context

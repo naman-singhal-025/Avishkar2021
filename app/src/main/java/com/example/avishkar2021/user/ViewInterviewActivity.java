@@ -21,6 +21,7 @@ import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
 
+//activity to display names of users who have posted their interview experiences
 public class ViewInterviewActivity extends AppCompatActivity {
 
     FirebaseDatabase database;
@@ -49,6 +50,7 @@ public class ViewInterviewActivity extends AppCompatActivity {
         progressDialog.setTitle("Retrieving Data...");
         progressDialog.setMessage("Please, wait !");
 
+        //fetch users names corresponding to same company from database
         database.getReference().child("InterviewExperiences").child(company.replaceAll("\\s", ""))
                 .addValueEventListener(new ValueEventListener() {
                     @Override

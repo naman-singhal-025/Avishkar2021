@@ -29,6 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+//fragment to show QnA section for each interview experience
 public class CommentsFragment extends BottomSheetDialogFragment {
 
     RecyclerView recyclerView;
@@ -58,6 +59,7 @@ public class CommentsFragment extends BottomSheetDialogFragment {
         InternetConnection internetConnection = new InternetConnection(getContext());
         internetConnection.execute();
 
+        //btn to post user's queries
         post_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,6 +78,7 @@ public class CommentsFragment extends BottomSheetDialogFragment {
             }
         });
 
+        //method to load previous queries and corresponding replies from firebase database
         database.getReference().addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

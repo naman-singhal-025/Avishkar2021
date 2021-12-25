@@ -12,11 +12,14 @@ import com.example.avishkar2021.R;
 
 import java.util.ArrayList;
 
+//list view adapter for displaying companies names of which interviews have been added
+// (associated with view interview fragment) on user's side
 public class ViewInterviewAdapter extends BaseAdapter {
     private Context context;
     private static ArrayList<String > list;
     int id=-1;
 
+    //public constructor
     public ViewInterviewAdapter(Context context, ArrayList<String> list,int id) {
         this.context = context;
         this.list = list;
@@ -33,6 +36,7 @@ public class ViewInterviewAdapter extends BaseAdapter {
         return position;
     }
 
+    //returns total of items in the list
     @Override
     public int getCount() {
         return list.size();
@@ -52,6 +56,7 @@ public class ViewInterviewAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         final ViewInterviewAdapter.ViewHolder holder;
 
+        // inflate the layout for each list row
         if (convertView == null) {
             holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context

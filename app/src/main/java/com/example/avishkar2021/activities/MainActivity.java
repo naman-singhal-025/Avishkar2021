@@ -12,7 +12,6 @@ import com.example.avishkar2021.user.SignIn;
 import com.example.avishkar2021.utils.InternetConnection;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
@@ -24,6 +23,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+// main activity for opting b/w user and admin login
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         InternetConnection internetConnection = new InternetConnection(MainActivity.this);
         internetConnection.execute();
 
+        // using firebase to extract key for admin mode
         FirebaseDatabase.getInstance().getReference().child("KEY").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //setting on click listener on college logo
         binding.imageViewCollege.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        //setting on click listener on login btn for user login
         binding.login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,6 +85,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //setting on click listener on register btn for entering admin mode through passkey
         binding.register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

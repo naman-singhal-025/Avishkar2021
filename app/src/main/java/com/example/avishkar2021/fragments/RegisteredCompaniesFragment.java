@@ -24,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+//display registered companies by the user
 public class RegisteredCompaniesFragment extends Fragment {
 
     private FragmentRegisteredCompaniesBinding binding;
@@ -47,6 +48,7 @@ public class RegisteredCompaniesFragment extends Fragment {
         InternetConnection internetConnection = new InternetConnection(getContext());
         internetConnection.execute();
 
+        //fetch registered companies data from online database
         database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
                 .child("RegisteredCompanies").addValueEventListener(new ValueEventListener() {
             @Override

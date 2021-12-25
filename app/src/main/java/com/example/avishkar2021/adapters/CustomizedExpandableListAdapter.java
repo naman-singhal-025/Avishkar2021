@@ -13,6 +13,7 @@ import com.example.avishkar2021.R;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+//expandable list view adapter for displaying user feedback on admin side(associated with feedback activity)
 public class CustomizedExpandableListAdapter extends BaseExpandableListAdapter {
 
     private Context context;

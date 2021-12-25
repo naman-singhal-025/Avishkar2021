@@ -10,6 +10,14 @@ import android.view.View;
 import com.example.avishkar2021.R;
 import com.example.avishkar2021.databinding.ActivityAdminMainBinding;
 
+//activity to show features tht can be handle by admin
+//6 features are provided
+//1) Add Students
+//2) Verify Students
+//3) Add Companies
+//4) Notice (Add notice and view or delete past notices)
+//5) Add admin contacts
+//6) View user feedbacks
 public class AdminMainActivity extends AppCompatActivity {
 
     ActivityAdminMainBinding binding;
@@ -19,6 +27,7 @@ public class AdminMainActivity extends AppCompatActivity {
         binding = ActivityAdminMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        //setting customized action bar
         Toolbar toolbar = binding.toolbar;
         toolbar.setTitleTextColor(getResources().getColor(R.color.dark_white));
         toolbar.setTitle("Admin Portal");

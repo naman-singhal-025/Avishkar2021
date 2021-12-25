@@ -62,6 +62,7 @@ public class MainActivity2 extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
+        //to store and fetch current theme information
         sharedPreferences=this.getSharedPreferences("themes", Context.MODE_PRIVATE);
         editor=sharedPreferences.edit();
 
@@ -265,7 +266,7 @@ public class MainActivity2 extends AppCompatActivity {
                     textItemCount.setVisibility(View.GONE);
                 }
             } else {
-                if(count<=20)
+                if(count<=9)
                     textItemCount.setText(String.valueOf(count));
                 else
                     textItemCount.setText("9+");

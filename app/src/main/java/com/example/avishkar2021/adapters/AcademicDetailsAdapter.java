@@ -16,12 +16,14 @@ import com.example.avishkar2021.models.EditModel;
 
 import java.util.ArrayList;
 
+//list view adapter for user academic details (associated with academic fragment)
 public class AcademicDetailsAdapter extends BaseAdapter {
 
 
     private Context context;
     public static ArrayList<EditModel> editModelArrayList;
 
+    //public constructor
     public AcademicDetailsAdapter(Context context, ArrayList<EditModel> editModelArrayList) {
 
         this.context = context;
@@ -38,6 +40,7 @@ public class AcademicDetailsAdapter extends BaseAdapter {
         return position;
     }
 
+    //returns total of items in the list
     @Override
     public int getCount() {
         return editModelArrayList.size();
@@ -57,6 +60,7 @@ public class AcademicDetailsAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         final ViewHolder holder;
 
+        // inflate the layout for each list row
         if (convertView == null) {
             holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context

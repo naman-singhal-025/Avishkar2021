@@ -2,6 +2,8 @@ package com.example.avishkar2021.models;
 
 import java.util.ArrayList;
 
+//model to encapsulate variables and corresponding methods
+
 public class QnaModel {
     private String profilePic;
     private String userName;

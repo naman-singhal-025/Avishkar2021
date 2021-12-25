@@ -34,6 +34,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+//fragment to allow user's to upload their profile photo and resume
 public class PhotoResumeFragment extends Fragment {
 
     FragmentPhotoResumeBinding binding;
@@ -58,6 +59,7 @@ public class PhotoResumeFragment extends Fragment {
         InternetConnection internetConnection = new InternetConnection(getContext());
         internetConnection.execute();
 
+        //fetch photo and resume information from database
         database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
                 .addValueEventListener(new ValueEventListener() {
                     @Override
@@ -96,6 +98,7 @@ public class PhotoResumeFragment extends Fragment {
                 });
 
 
+        //btn to upload photo from local storage
         binding.plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,6 +123,7 @@ public class PhotoResumeFragment extends Fragment {
             }
         });
 
+        //btn to upload pdf from local storage
         binding.uploadpdf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -130,6 +134,7 @@ public class PhotoResumeFragment extends Fragment {
             }
         });
 
+        //btn to download uploaded pdf
         binding.downloadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -149,7 +154,7 @@ public class PhotoResumeFragment extends Fragment {
         return binding.getRoot();
     }
 
-
+    //method to download pdf file into download manager from string url
     public long downloadFile(Context context, String fileName, String fileExtension, String destinationDirectory, String url) {
 
 

@@ -21,6 +21,7 @@ import com.google.firebase.messaging.RemoteMessage;
 
 import java.util.Random;
 
+//class for firebase cloud messaging service (for using push notification)
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     private final String ADMIN_CHANNEL_ID = "admin_channel";
@@ -47,11 +48,11 @@ Therefore, confirm if the version is Oreo or higher, then setup notification cha
 
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
-        Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.drawable.ic_baseline_notifications_24);
+        Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), R.drawable.colg_image);
         Uri notificationSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, ADMIN_CHANNEL_ID)
-                .setSmallIcon(R.drawable.ic_baseline_notifications_24)
+                .setSmallIcon(R.drawable.colg_image)
                 .setLargeIcon(largeIcon)
                 .setContentTitle(remoteMessage.getData().get("title"))
                 .setContentText(remoteMessage.getData().get("message"))
@@ -61,7 +62,7 @@ Therefore, confirm if the version is Oreo or higher, then setup notification cha
 
         // Set notification color to match your app color template
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            notificationBuilder.setColor(getResources().getColor(R.color.design_default_color_primary_dark));
+            notificationBuilder.setColor(getResources().getColor(R.color.colorPrimary));
         }
         notificationManager.notify(notificationID, notificationBuilder.build());
     }

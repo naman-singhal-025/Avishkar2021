@@ -23,10 +23,13 @@ import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+//list view adapter for displaying current openings on user's side
+// (associated with current openings fragment)
 public class CurrentOpeningsAdapter extends BaseAdapter {
     private Context context;
     private static ArrayList<AddCompaniesModel> addCompaniesModelArrayList;
 
+    //public constructor
     public CurrentOpeningsAdapter(Context context, ArrayList<AddCompaniesModel> addCompaniesModelArrayList) {
 
         this.context = context;
@@ -43,6 +46,7 @@ public class CurrentOpeningsAdapter extends BaseAdapter {
         return position;
     }
 
+    //returns total of items in the list
     @Override
     public int getCount() {
         return addCompaniesModelArrayList.size();
@@ -62,6 +66,7 @@ public class CurrentOpeningsAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         final CurrentOpeningsAdapter.ViewHolder holder;
 
+        // inflate the layout for each list row
         if (convertView == null) {
             holder = new CurrentOpeningsAdapter.ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context
@@ -87,6 +92,10 @@ public class CurrentOpeningsAdapter extends BaseAdapter {
             holder.stipend.setText(addCompaniesModelArrayList.get(position).getStipend());
             holder.deadline.setText(addCompaniesModelArrayList.get(position).getDeadline());
 
+
+            //on click listener for register button
+            //it will check for all conditions (locked profile, verified, incomplete profile) and then register
+            //accordingly.
             holder.button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

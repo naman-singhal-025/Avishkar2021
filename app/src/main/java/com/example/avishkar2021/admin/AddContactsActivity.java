@@ -35,6 +35,7 @@ import com.google.firebase.storage.UploadTask;
 import java.util.ArrayList;
 import java.util.UUID;
 
+//activity to add contacts of admins
 public class AddContactsActivity extends AppCompatActivity {
 
     private AddContactsAdapter addContactsAdapter;
@@ -51,6 +52,7 @@ public class AddContactsActivity extends AppCompatActivity {
         binding = ActivityAddContactsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        //setting customized action bar
         Toolbar toolbar = binding.toolbar;
         toolbar.setTitleTextColor(getResources().getColor(R.color.dark_white));
         toolbar.setTitle("Add New Contacts");
@@ -70,6 +72,7 @@ public class AddContactsActivity extends AppCompatActivity {
         progressDialog.setMessage("Uploading data....");
 
 
+        //fetching data from database to display already added contacts
         database.getReference().child("Contacts").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -97,6 +100,7 @@ public class AddContactsActivity extends AppCompatActivity {
         });
 
 
+        //btn to upload contact information
         binding.addContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -129,6 +133,7 @@ public class AddContactsActivity extends AppCompatActivity {
             }
         });
 
+        //add contact image from phone storage
         binding.userProfileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -139,6 +144,7 @@ public class AddContactsActivity extends AppCompatActivity {
             }
         });
 
+        //added long click listener to delete selected contact
         binding.listViewX.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -181,6 +187,7 @@ public class AddContactsActivity extends AppCompatActivity {
         });
     }
 
+    //check if any field is not empty
     private boolean isValid(UsersModel user) {
         return user.getUserName()!=null && user.getBranch()!=null &&
             user.getPhone()!=null && user.getMail()!=null &&
@@ -188,6 +195,7 @@ public class AddContactsActivity extends AppCompatActivity {
                 !user.getPhone().equals("") && !user.getMail().equals("");
     }
 
+    //add and upload image to firebase storage
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

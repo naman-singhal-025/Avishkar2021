@@ -18,6 +18,7 @@ import com.example.avishkar2021.R;
 import java.util.Timer;
 import java.util.TimerTask;
 
+//splash activity for displaying 1-placement logo
 public class SplashActivity extends AppCompatActivity {
 
     private SharedPreferences sharedPreferences;

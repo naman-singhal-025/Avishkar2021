@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+//activity to view user's feedbacks
 public class FeedbackActivity extends AppCompatActivity {
 
     ActivityFeedbackBinding binding;
@@ -41,6 +42,7 @@ public class FeedbackActivity extends AppCompatActivity {
         binding = ActivityFeedbackBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        //setting customized action bar
         Toolbar toolbar = binding.toolbar;
         toolbar.setTitleTextColor(getResources().getColor(R.color.dark_white));
         toolbar.setTitle("Feedbacks");

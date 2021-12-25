@@ -1,6 +1,5 @@
 package com.example.avishkar2021.fragments;
 
-import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -24,6 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+//fragment to display all the current openings of companies which user's can register to
 public class CurrentOpeningsFragment extends Fragment {
 
     private FragmentCurrentOpeningsBinding binding;
@@ -46,6 +46,7 @@ public class CurrentOpeningsFragment extends Fragment {
         InternetConnection internetConnection = new InternetConnection(getContext());
         internetConnection.execute();
 
+        //method to fetch all current openings data from online database
         database.getReference().addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

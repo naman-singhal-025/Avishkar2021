@@ -24,6 +24,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 
+//activity to display entire information of registered students
 public class StudentDetailActivity extends AppCompatActivity {
 
     ActivityStudentDetailBinding binding;
@@ -47,6 +48,8 @@ public class StudentDetailActivity extends AppCompatActivity {
         internetConnection.execute();
 
         uid = getIntent().getStringExtra("uid");
+
+        //fetch all information of students from uid
         database.getReference().child("Users").child(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -170,6 +173,7 @@ public class StudentDetailActivity extends AppCompatActivity {
             }
         });
 
+        //btn to download resume pdf file into downloads folder
         binding.downloadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -188,6 +192,7 @@ public class StudentDetailActivity extends AppCompatActivity {
 
 
 
+        //save any changes made by admin onto online database
         binding.saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

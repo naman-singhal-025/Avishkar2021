@@ -28,6 +28,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+//part of profile fragment
+//to display and edit user academic details
 public class AcademicFragment extends Fragment {
 
     private AcademicDetailsAdapter academicDetailsAdapter;
@@ -55,6 +57,7 @@ public class AcademicFragment extends Fragment {
         pgsBar = binding.pBar;
         pgsBar.setVisibility(View.VISIBLE);
 
+        //fetch already stored academic details of student
         database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
                 .addValueEventListener(new ValueEventListener() {
                     @Override
@@ -90,6 +93,7 @@ public class AcademicFragment extends Fragment {
                 });
 
 
+        //btn to save academic details on firebase database
         binding.floatingActionButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -121,6 +125,8 @@ public class AcademicFragment extends Fragment {
 
         return binding.getRoot();
     }
+
+    //populate list titles with titleList and editText with empty texts or user's info if it is available
     private ArrayList<EditModel> populateList(String lock, String ver){
 
         ArrayList<EditModel> list = new ArrayList<>();

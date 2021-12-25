@@ -19,12 +19,14 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+//list view adapter for user adding companies in admin portal (associated with add companies activity)
 public class AddCompanyAdapter extends BaseAdapter {
     private Context context;
     int year,month,day;
     final Calendar cal = Calendar.getInstance();
     public static ArrayList<AddCompaniesModel> addCompaniesModelArrayList;
 
+    //public constructor
     public AddCompanyAdapter(Context context, ArrayList<AddCompaniesModel> addCompaniesModelArrayList) {
 
         this.context = context;
@@ -41,6 +43,7 @@ public class AddCompanyAdapter extends BaseAdapter {
         return position;
     }
 
+    //returns total of items in the list
     @Override
     public int getCount() {
         return addCompaniesModelArrayList.size();
@@ -60,6 +63,7 @@ public class AddCompanyAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         final AddCompanyAdapter.ViewHolder holder;
 
+        // inflate the layout for each list row
         if (convertView == null) {
             holder = new ViewHolder();
             LayoutInflater inflater = (LayoutInflater) context

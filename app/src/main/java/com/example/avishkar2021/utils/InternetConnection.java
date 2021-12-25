@@ -11,10 +11,13 @@ import com.example.avishkar2021.R;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
+//class to check internet connection on a parallel thread
+//so that it can not interrupt main thread
 public class InternetConnection extends AsyncTask<Void, Void, Boolean> {
 
 
     Context context;
+    //construction accepting context as parameter
     public InternetConnection(Context context) {
         this.context = context;
     }

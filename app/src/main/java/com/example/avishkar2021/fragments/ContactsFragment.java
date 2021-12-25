@@ -22,6 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+//fragment to display admin contacts on user's side
 public class ContactsFragment extends Fragment {
 
     private AddContactsAdapter addContactsAdapter;
@@ -44,6 +45,7 @@ public class ContactsFragment extends Fragment {
         InternetConnection internetConnection = new InternetConnection(getContext());
         internetConnection.execute();
 
+        //method to fetch contacts data from online database
         database.getReference().child("Contacts").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

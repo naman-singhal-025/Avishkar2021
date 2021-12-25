@@ -27,12 +27,16 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+//recycler view adapter for QnA section in view interview section
+//it contains nested recycler view
+//parent recycler view is for questions and child recycler view is for replies on those questions
 public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHolder> {
 
     private Context context;
     public static ArrayList<QnaModel> qnaModelArrayList;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
 
+    //public constructor
     public QuestionAdapter(Context context, ArrayList<QnaModel> qnaModelArrayList) {
 
         this.context = context;
@@ -56,6 +60,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
                 .placeholder(R.drawable.avatar)
                 .into(holder.profilePic);
 
+        //show the reply bar so users can post their replies on corresponding questions
         holder.reply_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,6 +76,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
             }
         });
 
+        //show the replies list on btn click
         holder.view_reply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -97,6 +103,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
             }
         });
 
+        //allow users to post replies from reply bar
         holder.post_reply_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

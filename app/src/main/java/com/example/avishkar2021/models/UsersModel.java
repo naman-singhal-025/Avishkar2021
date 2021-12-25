@@ -3,6 +3,8 @@ package com.example.avishkar2021.models;
 import java.net.URI;
 import java.util.List;
 
+//model to encapsulate variables and corresponding methods
+
 public class UsersModel {
     private String profilePic;
     private String userName;

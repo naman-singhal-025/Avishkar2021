@@ -1,5 +1,7 @@
 package com.example.avishkar2021.models;
 
+//model to encapsulate variables and corresponding methods
+
 public class VerifyUserModel {
     private String registration_no;
     private String status;

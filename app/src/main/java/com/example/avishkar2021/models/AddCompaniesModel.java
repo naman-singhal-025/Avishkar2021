@@ -1,5 +1,7 @@
 package com.example.avishkar2021.models;
 
+//model to encapsulate variables and corresponding methods
+
 public class AddCompaniesModel {
     private String company;
     private String branches;

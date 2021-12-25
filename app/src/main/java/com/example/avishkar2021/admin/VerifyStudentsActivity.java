@@ -20,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+//activity to display all the students that are so far registered by admin(s)
 public class VerifyStudentsActivity extends AppCompatActivity {
 
     FirebaseDatabase database;
@@ -34,6 +35,7 @@ public class VerifyStudentsActivity extends AppCompatActivity {
         binding = ActivityVerifyStudentsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        //setting customized action bar
         Toolbar toolbar = binding.toolbar;
         toolbar.setTitleTextColor(getResources().getColor(R.color.dark_white));
         toolbar.setTitle("Verify Students");
@@ -50,6 +52,7 @@ public class VerifyStudentsActivity extends AppCompatActivity {
         internetConnection.execute();
 
 
+        //display all students names and their verification/ lock status
         database.getReference().child("Users").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

@@ -39,6 +39,11 @@ import java.io.InputStream;
 import java.text.DecimalFormat;
 import java.util.Iterator;
 
+//activity to register students with mail and registration numbers
+//only admins can register users
+//2 modes for registration are provided
+//a)add single user mentioning all his/her details.
+//b)upload data from excel sheet containing students names and registration numbers.
 public class AddStudentsActivity extends AppCompatActivity {
 
     ActivityAddStudentsBinding binding;
@@ -61,6 +66,7 @@ public class AddStudentsActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
 
+        //setting customized action bar
         progressDialog = new ProgressDialog(AddStudentsActivity.this);
         progressDialog.setTitle("Creating Account");
         progressDialog.setMessage("Uploading data");
@@ -68,6 +74,7 @@ public class AddStudentsActivity extends AppCompatActivity {
         InternetConnection internetConnection = new InternetConnection(AddStudentsActivity.this);
         internetConnection.execute();
 
+        //uploading info of single user
        binding.uploadButton1.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
@@ -107,6 +114,7 @@ public class AddStudentsActivity extends AppCompatActivity {
            }
        });
 
+       //uploading information of multiple users from excel sheet
        binding.uploadButton2.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
@@ -204,6 +212,7 @@ public class AddStudentsActivity extends AppCompatActivity {
         }
     }
 
+    //convert uri path of file to string so that we can read data from it
     public String getRealPathFromURI(Uri uri) {
         File file = new File(uri.getPath());//create path from uri
         final String[] split = file.getPath().split(":");

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import com.example.avishkar2021.adapters.FragmentsAdapter;
 import com.example.avishkar2021.databinding.FragmentProfileBinding;
 
+//fragment to hold sub-fragments: personal, academic, project, photo and password
 public class ProfileFragment extends Fragment {
 
     FragmentProfileBinding binding;

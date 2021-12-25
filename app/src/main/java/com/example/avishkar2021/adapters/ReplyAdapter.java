@@ -16,6 +16,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+//recycler view adapter for replies of question asked in QnA section in view interview
+//it is child recycler view with parent as question recycler view
 public class ReplyAdapter extends RecyclerView.Adapter<ReplyAdapter.ViewHolder> {
 
     private Context context;
