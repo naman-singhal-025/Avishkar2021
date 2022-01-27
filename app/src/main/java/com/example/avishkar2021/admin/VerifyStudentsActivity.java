@@ -4,8 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.avishkar2021.R;
@@ -19,6 +25,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 //activity to display all the students that are so far registered by admin(s)
 public class VerifyStudentsActivity extends AppCompatActivity {
@@ -29,6 +37,8 @@ public class VerifyStudentsActivity extends AppCompatActivity {
     ListView listV;
     ArrayList<VerifyUserModel> list = new ArrayList<>();
     ActivityVerifyStudentsBinding binding;
+    AlertDialog dialog;
+    AlertDialog.Builder builder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +60,30 @@ public class VerifyStudentsActivity extends AppCompatActivity {
 
         InternetConnection internetConnection = new InternetConnection(VerifyStudentsActivity.this);
         internetConnection.execute();
+
+
+        // setup the alert builder
+        builder = new AlertDialog.Builder(VerifyStudentsActivity.this);
+        builder.setTitle("Sort By");
+
+        // add a list
+        String[] sorting = {"Registration number(asc)","Registration number(desc)","Verification Status"};
+        builder.setItems(sorting, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                    adapter.mySort(which);
+                    adapter.notifyDataSetChanged();
+                }
+        });
+        dialog = builder.create();
+        binding.myfilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // create and show the alert dialog
+                dialog.show();
+            }
+        });
+
 
 
         //display all students names and their verification/ lock status
@@ -82,6 +116,28 @@ public class VerifyStudentsActivity extends AppCompatActivity {
                 adapter = new VerifyUserAdapter(VerifyStudentsActivity.this,list);
                 listV.setAdapter(adapter);
                 progressDialog.dismiss();
+
+
+                /**
+                 * Enabling Search Filter
+                 * */
+                binding.inputSearch.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                        adapter.getFilter().filter(charSequence);
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable editable) {
+
+                    }
+                });
+
             }
 
             @Override
@@ -90,5 +146,7 @@ public class VerifyStudentsActivity extends AppCompatActivity {
             }
         });
 
+
     }
+
 }

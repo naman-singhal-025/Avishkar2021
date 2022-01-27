@@ -44,6 +44,41 @@
             android:textStyle="bold" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="2"
+            app:srcCompat="@drawable/ic_baseline_search_24" />
+
+        <EditText
+            android:id="@+id/inputSearch"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="15"
+            android:ems="10"
+            android:hint="Search..."
+            android:inputType="textPersonName"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/myfilter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="2"
+            app:srcCompat="@drawable/ic_baseline_sort_24" />
+
+    </LinearLayout>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -54,5 +89,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="@null" />
+
     </FrameLayout>
 </LinearLayout>
